@@ -45,6 +45,7 @@ dependencies:
   retrofit: ^4.1.0
   retrofit_generator: ^8.1.0
   shared_preferences: ^2.2.3
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_lints: ^4.0.0
@@ -74,7 +75,7 @@ flutter:
   fonts:
     - family: jannat
       fonts:
-        - asset: assets/fonts/janna-lt-regular/Janna LT Regular/Janna LT Regular.ttf
+        - asset: assets/fonts/Janna LT Regular.ttf
     - family: jannat-bold
       fonts:
         - asset: assets/fonts/Janna LT Bold.ttf
