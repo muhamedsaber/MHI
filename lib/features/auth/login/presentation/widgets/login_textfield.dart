@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 
-class AuthTextField extends StatelessWidget {
+class AuthTextField extends StatefulWidget {
   const AuthTextField({
     super.key,
     required this.textDirection,
@@ -18,9 +18,22 @@ class AuthTextField extends StatelessWidget {
   final TextAlign textAlign;
   final TextInputType textInputType;
   final String? Function(String?)? validator;
-  final TextEditingController? controller;
+  final TextEditingController controller;
 
   final String hintText;
+
+  @override
+  State<AuthTextField> createState() => _AuthTextFieldState();
+}
+
+class _AuthTextFieldState extends State<AuthTextField> {
+ 
+  
+  @override
+  void dispose() {
+    widget.controller.clear();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,20 +44,20 @@ class AuthTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: TextFormField(
-          validator: validator,
-          controller: controller,
+          validator: widget.validator,
+          controller: widget.controller,
           style: const TextStyle(
             color: AppColors.deepPurple,
             fontWeight: FontWeight.w600,
             decorationThickness: 0,
           ),
-          keyboardType: textInputType,
+          keyboardType: widget.textInputType,
           textInputAction: TextInputAction.done,
-          textDirection: textDirection,
-          textAlign: textAlign,
+          textDirection: widget.textDirection,
+          textAlign: widget.textAlign,
           decoration: InputDecoration(
             fillColor: Colors.white,
-            hintText: hintText,
+            hintText: widget.hintText,
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 10.w, vertical: 18.h),
             hintStyle: AppTextStyles.jannat18BoldOnPrimary(context).copyWith(

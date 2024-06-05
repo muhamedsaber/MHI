@@ -18,8 +18,9 @@ class LoginCubit extends Cubit<LoginState> {
       TextEditingController();
   final LoginRepository repository;
 
-  // I seperated the loginPatient and loginDoctor methods to make the code more readable and maintainable
+ 
   loginPatient() async {
+    emit(const LoginState.loading());
     ApiResult<UserEntity> result = await repository.loginUser(
         loginRequestBody: LoginRequestBody(
             username: patientUsernameController.text,
@@ -36,6 +37,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   loginDoctor() async {
+    emit(const LoginState.loading());
     ApiResult<UserEntity> result = await repository.loginUser(
         loginRequestBody: LoginRequestBody(
             username: doctorUsernameController.text,
@@ -44,7 +46,7 @@ class LoginCubit extends Cubit<LoginState> {
       if (data.role == "doctor") {
         emit(const LoginState.successDoctor());
       } else if (data.role == "patient") {
-        emit(const LoginState.error("غير مسموح للمرضى بتسجيل الدخول هنا"));
+        emit(const LoginState.error("غير مسموح للمرضى بتسجيل الدخول من هنا"));
       }
     }, failure: (error) {
       emit(LoginState.error(error.apiErrorModel.message ?? "حدث خطأ ما"));

@@ -6,12 +6,12 @@ import 'package:mhi/features/auth/login/data/repos/login_repository.dart';
 import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dart';
 
 final getIt = GetIt.instance;
-setupDependencyInjection() {
+setupDependencyInjection()async {
   Dio dio = DioFactory.getDio();
 
   //Common Apis Service
 
-  getIt.registerSingleton<CommonApiService>(CommonApiService(getIt()));
+  getIt.registerSingleton<CommonApiService>(CommonApiService(dio));
   getIt
       .registerSingleton<LoginRepository>(LoginRepository(apiService: getIt()));
   getIt.registerSingleton<LoginCubit>(LoginCubit(repository: getIt()));
