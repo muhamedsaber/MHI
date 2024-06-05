@@ -101,18 +101,16 @@ class AppStrings {
   static const String misrHealthInsurance = "مصر للتأمين الصحي";
   //Pdfs
   static const String lawsPdf = "assets/images/lawsPdf.pdf";
-  static const List<String> arabicMonths = [
-    "يناير",
-    "فبراير",
-    "مارس",
-    "ابريل",
-    "مايو",
-    "يونيو",
-    "يوليو",
-    "اغسطس",
-    "سبتمبر",
-    "اكتوبر",
-    "نوفمبر",
-    "ديسمبر"
-  ];
+ 
+
+
+  static const String userName="اسم المستخدم";
+  static const String enterUserName="ادخل اسم المستخدم";
+  static const String youHaveToEnterUserName="يجب ادخال اسم المستخدم";
+  static const String password="كلمة السر";
+  static const String enterPassword="ادخل كلمة السر";
+  static const String youHaveToEnterPassword="يجب ادخال كلمة السر";
+  static const String doNotHaveAnAccount="ليس لديك حساب؟";
+  static const String signupNow="سجل الان";
+
 }

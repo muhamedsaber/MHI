@@ -34,7 +34,7 @@ class CustomButton extends StatelessWidget {
         child: Center(
           child: Text(
             buttonText,
-            style: AppTextstyles.jannat18BoldOnPrimary(context).copyWith(
+            style: AppTextStyles.jannat18BoldOnPrimary(context).copyWith(
                 color: textColor ?? Colors.white, fontSize: buttonTextSize.sp),
           ),
         ),

@@ -62,7 +62,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
           TextButton(
             onPressed: navigateToLogin,
             child: Text(AppStrings.skipAR,
-                style: AppTextstyles.jannat18BoldPrimaryColor(context)),
+                style: AppTextStyles.jannat18BoldPrimaryColor(context)),
           ),
           current == onBoardingData.length - 1
               ? CustomButton(
@@ -90,7 +90,11 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   navigateToLogin() {
     context.navigateTo(Routes.loginView);
-   
+    // setOnBoardingStatus();
   }
 
+  // setOnBoardingStatus() async {
+  //  await getIt<SharedPreferences>().setBool(DatabaseConstants.isUserViewedOnBoarding, true);
+
+  // }
 }

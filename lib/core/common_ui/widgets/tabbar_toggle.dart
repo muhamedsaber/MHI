@@ -1,14 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 
 class TabBarToggel extends StatelessWidget {
-  const TabBarToggel({super.key, required this.tabController,
-    required this.firstTabText,
-    required this.secondTabText
-  });
+  const TabBarToggel(
+      {super.key,
+      required this.tabController,
+      required this.firstTabText,
+      required this.secondTabText});
   final TabController tabController;
   final String firstTabText;
   final String secondTabText;
@@ -59,16 +59,18 @@ class TabBarToggel extends StatelessWidget {
                   tabs: [
                     SizedBox(
                       width: 220.w,
-                      child:  Tab(
+                      child: Tab(
                         child: Text(firstTabText,
-                            style: AppTextstyles.jannat18BoldOnPrimary(context)),
+                            style:
+                                AppTextStyles.jannat18BoldOnPrimary(context)),
                       ),
                     ),
                     SizedBox(
                       width: 220.w,
-                      child:  Tab(
-                        child: Text( secondTabText,
-                            style: AppTextstyles.jannat18BoldOnPrimary(context)),
+                      child: Tab(
+                        child: Text(secondTabText,
+                            style:
+                                AppTextStyles.jannat18BoldOnPrimary(context)),
                       ),
                     ),
                   ],

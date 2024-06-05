@@ -40,7 +40,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                   textAlign: TextAlign.right,
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
-                  style: AppTextstyles.jannat18BoldOnPrimary(context).copyWith(
+                  style: AppTextStyles.jannat18BoldOnPrimary(context).copyWith(
                     fontSize: 16.sp,
                   ),
                 ),
