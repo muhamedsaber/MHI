@@ -6,11 +6,7 @@ Welcome to the MHI project! This platform is designed to improve healthcare acce
 
 - [About the Project](#about-the-project)
 - [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+
 
 ## About the Project
 
