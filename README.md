@@ -6,7 +6,7 @@ Welcome to the MHI project! This platform is designed to improve healthcare acce
 
 - [About the Project](#about-the-project)
 - [Features](#features)
-
+- [System Design](#system-design)
 
 ## About the Project
 
@@ -32,3 +32,7 @@ The MHI platform offers a comprehensive healthcare management system for patient
 - Request and manage new surgery schedules
 - Track the status of surgery requests
 - View statistics on appointment types and volumes
+
+
+## System Design
+![-Lib](https://github.com/muhamedsaber/MHI/assets/76873532/364ad19d-fc2c-4e70-9fff-3690c8e6a4b5)
