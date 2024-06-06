@@ -121,5 +121,6 @@ class AppStrings {
   static const String youHaveToEnterVerifyPassword="يجب ادخال تأكيد كلمة السر";
   static const String enterName="ادخل الاسم";
   static const String youHaveToEnterName="يجب ادخال الاسم";
+  static const String enterTheDoctorName="ادخل اسم الطبيب";
 
 }

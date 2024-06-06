@@ -74,6 +74,13 @@ class AppTextStyles {
         fontSize: 18.sp,
         color: Theme.of(context).colorScheme.onPrimary);
   }
+  static TextStyle jannat20BoldOnPrimaryColor(BuildContext context) {
+    return TextStyle(
+        fontFamily: AppConstants.jannatBoldFont,
+        fontWeight: FontWeight.w900,
+        fontSize: 20.sp,
+        color: Theme.of(context).colorScheme.onPrimary);
+  }
 
 
 
