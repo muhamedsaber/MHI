@@ -112,5 +112,14 @@ class AppStrings {
   static const String youHaveToEnterPassword="يجب ادخال كلمة السر";
   static const String doNotHaveAnAccount="ليس لديك حساب؟";
   static const String signupNow="سجل الان";
+  static const String youCanCreateAccountNow="يمكنك إنشاء حساب الأن";
+  static const String yourBirthDay="تاريخ الميلاد";
+  static const String enterYourBirthDay="ادخل تاريخ ميلادك";
+  static const String youHaveToEnterYourBirthDay="يجب ادخال تاريخ ميلادك";
+  static const String verifyPassword="تأكيد كلمة السر";
+  static const String enterVerifyPassword="ادخل تأكيد كلمة السر";
+  static const String youHaveToEnterVerifyPassword="يجب ادخال تأكيد كلمة السر";
+  static const String enterName="ادخل الاسم";
+  static const String youHaveToEnterName="يجب ادخال الاسم";
 
 }
