@@ -49,6 +49,36 @@ class _CommonApiService implements CommonApiService {
     return value;
   }
 
+  @override
+  Future<SignupResponse> signupPatient(
+      {SignupRequestBody? signupRequestBody}) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(signupRequestBody?.toJson() ?? <String, dynamic>{});
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<SignupResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'auth/signupPatient',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = SignupResponse.fromJson(_result.data!);
+    return value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||

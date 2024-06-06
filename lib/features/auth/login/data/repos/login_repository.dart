@@ -1,4 +1,4 @@
-import 'package:mhi/core/networking/api/common_api_service.dart';
+import 'package:mhi/core/networking/api/common/common_api_service.dart';
 import 'package:mhi/core/networking/api_error_handler.dart';
 import 'package:mhi/core/networking/api_result.dart';
 import 'package:mhi/features/auth/login/data/domain/user_entity.dart';

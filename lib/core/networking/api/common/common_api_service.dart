@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:mhi/core/constants/api_constants.dart';
 import 'package:mhi/features/auth/login/data/models/login_request_body.dart';
 import 'package:mhi/features/auth/login/data/models/login_response_body.dart';
+import 'package:mhi/features/auth/signup/data/models/signup_response_body.dart';
+import 'package:mhi/features/auth/signup/data/models/sigunp_request_body.dart';
 import 'package:retrofit/http.dart';
 
 part 'common_api_service.g.dart';
@@ -12,4 +14,7 @@ abstract class CommonApiService {
 
   @POST(ApiConstants.authEndpoint)
   Future<LoginResponseBody> login({@Body() LoginRequestBody? loginRequestBody});
+
+  @POST(ApiConstants.signupPatientEndpoint)
+  Future<SignupResponse>signupPatient({@Body()  SignupRequestBody? signupRequestBody});
 }
