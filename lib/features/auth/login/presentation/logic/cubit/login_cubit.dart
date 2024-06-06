@@ -1,8 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mhi/config/database/cache/user_cache.dart';
 import 'package:mhi/core/networking/api_result.dart';
 import 'package:mhi/features/auth/login/data/domain/user_entity.dart';
+import 'package:mhi/features/auth/login/data/models/doctor_model.dart';
 import 'package:mhi/features/auth/login/data/models/login_request_body.dart';
+import 'package:mhi/features/auth/login/data/models/patient_model.dart';
 import 'package:mhi/features/auth/login/data/repos/login_repository.dart';
 import 'package:mhi/features/auth/login/presentation/logic/cubit/login_state.dart';
 
@@ -18,7 +21,6 @@ class LoginCubit extends Cubit<LoginState> {
       TextEditingController();
   final LoginRepository repository;
 
- 
   loginPatient() async {
     emit(const LoginState.loading());
     ApiResult<UserEntity> result = await repository.loginUser(
@@ -27,6 +29,7 @@ class LoginCubit extends Cubit<LoginState> {
             password: patientPasswordController.text));
     result.when(success: (data) {
       if (data.role == "patient") {
+        _saverPatientToCache(data as PatientModel);
         emit(const LoginState.successPatient());
       } else if (data.role == "doctor") {
         emit(const LoginState.error("غير مسموح للأطباء بتسجيل الدخول هنا"));
@@ -44,6 +47,7 @@ class LoginCubit extends Cubit<LoginState> {
             password: doctorUsernameController.text));
     result.when(success: (data) {
       if (data.role == "doctor") {
+        _saveDoctorToCache(data as DoctorModel);
         emit(const LoginState.successDoctor());
       } else if (data.role == "patient") {
         emit(const LoginState.error("غير مسموح للمرضى بتسجيل الدخول من هنا"));
@@ -51,5 +55,13 @@ class LoginCubit extends Cubit<LoginState> {
     }, failure: (error) {
       emit(LoginState.error(error.apiErrorModel.message ?? "حدث خطأ ما"));
     });
+  }
+
+  _saverPatientToCache(PatientModel data) async {
+    await PatientCache().saveAndUpdateUser(user: data);
+  }
+
+  _saveDoctorToCache(DoctorModel data) async {
+    await DoctorCache().saveAndUpdateUser(user: data);
   }
 }
