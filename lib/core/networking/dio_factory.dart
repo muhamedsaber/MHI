@@ -13,7 +13,8 @@ class DioFactory {
       dio = Dio();
       dio!
         ..options.connectTimeout = timeOut
-        ..options.receiveTimeout = timeOut;
+        ..options.receiveTimeout = timeOut
+        ..options.contentType = Headers.jsonContentType;
       addDioInterceptor();
       return dio!;
     } else {
