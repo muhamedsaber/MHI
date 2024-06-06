@@ -59,4 +59,17 @@ class AppTextStyles {
         fontSize: 18.sp,
         color: Theme.of(context).colorScheme.onPrimary);
   }
+
+
+
+
+  ///Styles without contexts
+   static TextStyle jannat18BoldWhite=
+   TextStyle(
+      fontFamily: AppConstants.jannatFont,
+      fontWeight: FontWeight.bold,
+      fontSize: 18.sp,
+      color: Colors.white,
+    );
+  
 }

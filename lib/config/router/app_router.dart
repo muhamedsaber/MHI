@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mhi/config/router/default_route.dart';
 import 'package:mhi/config/router/routes.dart';
+import 'package:mhi/core/common_ui/widgets/bottom_nav_bar/user_bottom_nav_bar.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dart';
 import 'package:mhi/features/auth/login/presentation/views/login_view.dart';
@@ -25,6 +26,10 @@ class AppRouter {
             return const SignupView();
           },
         );
+      case Routes.userBottomNavBar:
+      return MaterialPageRoute(builder: (context) {
+        return const UserBottomNavBar();
+      },);  
       default:
         return MaterialPageRoute(
             builder: (_) => DefaultErrorRoute(
