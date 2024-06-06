@@ -29,7 +29,7 @@ class LoginCubit extends Cubit<LoginState> {
             password: patientPasswordController.text));
     result.when(success: (data) {
       if (data.role == "patient") {
-        _saverPatientToCache(data as PatientModel);
+        _saveUserToCache(data);
         emit(const LoginState.successPatient());
       } else if (data.role == "doctor") {
         emit(const LoginState.error("غير مسموح للأطباء بتسجيل الدخول هنا"));
@@ -47,7 +47,7 @@ class LoginCubit extends Cubit<LoginState> {
             password: doctorUsernameController.text));
     result.when(success: (data) {
       if (data.role == "doctor") {
-        _saveDoctorToCache(data as DoctorModel);
+        _saveUserToCache(data);
         emit(const LoginState.successDoctor());
       } else if (data.role == "patient") {
         emit(const LoginState.error("غير مسموح للمرضى بتسجيل الدخول من هنا"));
@@ -57,11 +57,16 @@ class LoginCubit extends Cubit<LoginState> {
     });
   }
 
-  _saverPatientToCache(PatientModel data) async {
-    await PatientCache().saveAndUpdateUser(user: data);
-  }
+  ///saving [data] which is eaither a doctorModel or PatientModel
+  ///to the [cache]
+  _saveUserToCache(UserEntity data) async {
+    UserCache<PatientModel> patientCache = PatientCache();
+    UserCache<DoctorModel> doctorCache = DoctorCache();
 
-  _saveDoctorToCache(DoctorModel data) async {
-    await DoctorCache().saveAndUpdateUser(user: data);
+    if (data is PatientModel) {
+      await patientCache.saveUser(user: data);
+    } else if (data is DoctorModel) {
+      await doctorCache.saveUser(user: data);
+    }
   }
 }

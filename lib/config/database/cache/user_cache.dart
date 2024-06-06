@@ -5,7 +5,7 @@ import 'package:mhi/core/constants/database_constants.dart';
 import 'package:mhi/features/auth/login/data/models/doctor_model.dart';
 import 'package:mhi/features/auth/login/data/models/patient_model.dart';
 
-abstract class UserCache<T> {
+sealed class UserCache<T> {
   Future<T?> getUser();
   Future<void> removeUser();
   Future<void> saveUser({required T user});
