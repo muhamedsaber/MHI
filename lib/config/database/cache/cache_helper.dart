@@ -1,80 +1,64 @@
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class CachHelper {
-  static late SharedPreferences sharedPreferences;
-  CachHelper._();
-  /// initialize the [sharedPreferences] instance
-  /// only once in the app lifecycle
-  static initCache() async {
-    sharedPreferences = await SharedPreferences.getInstance();
+class CacheHelper {
+  CacheHelper._();
+  static removeData({required String key}) async {
+    debugPrint('SharedPrefHelper : data with key : $key has been removed');
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.remove(key);
   }
 
-  static Future<bool> saveData({required String key, required dynamic value}) async {
-    if (value is bool) {
-      return await sharedPreferences.setBool(key, value);
-    } else if (value is String) {
-      return await sharedPreferences.setString(key, value);
-    } else if (value is int) {
-      return await sharedPreferences.setInt(key, value);
-    } else {
-      return await sharedPreferences.setDouble(key, value);
-    }
+  /// Removes all keys and values in the SharedPreferences
+  static clearAllData() async {
+    debugPrint('SharedPrefHelper : all data has been cleared');
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.clear();
   }
 
-  /// update [data] with specific key in the cache
- static Future<dynamic> put({
-    required String key,
-    required dynamic value,
-  }) async {
+  /// Saves a [value] with a [key] in the SharedPreferences.
+  static setData({required String key,required value}) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    debugPrint("SharedPrefHelper : setData with key : $key and value : $value");
     if (value is String) {
-      return await sharedPreferences.setString(key, value);
+      await sharedPreferences.setString(key, value);
+    } else if (value is int) {
+      await sharedPreferences.setInt(key, value);
     } else if (value is bool) {
-      return await sharedPreferences.setBool(key, value);
+      await sharedPreferences.setBool(key, value);
+    } else if (value is double) {
+      await sharedPreferences.setDouble(key, value);
     } else {
-      return await sharedPreferences.setInt(key, value);
+      return null;
     }
   }
 
-  /// get [String] data
- static Future<String?> getString({
-    required String key,
-  })async {
-    return  sharedPreferences.getString(key);
+  /// Gets a bool value from SharedPreferences with given [key].
+  static getBool({required String key}) async {
+    debugPrint('SharedPrefHelper : getBool with key : $key');
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getBool(key) ?? false;
   }
 
-  /// get [bool] data
- static Future<bool?> getBool({
-    required String key,
-  })async {
-    return sharedPreferences.getBool(key);
+  /// Gets a double value from SharedPreferences with given [key].
+  static getDouble({required String key}) async {
+    debugPrint('SharedPrefHelper : getDouble with key : $key');
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getDouble(key) ?? 0.0;
   }
 
-  /// get [double] data
- static Future<double?> getDouble({
-    required String key,
-  })async {
-    return sharedPreferences.getDouble(key);
+  /// Gets an int value from SharedPreferences with given [key].
+  static getInt({required String key}) async {
+    debugPrint('SharedPrefHelper : getInt with key : $key');
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getInt(key) ?? 0;
   }
 
-  /// get [int] data
- static Future<int?>getInt({
-    required String key,
-  })async {
-    return  sharedPreferences.getInt(key);
+  /// Gets an String value from SharedPreferences with given [key].
+  static getString({required String key}) async {
+    debugPrint('SharedPrefHelper : getString with key : $key');
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getString(key) ?? '';
   }
-
-  /// remove [data] with specific key
- static Future<bool> remove({required String key}) async {
-    return await sharedPreferences.remove(key);
-  }
-
-  /// cleare all [data] from cache
- static Future<bool> clearData() async {
-    return await sharedPreferences.clear();
-  }
-
-  /// checks if the [key] exists in the cache
- static Future<bool> containsKey({required String key}) async {
-    return sharedPreferences.containsKey(key);
-  }
+ 
 }
