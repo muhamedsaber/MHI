@@ -13,26 +13,13 @@ class MhiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) {
-        return FutureBuilder(
-          future: CacheHelper.getBool(
-              key: DatabaseConstants.isUserVisitedOnBoarding),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return MaterialApp(
+        return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 onGenerateRoute: AppRouter.onGenerateRoute,
                 theme: AppTheme.lightTheme,
-                initialRoute: snapshot.data == true
-                    ? Routes.loginView
-                    : Routes.onBoarding,
+                
+                initialRoute:Routes.onBoarding,
               );
-            } else {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-          },
-        );
       },
     );
   }
