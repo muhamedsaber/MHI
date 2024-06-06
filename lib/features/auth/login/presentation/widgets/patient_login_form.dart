@@ -68,9 +68,9 @@ class _PatientLoginFormState extends State<PatientLoginForm> {
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   context.read<LoginCubit>().loginPatient();
-                }else{
-                  showCustomToast(
-                    message: "يجب ادخال البيانات", color: AppColors.lightRed);
+                } else {
+                  Alerts().showCustomToast(
+                      message: "يجب ادخال البيانات", color: AppColors.lightRed);
                 }
               },
               buttonTextSize: 18.sp,
@@ -79,7 +79,6 @@ class _PatientLoginFormState extends State<PatientLoginForm> {
           verticleSpace(10),
           const DoNotHaveAnAccountWidget(),
           const PatientLoginBlocListener()
-         
         ],
       ),
     );

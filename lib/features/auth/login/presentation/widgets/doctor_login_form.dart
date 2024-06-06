@@ -68,7 +68,7 @@ class _DoctorLoginFormState extends State<DoctorLoginForm> {
               if (formKey.currentState!.validate()) {
                 context.read<LoginCubit>().loginDoctor();
               } else {
-                showCustomToast(
+                Alerts().showCustomToast(
                     message: "يجب ادخال البيانات", color: AppColors.lightRed);
               }
             },
