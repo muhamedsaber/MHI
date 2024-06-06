@@ -35,7 +35,7 @@ class AppTextStyles {
         fontSize: 21.sp,
         color: Theme.of(context).primaryColor);
   }
-
+ 
   static TextStyle jannat24ExtraBoldOnPrimary(BuildContext context) {
     return TextStyle(
         fontFamily: AppConstants.jannatBoldFont,
@@ -47,6 +47,21 @@ class AppTextStyles {
   static TextStyle jannat24ExtraBoldPrimaryColor(BuildContext context) {
     return TextStyle(
         fontFamily: AppConstants.jannatBoldFont,
+        fontWeight: FontWeight.w900,
+        fontSize: 24.sp,
+        color: Theme.of(context).primaryColor);
+  }
+  static TextStyle jannat24BoldBoldOnPrimary(BuildContext context) {
+    return TextStyle(
+        fontFamily: AppConstants.jannatFont,
+        fontWeight: FontWeight.w900,
+        fontSize: 24.sp,
+        color: Theme.of(context).colorScheme.onPrimary);
+  }
+
+  static TextStyle jannat24BoldPrimaryColor(BuildContext context) {
+    return TextStyle(
+        fontFamily: AppConstants.jannatFont,
         fontWeight: FontWeight.w900,
         fontSize: 24.sp,
         color: Theme.of(context).primaryColor);
@@ -71,5 +86,25 @@ class AppTextStyles {
       fontSize: 18.sp,
       color: Colors.white,
     );
+     static TextStyle jannat20BoldWhite=
+   TextStyle(
+      fontFamily: AppConstants.jannatFont,
+      fontWeight: FontWeight.bold,
+      fontSize: 20.sp,
+      color: Colors.white,
+    );
+    static TextStyle jannat18ExtraBoldWhite=TextStyle(
+      fontFamily: AppConstants.jannatBoldFont,
+      fontWeight: FontWeight.bold,
+      fontSize: 18.sp,
+      color: Colors.white,
+    );
+    static TextStyle jannat20ExtraBoldWhite=TextStyle(
+      fontFamily: AppConstants.jannatBoldFont,
+      fontWeight: FontWeight.bold,
+      fontSize: 20.sp,
+      color: Colors.white,
+    );
+
   
 }

@@ -26,15 +26,10 @@ extension NavigationExtension on BuildContext {
   }
 }
 
-
-
 // Theme Extension for BuildContext to get the theme of the app
-extension ThemeExtension on BuildContext{
+extension ThemeExtension on BuildContext {
   ThemeData get theme => Theme.of(this);
 }
-
-
-
 
 // media query extension for BuildContext to get the size of the screen
 extension MediaQueryExtension on BuildContext {
@@ -42,8 +37,21 @@ extension MediaQueryExtension on BuildContext {
   double get height => MediaQuery.of(this).size.height;
 }
 
-
 // String Extension to check if the string is null or empty
 extension StringExtension on String? {
   bool isNullOrEmpty() => this == null || this == "";
+}
+
+extension DateTimeFormate on String? {
+  String get formattedDate {
+    if (isNullOrEmpty()) {
+      return "";
+    }
+    try {
+      DateTime dateTime = DateTime.parse(this!);
+      return "${dateTime.day}/${dateTime.month}/${dateTime.year}";
+    } catch (e) {
+      return this!;
+    }
+  }
 }
