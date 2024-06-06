@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:mhi/config/database/cache/cache_helper.dart';
 import 'package:mhi/core/networking/api/common_api_service.dart';
 import 'package:mhi/core/networking/dio_factory.dart';
 import 'package:mhi/features/auth/login/data/repos/login_repository.dart';
@@ -16,5 +17,7 @@ setupDependencyInjection()async {
       .registerSingleton<LoginRepository>(LoginRepository(apiService: getIt()));
   getIt.registerSingleton<LoginCubit>(LoginCubit(repository: getIt()));
 
+
+  
   
 }

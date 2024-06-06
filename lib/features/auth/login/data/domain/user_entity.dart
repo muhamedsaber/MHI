@@ -31,4 +31,5 @@ class UserEntity {
     this.hospitalCode,
     this.birthday
   });
+   
 }
