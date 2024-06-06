@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mhi/config/router/routes.dart';
 import 'package:mhi/core/helper/alerts.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/extensions.dart';
@@ -18,7 +19,7 @@ class PatientLoginBlocListener extends StatelessWidget {
         successPatient: () {
           context.navigateBack();
           Alerts(). showCustomToast(message: "تم تسجيل الدخول بنجاح", color: AppColors.lightGreen);
-          
+          context.navigateTo(Routes.userBottomNavBar);
         },
         successDoctor: () {
           context.navigateBack();
