@@ -5,7 +5,6 @@ import 'package:mhi/config/router/routes.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dart';
 import 'package:mhi/features/auth/login/presentation/views/login_view.dart';
-import 'package:mhi/features/auth/signup/presentation/logic/cubit/signup_cubit.dart';
 import 'package:mhi/features/auth/signup/presentation/views/signup_view.dart';
 import 'package:mhi/features/onBoarding/presentation/views/onboarding_view.dart';
 

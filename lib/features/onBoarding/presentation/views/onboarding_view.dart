@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mhi/config/database/cache/cache_helper.dart';
 import 'package:mhi/config/router/routes.dart';
 import 'package:mhi/core/common_ui/widgets/custom_button.dart';
 import 'package:mhi/core/common_ui/widgets/custom_smooth_page_indicator.dart';
+import 'package:mhi/core/constants/database_constants.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_padding.dart';
 import 'package:mhi/core/helper/app_strings.dart';
@@ -88,13 +90,16 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     );
   }
 
-  navigateToLogin() {
-    context.navigateTo(Routes.loginView);
-    // setOnBoardingStatus();
+  navigateToLogin()async {
+    
+   await setOnBoardingVisitStatus();
+  if (mounted) {
+     context.navigateTo(Routes.loginView);
+  }
   }
 
-  // setOnBoardingStatus() async {
-  //  await getIt<SharedPreferences>().setBool(DatabaseConstants.isUserViewedOnBoarding, true);
-
-  // }
+  setOnBoardingVisitStatus() async {
+    await CacheHelper.setData(
+        key: DatabaseConstants.isUserVisitedOnBoarding, value: true);
+  }
 }
