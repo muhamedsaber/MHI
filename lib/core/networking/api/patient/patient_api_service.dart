@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mhi/core/constants/api_constants.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
+import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/get_doctors_by_specialize_request_body.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
 
 import 'package:retrofit/retrofit.dart';
@@ -10,11 +11,16 @@ part 'patient_api_service.g.dart';
 @RestApi(baseUrl: ApiConstants.baseUrl)
 abstract class PatientApiService {
   factory PatientApiService(Dio dio, {String baseUrl}) = _PatientApiService;
-
+  // get specializes
   @GET(ApiConstants.getSpecializesEndpoint)
-  Future<List<SpecializeModel>>getSpecializes();
+  Future<List<SpecializeModel>> getSpecializes();
 
+  // get all doctors in all hospitals
   @GET(ApiConstants.getAllDoctorsEndpoint)
-  Future<BookDoctorsModel>getAllDoctors();
-  
+  Future<BookDoctorsModel> getAllDoctors();
+
+  // get doctors by specialize id
+  @POST(ApiConstants.searchEndpoint)
+  Future<BookDoctorsModel> getDoctorsBySpecialize(
+      {@Body() required Map<String,dynamic>body});
 }

@@ -26,7 +26,11 @@ class SpecializesBlocBuilder extends StatelessWidget {
                   child: SpecializesListView(models: specializations));
             },
             error: (error) {
-              return Center(child: Text(error,style:AppTextStyles.jannat18BoldOnPrimary(context),));
+              return Center(
+                  child: Text(
+                error,
+                style: AppTextStyles.jannat18BoldOnPrimary(context),
+              ));
             },
           ) ??
           const SizedBox.shrink();

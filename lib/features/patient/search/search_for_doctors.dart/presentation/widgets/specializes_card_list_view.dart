@@ -1,40 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/app_padding.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
-
-class SpecializeCard extends StatelessWidget {
-  const SpecializeCard(
-      {super.key,
-      required this.model,
-      required this.backgroundColor,
-      required this.textColor});
-  final SpecializeModel model;
-  final Color backgroundColor;
-  final Color textColor;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: EdgeInsets.only(left: 8.w),
-        padding: AppPadding.symmetricHorizontalSmall,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7.r),
-          color: backgroundColor,
-        ),
-        child: Row(
-          children: [
-            Text(
-              model.name,
-              style: AppTextStyles.jannat18BoldWhite.copyWith(
-                color: textColor,
-              ),
-            ),
-          ],
-        ));
-  }
-}
+import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
+import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/specialize_card.dart';
 
 class SpecializesListView extends StatefulWidget {
   const SpecializesListView({super.key, required this.models});
@@ -59,6 +31,8 @@ class _SpecializesListViewState extends State<SpecializesListView> {
             setState(() {
               selectedIndex = index;
             });
+            getIt<BookDoctorsCubit>().getDoctorsByspezialideId(
+                specializeId: widget.models[index].id);
           },
           child: SpecializeCard(
             model: widget.models[index],
