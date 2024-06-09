@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_padding.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:shimmer/shimmer.dart';
