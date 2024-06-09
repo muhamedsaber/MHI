@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/person_icon.dart';
+import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
@@ -8,7 +9,7 @@ import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors
 
 class DoctorBookCard extends StatelessWidget {
   const DoctorBookCard({super.key, required this.model});
-final BookModel model;
+  final BookModel model;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -30,8 +31,12 @@ final BookModel model;
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      model.name??"غير متاح",
-                      style: AppTextStyles.jannat18BoldPrimaryColor(context),
+                      model.name ?? "غير متاح",
+                      style: AppTextStyles.jannat18BoldPrimaryColor(context)
+                          .copyWith(
+                        fontSize: 18.sp,
+                        color: AppColors.lighBlue,
+                      ),
                     )
                   ],
                 ),
@@ -53,7 +58,7 @@ final BookModel model;
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      model.specialize!.name??"غير متاح",
+                      model.specialize!.name ?? "غير متاح",
                       style: AppTextStyles.jannat18BoldPrimaryColor(context),
                     )
                   ],
