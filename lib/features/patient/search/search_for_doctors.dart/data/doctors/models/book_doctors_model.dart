@@ -6,15 +6,23 @@ part 'book_doctors_model.g.dart';
 
 @JsonSerializable()
 class BookDoctorsModel {
-  @JsonKey(name: "userD")
   final List<BookModel> doctors;
 
   BookDoctorsModel({required this.doctors});
 
   factory BookDoctorsModel.fromJson(Map<String, dynamic> json) =>
-      _$BookDoctorsModelFromJson(json);
+      _$BookDoctorsModelFromJson(_normalizeJson(json));
 
   Map<String, dynamic> toJson() => _$BookDoctorsModelToJson(this);
+
+  static Map<String, dynamic> _normalizeJson(Map<String, dynamic> json) {
+    if (json.containsKey('userD')) {
+      return {"doctors": json['userD']};
+    } else if (json.containsKey('search')) {
+      return {"doctors": json['search']};
+    }
+    return json;
+  }
 }
 
 @JsonSerializable()
@@ -42,7 +50,7 @@ class BookModel {
   factory BookModel.fromJson(Map<String, dynamic> json) =>
       _$BookModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$BookModelToJson(this);   
+  Map<String, dynamic> toJson() => _$BookModelToJson(this);
 }
 
 @JsonSerializable()

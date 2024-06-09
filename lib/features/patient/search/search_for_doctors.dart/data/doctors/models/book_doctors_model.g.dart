@@ -8,14 +8,14 @@ part of 'book_doctors_model.dart';
 
 BookDoctorsModel _$BookDoctorsModelFromJson(Map<String, dynamic> json) =>
     BookDoctorsModel(
-      doctors: (json['userD'] as List<dynamic>)
+      doctors: (json['doctors'] as List<dynamic>)
           .map((e) => BookModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
 Map<String, dynamic> _$BookDoctorsModelToJson(BookDoctorsModel instance) =>
     <String, dynamic>{
-      'userD': instance.doctors,
+      'doctors': instance.doctors,
     };
 
 BookModel _$BookModelFromJson(Map<String, dynamic> json) => BookModel(
