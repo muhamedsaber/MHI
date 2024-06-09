@@ -7,33 +7,31 @@ import 'package:mhi/core/helper/app_textstyles.dart';
 class SearchTextField extends StatelessWidget {
   const SearchTextField(
       {super.key,
+      required this.controller,
       required this.hintText,
-      required this.onSubmitted,
-      required this.onButtonPressed,
       required this.onChanged});
 
-  final void Function(String)? onSubmitted;
-  final void Function()? onButtonPressed;
   final String hintText;
-  final void Function(String)? onChanged;
-
+  final Function(String) onChanged;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: AppPadding.symmetricHorizontalMedium,
       child: SizedBox(
-        height:50.h,
+        height: 50.h,
         child: TextField(
-          onSubmitted: onSubmitted,
+          onChanged: onChanged,
+          controller: controller,
           textAlign: TextAlign.end,
           keyboardType: TextInputType.text,
           textDirection: TextDirection.ltr,
-          onChanged: onChanged,
           style: AppTextStyles.jannat20BoldOnPrimaryColor(context),
           decoration: InputDecoration(
             isDense: true,
             hintText: hintText,
-            hintStyle: AppTextStyles.jannat20BoldOnPrimaryColor(context).copyWith(
+            hintStyle:
+                AppTextStyles.jannat20BoldOnPrimaryColor(context).copyWith(
               color: Colors.grey,
               fontSize: 18.sp,
             ),

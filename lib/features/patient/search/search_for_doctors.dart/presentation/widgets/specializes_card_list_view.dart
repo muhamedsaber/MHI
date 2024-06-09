@@ -31,7 +31,7 @@ class _SpecializesListViewState extends State<SpecializesListView> {
             setState(() {
               selectedIndex = index;
             });
-            getIt<BookDoctorsCubit>().getDoctorsByspezialideId(
+            getIt<BookDoctorsCubit>().getDoctorsBySpezialideId(
                 specializeId: widget.models[index].id);
           },
           child: SpecializeCard(

@@ -1,12 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/helper/app_colors.dart';
-import 'package:mhi/core/helper/app_padding.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:shimmer/shimmer.dart';
-
 
 class DoctorShimmerListViewBuilder extends StatelessWidget {
   const DoctorShimmerListViewBuilder({super.key});
@@ -15,11 +12,12 @@ class DoctorShimmerListViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        physics: BouncingScrollPhysics(),
-        itemCount:10,
+        physics: const BouncingScrollPhysics(),
+        itemCount: 10,
         itemBuilder: (context, index) {
-       return DoctorBookCardShimmer();
-      },),
+          return const DoctorBookCardShimmer();
+        },
+      ),
     );
   }
 }
@@ -30,11 +28,11 @@ class DoctorBookCardShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120.h,
+      height: 100.h,
       width: context.width,
       child: Card(
         color: context.theme.colorScheme.onPrimary.withOpacity(0.1),
-        margin: AppPadding.symmetricHorizontalVerticalMedium,
+        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.r),
         ),
@@ -63,8 +61,8 @@ class DoctorBookCardShimmer extends StatelessWidget {
                   ),
                   horizontalSpace(10),
                   Shimmer.fromColors(
-                       baseColor: context.theme.scaffoldBackgroundColor,
-                        highlightColor: AppColors.lighGrey.withOpacity(0.3),
+                    baseColor: context.theme.scaffoldBackgroundColor,
+                    highlightColor: AppColors.lighGrey.withOpacity(0.3),
                     child: Container(
                       width: 40.w,
                       height: 40.h,
@@ -85,7 +83,7 @@ class DoctorBookCardShimmer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Shimmer.fromColors(
-                             baseColor: context.theme.scaffoldBackgroundColor,
+                        baseColor: context.theme.scaffoldBackgroundColor,
                         highlightColor: AppColors.lighGrey.withOpacity(0.3),
                         child: Container(
                           width: 100.w,
@@ -97,8 +95,8 @@ class DoctorBookCardShimmer extends StatelessWidget {
                   ),
                   horizontalSpace(10),
                   Shimmer.fromColors(
-                      baseColor: context.theme.scaffoldBackgroundColor,
-                        highlightColor: AppColors.lighGrey.withOpacity(0.3),
+                    baseColor: context.theme.scaffoldBackgroundColor,
+                    highlightColor: AppColors.lighGrey.withOpacity(0.3),
                     child: Container(
                       width: 100.w,
                       height: 20.h,

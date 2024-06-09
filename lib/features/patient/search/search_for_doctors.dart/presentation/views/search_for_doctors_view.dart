@@ -17,8 +17,11 @@ class SearchForDoctors extends StatefulWidget {
 }
 
 class _SearchForDoctorsState extends State<SearchForDoctors> {
+    late TextEditingController _controller;
+
   @override
   void initState() {
+     _controller = TextEditingController();
     context.read<SpecializesCubit>().getSpecializes();
     context.read<BookDoctorsCubit>().getAllDoctors();
 
@@ -34,10 +37,11 @@ class _SearchForDoctorsState extends State<SearchForDoctors> {
           children: [
             verticleSpace(10),
             SearchTextField(
-              onSubmitted: (s) {},
+              controller:_controller,
               hintText: AppStrings.enterTheDoctorName,
-              onButtonPressed: () {},
-              onChanged: (p0) {},
+              onChanged: (input) {
+                context.read<BookDoctorsCubit>().filterDoctors(input: input);
+              },
             ),
             verticleSpace(5),
             const SpecializesBlocBuilder(),
