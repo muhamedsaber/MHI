@@ -11,7 +11,6 @@ class DataWideShape extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 120.h,
       width: double.infinity,
       child: Card(
         color: context.theme.colorScheme.surface.withOpacity(0.6),
@@ -19,41 +18,52 @@ class DataWideShape extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.r),
         ),
-        elevation: 6,
+      
         child: Padding(
           padding: EdgeInsets.all(16.w),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    title,
-                    style: AppTextStyles.jannat18BoldPrimaryColor(context)
-                        .copyWith(
-                      fontSize: 18.sp,
-                      color: Colors.grey,
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppTextStyles.jannat18BoldPrimaryColor(context)
+                          .copyWith(
+                        fontSize: 18.sp,
+                        color: Colors.grey,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 4.h),
-                  Text(
-                    value,
-                    style: AppTextStyles.jannat18BoldPrimaryColor(context)
-                        .copyWith(
-                      fontSize: 20.sp,
-                      color: AppColors.lighBlue,
+                    SizedBox(height: 4.h),
+                    Text(
+                      value,
+                      maxLines:1,
+                      overflow: TextOverflow.fade,
+                      style: AppTextStyles.jannat18BoldPrimaryColor(context)
+                          .copyWith(
+                        fontSize: 20.sp,
+                        color: AppColors.lighBlue,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(width: 12.w),
               Container(
                 width: 4.w,
-                height: double.infinity,
-                color: AppColors.lighBlue,
+                height: 60.h,
+                decoration: BoxDecoration(
+                    color: AppColors.lighBlue,
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(10.r),
+                      topRight: Radius.circular(10.r),
+                    )),
               ),
             ],
           ),

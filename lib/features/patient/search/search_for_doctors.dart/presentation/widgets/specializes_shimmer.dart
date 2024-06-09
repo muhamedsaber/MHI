@@ -16,9 +16,8 @@ class CustomShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      baseColor: context.theme.colorScheme.tertiaryContainer,
-      highlightColor: context.theme.colorScheme.onTertiaryContainer,
-      
+      baseColor: context.theme.colorScheme.surfaceContainerHigh,
+      highlightColor: context.theme.colorScheme.surfaceContainerLow,
       child: Container(
         margin: EdgeInsets.only(left: 8.w),
         height: height.h,
@@ -42,7 +41,7 @@ class SpecializesShimmer extends StatelessWidget {
       child: SizedBox(
         height: 40.h,
         child: ListView.builder(
-          reverse:true,
+          reverse: true,
           physics: const BouncingScrollPhysics(),
           itemCount: 20,
           scrollDirection: Axis.horizontal,

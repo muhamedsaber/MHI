@@ -1,8 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mhi/core/common_ui/widgets/custom_button.dart';
 import 'package:mhi/core/common_ui/widgets/data_wide_shape.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
@@ -16,7 +14,7 @@ class DoctorBookingProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500.h,
+      height: 400.h,
       width: context.width,
       decoration: BoxDecoration(
         color: context.theme.colorScheme.surface,
@@ -28,7 +26,7 @@ class DoctorBookingProfile extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 5.h,
+            height: 2.h,
             width: 50.w,
             decoration: BoxDecoration(
               color: context.theme.colorScheme.onSurface.withOpacity(0.8),
@@ -38,61 +36,44 @@ class DoctorBookingProfile extends StatelessWidget {
           ),
           verticleSpace(10),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
-            margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
-            decoration: BoxDecoration(
-              color: context.theme.brightness == Brightness.dark
-                  ? context.theme.colorScheme.surface.withBlue(45)
-                  : context.theme.colorScheme.surface,
-              borderRadius: BorderRadius.circular(15.r),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.3),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ],
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(
+              top: 10.h,
+              bottom: 10.h,
             ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    model.name ?? "غير متاح",
-                    style: AppTextStyles.jannat18BoldPrimaryColor(context)
-                        .copyWith(
-                      fontSize: 20.sp,
-                      color: AppColors.lighBlue,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ],
+            margin: EdgeInsets.symmetric(horizontal: 20.w),
+            decoration: BoxDecoration(
+              color: context.theme.colorScheme.onSurface.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(10.r),
+            ),
+            child: Text(
+              model.name ?? "غير متوفر",
+              style: AppTextStyles.jannat18BoldPrimaryColor(context)
+                  .copyWith(fontSize: 18.sp, color: AppColors.lightGreen),
             ),
           ),
-          verticleSpace(10),
+          DataWideShape(
+            title: "التخصص",
+            value: model.specialize?.name ?? "لا يوجد",
+          ),
+          DataWideShape(
+            title: "المستشفي",
+            value: model.hospitalId?.name ?? "لا يوجد",
+          ),
+          verticleSpace(4),
           Divider(
             thickness: 0.2,
             indent: 20.w,
             endIndent: 20.w,
           ),
-          Expanded(
-            child: ListView(
-              children: [
-                DataWideShape(
-                  title: "التخصص",
-                  value: model.specialize!.name ?? "لا يوجد",
-                ),
-                DataWideShape(
-                  title: "المستشفي",
-                  value: model.hospitalId!.name ?? "لا يوجد",
-                ),
-                DataWideShape(
-                  title: "عنوان المستشفي",
-                  value: model.hospitalId!.address ?? "لا يوجد",
-                ),
-                // CustomButton(buttonText: , onPressed: onPressed, buttonTextSize: buttonTextSize, backGroundColor: backGroundColor, buttonWidth: buttonWidth)
-              ],
-            ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: CustomButton(
+                buttonText: "حجز موعد",
+                onPressed: () {},
+                buttonTextSize: 20.sp,
+                backGroundColor: AppColors.lightGreen,
+                buttonWidth: 1000.w),
           )
         ],
       ),

@@ -43,7 +43,7 @@ class _SearchForDoctorsState extends State<SearchForDoctors> {
                 context.read<BookDoctorsCubit>().filterDoctors(input: input);
               },
             ),
-            verticleSpace(5),
+            verticleSpace(15),
             const SpecializesBlocBuilder(),
             verticleSpace(10),
             const DoctorsBookCardBlocBuilder(),

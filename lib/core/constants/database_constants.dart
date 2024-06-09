@@ -4,5 +4,6 @@ class DatabaseConstants{
     static const String isUserVisitedOnBoarding="isUserVisitedOnBoardingKey";
     static const String isPatientLoggedIn="isPatientLoggedInKey";
     static const String isDoctorLoggedIn="isDoctorLoggedInKey";
-
+    static const String patientDoctorsListBoxKey="patientDoctorsListBoxKey";
+    
 }

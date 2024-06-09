@@ -26,7 +26,9 @@ class SearchTextField extends StatelessWidget {
           textAlign: TextAlign.end,
           keyboardType: TextInputType.text,
           textDirection: TextDirection.ltr,
-          style: AppTextStyles.jannat20BoldOnPrimaryColor(context),
+          style: AppTextStyles.jannat20BoldOnPrimaryColor(context).copyWith(
+            color: AppColors.lighBlue,
+          ),
           decoration: InputDecoration(
             isDense: true,
             hintText: hintText,

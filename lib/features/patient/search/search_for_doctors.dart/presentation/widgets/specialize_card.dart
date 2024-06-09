@@ -13,14 +13,22 @@ class SpecializeCard extends StatelessWidget {
   final SpecializeModel model;
   final Color backgroundColor;
   final Color textColor;
+
   @override
   Widget build(BuildContext context) {
     return Container(
         margin: EdgeInsets.only(left: 8.w),
-        padding: AppPadding.symmetricHorizontalSmall,
+        padding: EdgeInsets.symmetric(
+          horizontal: 15.w,
+       
+        ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(7.r),
+          borderRadius: BorderRadius.circular(1000.r),
           color: backgroundColor,
+          border: Border.all(
+            color: textColor,
+            width: 1.w,
+          ),
         ),
         child: Row(
           children: [

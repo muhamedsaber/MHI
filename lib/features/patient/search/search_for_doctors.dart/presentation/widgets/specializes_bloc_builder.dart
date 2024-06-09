@@ -22,7 +22,7 @@ class SpecializesBlocBuilder extends StatelessWidget {
             },
             success: (specializations) {
               return SizedBox(
-                  height: 40.h,
+                  height: 42.h,
                   child: SpecializesListView(models: specializations));
             },
             error: (error) {
