@@ -26,7 +26,7 @@ class NoDataFound extends StatelessWidget {
             message,
             style: AppTextStyles.jannat18BoldWhite.copyWith(
               color: AppColors.lightRed.withOpacity(0.8),
-              fontSize: 30.sp
+              fontSize: 15.sp
             ),
           ),
         ],
