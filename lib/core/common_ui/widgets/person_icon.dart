@@ -11,11 +11,11 @@ class PersonIcon extends StatelessWidget {
         height: size.w,
         width: size.w,
         decoration: BoxDecoration(
-            color: context.theme.colorScheme.secondary.withOpacity(0.5),
+            color: context.theme.colorScheme.onSurface.withOpacity(0.1),
             borderRadius: BorderRadius.circular(1000.r)),
         child: Icon(
           Icons.person,
-          color: context.theme.colorScheme.onSurface,
+          color: context.theme.colorScheme.primary,
           size: size * 0.8,
         ));
   }

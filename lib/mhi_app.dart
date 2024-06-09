@@ -14,7 +14,7 @@ class MhiApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: AppRouter.onGenerateRoute,
-          theme: AppTheme.lightTheme,
+          theme: AppTheme.darkTheme,
           initialRoute: Routes.onBoarding,
         );
       },

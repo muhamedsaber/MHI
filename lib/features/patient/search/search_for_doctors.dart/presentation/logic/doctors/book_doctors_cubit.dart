@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mhi/core/networking/api_result.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
@@ -16,6 +18,7 @@ class BookDoctorsCubit extends Cubit<BookDoctorsState> {
     response.when(success: (BookDoctorsModel doctors) {
       emit(BookDoctorsLoaded(doctors: doctors));
     }, failure: (error) {
+      log(error.apiErrorModel.message ?? "حدث خطأ ما");
       emit(BookDoctorsError(
           message: error.apiErrorModel.message ?? "حدث خطأ ما"));
     });

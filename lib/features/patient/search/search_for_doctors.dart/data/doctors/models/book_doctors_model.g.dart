@@ -24,10 +24,14 @@ BookModel _$BookModelFromJson(Map<String, dynamic> json) => BookModel(
       username: json['username'] as String?,
       code: json['code'] as String?,
       role: json['role'] as String?,
-      specialize: SpecializeBoodModel.fromJson(
-          json['specialize'] as Map<String, dynamic>),
-      hospitalId:
-          HospitalIdModel.fromJson(json['hospitalID'] as Map<String, dynamic>),
+      specialize: json['specialize'] == null
+          ? null
+          : SpecializeBoodModel.fromJson(
+              json['specialize'] as Map<String, dynamic>),
+      hospitalId: json['hospitalID'] == null
+          ? null
+          : HospitalIdModel.fromJson(
+              json['hospitalID'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
