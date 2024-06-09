@@ -42,10 +42,8 @@ class _SearchForDoctorsState extends State<SearchForDoctors> {
             verticleSpace(5),
             const SpecializesBlocBuilder(),
             verticleSpace(10),
-            const DoctorsBookCardBlocBuilder()
+            const DoctorsBookCardBlocBuilder(),
           ],
         ));
   }
 }
-
-
