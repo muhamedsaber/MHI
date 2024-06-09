@@ -8,7 +8,6 @@ import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dar
 import 'package:mhi/features/auth/login/presentation/views/login_view.dart';
 import 'package:mhi/features/auth/signup/presentation/views/signup_view.dart';
 import 'package:mhi/features/onBoarding/presentation/views/onboarding_view.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/logic/cubit/specializes_cubit.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/views/search_for_doctors_view.dart';
 
 class AppRouter {
