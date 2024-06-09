@@ -12,6 +12,7 @@ class SignupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:AppColors.sliverWhite2,
       body: ListView(
         children: [
           verticleSpace(30),

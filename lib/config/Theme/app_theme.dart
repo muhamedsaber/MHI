@@ -50,8 +50,8 @@ class AppTheme {
         primaryContainer: AppColors.deepGrey,
         onPrimaryContainer: Colors.white,
         inversePrimary: Colors.black,
-        surfaceContainerHigh: DarkThemeColors.shimmer1,
-        surfaceContainerLow: DarkThemeColors.shimmer2),
+        tertiaryContainer: DarkThemeColors.shimmer1,
+        onTertiaryContainer: DarkThemeColors.shimmer2),
     bottomSheetTheme: const BottomSheetThemeData(
         modalBackgroundColor: LightThemeColors.sliverWhite2),
     appBarTheme: const AppBarTheme(

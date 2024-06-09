@@ -17,14 +17,7 @@ class PatientHomeCard extends StatelessWidget {
       widget: FutureBuilder(
           future: PatientCache().getUser(),
           builder: (context, snapshot) {
-            if (snapshot.data == null &&
-                snapshot.connectionState == ConnectionState.done) {
-              // if patient cache deleted or not found then show this message
-
-              Alerts().showCustomToast(
-                  message: "يجب إعادة تسجيل الدخول مجدداً",
-                  color: AppColors.lightRed);
-            }
+         
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator();
             } else if (snapshot.connectionState == ConnectionState.done &&

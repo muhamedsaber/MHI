@@ -31,4 +31,5 @@ class DarkThemeColors {
   static const Color surfaceColor = AppColors.sliverWhite2;
   static Color shimmer1 = const Color(0xff2A2A2A).withOpacity(0.6);
   static const Color shimmer2 = Color(0xff444444);
+  
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/onBoarding/data/onboarding_model.dart';
@@ -40,9 +41,8 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                   textAlign: TextAlign.right,
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
-                  style: AppTextStyles.jannat18BoldOnPrimary(context).copyWith(
-                    fontSize: 16.sp,
-                  ),
+                  style: AppTextStyles.jannat18BoldOnPrimary(context)
+                      .copyWith(fontSize: 16.sp, color: AppColors.deepBlue),
                 ),
               )
             ],

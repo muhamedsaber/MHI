@@ -14,12 +14,11 @@ class MhiApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (context, child) {
         return MaterialApp(
-                debugShowCheckedModeBanner: false,
-                onGenerateRoute: AppRouter.onGenerateRoute,
-                theme: AppTheme.lightTheme,
-                
-                initialRoute:Routes.onBoarding,
-              );
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: AppRouter.onGenerateRoute,
+          theme: AppTheme.darkTheme,
+          initialRoute: Routes.onBoarding,
+        );
       },
     );
   }
