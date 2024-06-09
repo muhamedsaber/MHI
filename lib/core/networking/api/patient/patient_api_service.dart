@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mhi/core/constants/api_constants.dart';
+import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
 
 import 'package:retrofit/retrofit.dart';
@@ -12,4 +13,8 @@ abstract class PatientApiService {
 
   @GET(ApiConstants.getSpecializesEndpoint)
   Future<List<SpecializeModel>>getSpecializes();
+
+  @GET(ApiConstants.getAllDoctorsEndpoint)
+  Future<BookDoctorsModel>getAllDoctors();
+  
 }
