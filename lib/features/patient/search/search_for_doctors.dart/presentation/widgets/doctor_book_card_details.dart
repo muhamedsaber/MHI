@@ -13,10 +13,10 @@ class DoctorBookCardDetails extends StatelessWidget {
   const DoctorBookCardDetails(
       {super.key,
       required this.model,
-      required this.icon,
+       this.icon,
       required this.onTap});
   final BookModel model;
-  final Icon icon;
+  final Icon? icon;
   final Function() onTap;
 
   @override
@@ -36,7 +36,7 @@ class DoctorBookCardDetails extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 const SizedBox(width: 10),
-                IconButton(onPressed: onTap, icon: icon),
+               icon!=null? IconButton(onPressed: onTap, icon: icon!):const SizedBox.shrink(),
                 const Spacer(),
                 Text(
                   model.name ?? "غير متاح",

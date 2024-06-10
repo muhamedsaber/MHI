@@ -65,7 +65,10 @@ class SearchForDoctorsHomeView extends StatelessWidget {
                     ),
                     Text(
                       AppStrings.searchForDoctor,
-                      style: AppTextStyles.jannat18BoldOnPrimary(context),
+                      style:
+                          AppTextStyles.jannat18BoldOnPrimary(context).copyWith(
+                        color: AppColors.lightGreen,
+                      ),
                     )
                   ],
                 ),

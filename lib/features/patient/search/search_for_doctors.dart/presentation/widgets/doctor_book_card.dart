@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:hive/hive.dart';
 import 'package:mhi/config/database/local/patient/patient_database.dart';
 
 import 'package:mhi/core/constants/database_constants.dart';
+import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/app_colors.dart';
+import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_cubit.dart';
 
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/doctor_book_card_details.dart';
 
 class DoctorBookCard extends StatefulWidget {
-  const DoctorBookCard({super.key, required this.model});
+  const DoctorBookCard({super.key, required this.model, this.onTap});
   final BookModel model;
+  final Function? onTap;
 
   @override
   State<DoctorBookCard> createState() => _DoctorBookCardState();
@@ -46,12 +50,12 @@ class _DoctorBookCardState extends State<DoctorBookCard> {
       onTap: () {
         if (isDoctorSaved) {
           setState(() {
-            PatientDatabase.deleteDoctor(widget.model);
+            getIt<SavedDoctorsCubit>().deleteDoctor(model: widget.model);
             getDoctorsSavedDoctorsId();
           });
         } else {
           setState(() {
-            PatientDatabase.saveDoctor(widget.model);
+            getIt<SavedDoctorsCubit>().saveDoctor(model: widget.model);
             getDoctorsSavedDoctorsId();
           });
         }
