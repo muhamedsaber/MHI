@@ -5,4 +5,5 @@ class Routes{
     static const String userBottomNavBar="/UserBottomNavBar";
     static const String searchForDoctors="/SearchForDoctors";
     static const String splashView="/splashView";
+    static const String patientSettingsView="/PatientSettingsView";
 }

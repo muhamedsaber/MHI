@@ -5,6 +5,7 @@ import 'package:mhi/core/common_ui/widgets/bottom_nav_bar/user_bottom_nav_bar.da
 import 'package:mhi/features/auth/login/presentation/views/login_view.dart';
 import 'package:mhi/features/auth/signup/presentation/views/signup_view.dart';
 import 'package:mhi/features/onBoarding/presentation/views/onboarding_view.dart';
+import 'package:mhi/features/patient/profile/presentation/views/patient_settings_view.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/views/search_for_doctors_view.dart';
 import 'package:mhi/features/splash/presentation/views/splash_view.dart';
 
@@ -23,15 +24,21 @@ class AppRouter {
         );
       case Routes.userBottomNavBar:
         return MaterialPageRoute(
-          builder: (context)=>const UserBottomNavBar(),
+          builder: (context) => const UserBottomNavBar(),
         );
 
       case Routes.searchForDoctors:
         return MaterialPageRoute(
-          builder: (context)=>const SearchForDoctors(),
+          builder: (context) => const SearchForDoctors(),
         );
-        case Routes.splashView:
-        return MaterialPageRoute(builder: (context) => const SplashView(),);
+      case Routes.splashView:
+        return MaterialPageRoute(
+          builder: (context) => const SplashView(),
+        );
+      case Routes.patientSettingsView:
+        return MaterialPageRoute(
+          builder: (context) =>  PatientSettingsView(),
+        );
       default:
         return MaterialPageRoute(
             builder: (_) => DefaultErrorRoute(
