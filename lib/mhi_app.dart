@@ -15,7 +15,7 @@ class MhiApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           onGenerateRoute: AppRouter.onGenerateRoute,
           theme: AppTheme.lightTheme,
-          initialRoute: Routes.onBoarding,
+          initialRoute: Routes.splashView,
         );
       },
     );
