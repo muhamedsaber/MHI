@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/main_app_bar.dart';
 import 'package:mhi/core/helper/app_colors.dart';
