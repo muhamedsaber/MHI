@@ -7,6 +7,7 @@ import 'package:mhi/core/common_ui/widgets/appbar_builder.dart';
 import 'package:mhi/core/common_ui/widgets/options_button.dart';
 import 'package:mhi/core/common_ui/widgets/theme_changer.dart';
 import 'package:mhi/core/constants/database_constants.dart';
+import 'package:mhi/core/helper/alerts.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/patient/profile/presentation/widgets/app_rights_info.dart';
@@ -43,8 +44,10 @@ class PatientSettingsView extends StatelessWidget {
                       return LogoutSheetBody(
                         onTapToLogout: () async {
                           await logoutPatient();
-                          // ignore: use_build_context_synchronously
-                          navigateToLoginView(context);
+
+                          await Future.delayed(const Duration(seconds: 2), () {
+                            navigateToLoginView(context);
+                          });
                         },
                       );
                     },
@@ -55,6 +58,7 @@ class PatientSettingsView extends StatelessWidget {
   }
 
   logoutPatient() async {
+    Alerts().showCustomToast(color: Colors.green, message: "جاري تسجيل الخروج");
     await PatientCache().removeUser();
     await CacheHelper.setData(
         key: DatabaseConstants.isPatientLoggedIn, value: false);
