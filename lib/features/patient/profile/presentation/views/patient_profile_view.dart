@@ -40,6 +40,24 @@ class PatientProfileView extends StatelessWidget {
     ));
   }
 
+  // while Trying to use Normal context navigation extinsion
+  //to navigate i had alots of problems in the navigation
+  // so i used the rootNavigator: true to solve the problem
+  //
+  //Problem(1)
+  // The Preseistent Bottom nav bar is never hidden after navigating to the new screen
+  // this happens because the context used to navigate is the context of the bottom nav bar
+  // so i had to make the rootNavigator: true to solve this problem
+  //
+
+  //Problem(2)
+  // The new screen is not pushed even with the rootNavigator: true
+  // Could not find a generator for route RouteSettings("/PatientSettingsView", null) in the _CustomTabViewState.
+  // i faced this error
+
+
+
+  ///do not use the normal context to navigate to the new screen
   navigateToPatientSettingsView(BuildContext context) {
     Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(
       builder: (context) {
