@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mhi/core/common_ui/widgets/appbar_builder.dart';
 import 'package:mhi/core/common_ui/widgets/search_textfield.dart';
+import 'package:mhi/core/helper/alerts.dart';
+import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_strings.dart';
 import 'package:mhi/core/helper/spacing.dart';
+import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_cubit.dart';
+import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_state.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/logic/cubit/specializes_cubit.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/doctors_book_card_bloc_builder.dart';
+import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/save_and_delete_doctor_bloc_listener.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/specializes_bloc_builder.dart';
 
 class SearchForDoctors extends StatefulWidget {
@@ -17,11 +22,11 @@ class SearchForDoctors extends StatefulWidget {
 }
 
 class _SearchForDoctorsState extends State<SearchForDoctors> {
-    late TextEditingController _controller;
+  late TextEditingController _controller;
 
   @override
   void initState() {
-     _controller = TextEditingController();
+    _controller = TextEditingController();
     context.read<SpecializesCubit>().getSpecializes();
     context.read<BookDoctorsCubit>().getAllDoctors();
 
@@ -37,7 +42,7 @@ class _SearchForDoctorsState extends State<SearchForDoctors> {
           children: [
             verticleSpace(10),
             SearchTextField(
-              controller:_controller,
+              controller: _controller,
               hintText: AppStrings.enterTheDoctorName,
               onChanged: (input) {
                 context.read<BookDoctorsCubit>().filterDoctors(input: input);
@@ -47,6 +52,7 @@ class _SearchForDoctorsState extends State<SearchForDoctors> {
             const SpecializesBlocBuilder(),
             verticleSpace(10),
             const DoctorsBookCardBlocBuilder(),
+            const SaveAndDeleteDoctorBlocListener()
           ],
         ));
   }
