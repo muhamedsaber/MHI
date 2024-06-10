@@ -4,9 +4,11 @@ import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 
 class NoDataFound extends StatelessWidget {
-  const NoDataFound({super.key, required this.message});
+  const NoDataFound({super.key, required this.message,
+   this.icon
+  });
   final String message;
-
+   final IconData? icon;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -15,7 +17,7 @@ class NoDataFound extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Icon(
-            Icons.query_stats,
+           icon?? Icons.query_stats,
             color: AppColors.lighGrey,
             size: 70.sp,
           ),
