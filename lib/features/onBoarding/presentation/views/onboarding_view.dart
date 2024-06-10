@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/config/database/cache/cache_helper.dart';
@@ -90,16 +92,16 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     );
   }
 
-  navigateToLogin()async {
-    
-   await setOnBoardingVisitStatus();
-  if (mounted) {
-     context.navigateTo(Routes.loginView);
-  }
+  navigateToLogin() async {
+    await setOnBoardingVisitStatus();
+    if (mounted) {
+      context.navigateTo(Routes.loginView);
+    }
   }
 
   setOnBoardingVisitStatus() async {
     await CacheHelper.setData(
         key: DatabaseConstants.isUserVisitedOnBoarding, value: true);
+        log("done");
   }
 }
