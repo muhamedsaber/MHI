@@ -13,7 +13,7 @@ class DataWideShape extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Card(
-        color: context.theme.colorScheme.surface.withOpacity(0.6),
+        color: context.theme.colorScheme.surface,
         margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.r),
@@ -48,7 +48,7 @@ class DataWideShape extends StatelessWidget {
                       style: AppTextStyles.jannat18BoldPrimaryColor(context)
                           .copyWith(
                         fontSize: 20.sp,
-                        color: AppColors.lighBlue,
+                        color: context.theme.colorScheme.onSurface,
                       ),
                     ),
                   ],
