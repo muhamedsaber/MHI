@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mhi/config/database/cache/cache_helper.dart';
+import 'package:mhi/core/constants/database_constants.dart';
 import 'package:mhi/core/helper/alerts.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/extensions.dart';
@@ -19,9 +21,10 @@ class DoctorLoginBlocListener extends StatelessWidget {
           context.navigateBack();
           Alerts().showCustomToast(message:"لا يمكنك تسجيل الدخول", color: AppColors.lightRed);
         },
-        successDoctor: () {
+        successDoctor: () async{
           context.navigateBack();
           Alerts(). showCustomToast(message: "تم تسجيل الدخول بنجاح", color: AppColors.lightGreen);
+         await saveDoctorLogginStatus();
         },
         error: (message){
           context.navigateBack();
@@ -33,5 +36,8 @@ class DoctorLoginBlocListener extends StatelessWidget {
     child:const SizedBox.shrink(),
     );
     
+  }
+  saveDoctorLogginStatus()async{
+    await CacheHelper.setData(key: DatabaseConstants.isDoctorLoggedIn, value: true);
   }
 }
