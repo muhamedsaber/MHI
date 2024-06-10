@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/config/Theme/theme_colors.dart';
+import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/app_strings.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/theming.dart';
 import 'package:mhi/features/patient/home/presentation/views/patient_home_view.dart';
+import 'package:mhi/features/patient/profile/presentation/views/patient_profile_view.dart';
+import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_cubit.dart';
+import 'package:mhi/features/patient/saved/presentation/views/saved_data_view.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
@@ -17,13 +21,14 @@ class UserBottomNavBar extends StatefulWidget {
 
 class _UserBottomNavBarState extends State<UserBottomNavBar> {
   final PersistentTabController _controller =
-      PersistentTabController(initialIndex: 3);
+      PersistentTabController(initialIndex: 4);
 
   @override
   Widget build(BuildContext context) {
     List<Widget> buildScreens() {
       return [
-        const PatientHomeView(),
+        const PatientProfileView(),
+        const SavedDataView(),
         const PatientHomeView(),
         const PatientHomeView(),
         const PatientHomeView()
@@ -37,7 +42,6 @@ class _UserBottomNavBarState extends State<UserBottomNavBar> {
       screens: buildScreens(),
       items: _navBarsItems(),
       confineInSafeArea: true,
-   
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
       stateManagement: true,
@@ -45,7 +49,7 @@ class _UserBottomNavBarState extends State<UserBottomNavBar> {
       decoration: NavBarDecoration(
         borderRadius: BorderRadius.circular(1000.0),
         colorBehindNavBar: Colors.white,
-        gradient:  AppThemeing.patientGradient,
+        gradient: AppThemeing.patientGradient,
         boxShadow: [
           BoxShadow(
             color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.2),
@@ -56,8 +60,11 @@ class _UserBottomNavBarState extends State<UserBottomNavBar> {
         ],
       ),
       onItemSelected: (value) {
-       
-     
+        if (value == 1) {
+          getIt<SavedDoctorsCubit>().getSavedDoctors();
+        } else if (value == 2) {
+        } else if (value == 3) {
+        } else if (value == 4) {}
       },
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,
@@ -80,6 +87,14 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
     PersistentBottomNavBarItem(
       icon: const Icon(Icons.account_circle_rounded),
       title: (AppStrings.yourProfile),
+      textStyle: AppTextStyles.jannat18BoldWhite,
+      activeColorPrimary: Colors.white,
+      inactiveColorPrimary: Colors.white,
+      activeColorSecondary: LightThemeColors.lighBlue,
+    ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(Icons.favorite),
+      title: ("المفضلة"),
       textStyle: AppTextStyles.jannat18BoldWhite,
       activeColorPrimary: Colors.white,
       inactiveColorPrimary: Colors.white,
