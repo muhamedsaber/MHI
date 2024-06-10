@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/custom_button.dart';
@@ -25,12 +24,20 @@ class _BirthdayInputState extends State<BirthdayInput> {
       initialDate: DateTime.now(),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            dialogBackgroundColor: Colors.white,
+          ),
+          child: child!,
+        );
+      },
     );
     if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
       });
-      // Convert the selected date to the desired format
+
       formattedDate = '${picked.day}-${picked.month}-${picked.year}';
       widget.onDateSelected(formattedDate);
     }
@@ -53,7 +60,9 @@ class _BirthdayInputState extends State<BirthdayInput> {
         if (selectedDate != null)
           Text(
             'التاريخ الذي تم اختيارة هو : ${formattedDate.toString()}',
-            style: AppTextStyles.jannat18BoldOnPrimary(context)
+            style: AppTextStyles.jannat18BoldOnPrimary(context).copyWith(
+              color: AppColors.lighBlue,
+            ),
           ),
       ],
     );
