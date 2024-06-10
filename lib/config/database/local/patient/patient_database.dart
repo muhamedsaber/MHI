@@ -18,10 +18,10 @@ class PatientDatabase {
     }
   }
 
-  static Future<bool>deleteDoctor(BookModel model)async {
+  static Future<bool> deleteDoctor(BookModel model) async {
     try {
       var box = Hive.box(DatabaseConstants.patientDoctorsListBoxKey);
-    await  box.delete(model.doctorId);
+      await box.delete(model.doctorId);
       return true;
     } catch (e) {
       return false;
@@ -46,5 +46,12 @@ class PatientDatabase {
     List<BookModel> books =
         list.map((e) => BookModel.fromJson(jsonDecode(e))).toList();
     return books;
+  }
+
+  static Future<void> deleteAll() async {
+    await Hive.openBox(DatabaseConstants.patientDoctorsListBoxKey);
+    var box = Hive.box(DatabaseConstants.patientDoctorsListBoxKey);
+    await box.clear();
+    print("deleted successfully");
   }
 }
