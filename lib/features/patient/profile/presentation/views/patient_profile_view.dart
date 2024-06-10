@@ -23,7 +23,7 @@ class PatientProfileView extends StatelessWidget {
           verticleSpace(13),
           OptionButton(
             icon: Icons.person,
-            value: "تعديل البيانات",
+            value: "تعديل البيانات الشخصية",
             onTap: () {},
           ),
           verticleSpace(13),
