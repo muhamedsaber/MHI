@@ -24,10 +24,7 @@ class _OptionButtonState extends State<OptionButton>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-       
-        widget.onTap();
-      },
+      onTap:widget.onTap,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
