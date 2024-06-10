@@ -13,7 +13,7 @@ class OptionButton extends StatefulWidget {
 
   final String value;
   final IconData icon;
-  final void Function() onTap;
+  final void Function()? onTap;
   final Widget? widget;
   @override
   State<OptionButton> createState() => _OptionButtonState();

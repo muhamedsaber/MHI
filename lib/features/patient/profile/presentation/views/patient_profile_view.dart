@@ -41,7 +41,7 @@ class PatientProfileView extends StatelessWidget {
   }
 
   // while Trying to use Normal context navigation extinsion
-  //to navigate i had alots of problems in the navigation
+  //to navigate i had a lots of problems in the navigation
   // so i used the rootNavigator: true to solve the problem
   //
   //Problem(1)
@@ -54,8 +54,6 @@ class PatientProfileView extends StatelessWidget {
   // The new screen is not pushed even with the rootNavigator: true
   // Could not find a generator for route RouteSettings("/PatientSettingsView", null) in the _CustomTabViewState.
   // i faced this error
-
-
 
   ///do not use the normal context to navigate to the new screen
   navigateToPatientSettingsView(BuildContext context) {
