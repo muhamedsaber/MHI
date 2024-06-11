@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/app_padding.dart';
-import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';

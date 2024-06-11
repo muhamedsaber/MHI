@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:mhi/config/database/cache/user_cache.dart';
 import 'package:mhi/core/constants/app_constants.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dart';

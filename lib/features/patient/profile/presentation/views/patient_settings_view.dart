@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mhi/config/database/cache/cache_helper.dart';
 import 'package:mhi/config/database/cache/user_cache.dart';
 import 'package:mhi/config/database/local/patient/doctor_database.dart';
-import 'package:mhi/config/database/local/patient/patient_record_database.dart';
 import 'package:mhi/config/router/routes.dart';
 import 'package:mhi/core/common_ui/widgets/appbar_builder.dart';
 import 'package:mhi/core/common_ui/widgets/options_button.dart';
@@ -64,7 +63,6 @@ class PatientSettingsView extends StatelessWidget {
     await CacheHelper.setData(
         key: DatabaseConstants.isPatientLoggedIn, value: false);
     await DoctorDatabase().deleteAll();
-    await PatientRecordDatabase().deleteAll();
   }
 
   navigateToLoginView(BuildContext context) {

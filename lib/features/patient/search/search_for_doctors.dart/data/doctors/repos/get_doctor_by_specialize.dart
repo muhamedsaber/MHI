@@ -2,7 +2,6 @@ import 'package:mhi/core/networking/api/patient/patient_api_service.dart';
 import 'package:mhi/core/networking/api_error_handler.dart';
 import 'package:mhi/core/networking/api_result.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/get_doctors_by_specialize_request_body.dart';
 
 class GetDoctorBySpecialize {
   final PatientApiService service;

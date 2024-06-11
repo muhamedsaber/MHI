@@ -46,8 +46,7 @@ class _PatientProfileDetailsState extends State<PatientProfileDetails> {
                           value: snapshot.data?.name ?? "غير متوفر"),
                       DataWideShape(
                           title: "تاريخ الميلاد",
-                          value: snapshot.data!.birthday.formattedDate ??
-                              "غير متوفر"),
+                          value: snapshot.data!.birthday.formattedDate),
                       verticleSpace(80),
                     ],
                   ),
