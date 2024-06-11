@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/person_icon.dart';
 import 'package:mhi/core/helper/app_colors.dart';
@@ -11,11 +9,8 @@ import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors
 
 class DoctorBookCardDetails extends StatelessWidget {
   const DoctorBookCardDetails(
-      {super.key,
-      required this.model,
-       this.icon,
-      required this.onTap});
-  final BookModel model;
+      {super.key, required this.model, this.icon, required this.onTap});
+  final DoctorBookData model;
   final Icon? icon;
   final Function() onTap;
 
@@ -36,7 +31,9 @@ class DoctorBookCardDetails extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 const SizedBox(width: 10),
-               icon!=null? IconButton(onPressed: onTap, icon: icon!):const SizedBox.shrink(),
+                icon != null
+                    ? IconButton(onPressed: onTap, icon: icon!)
+                    : const SizedBox.shrink(),
                 const Spacer(),
                 Text(
                   model.name ?? "غير متاح",

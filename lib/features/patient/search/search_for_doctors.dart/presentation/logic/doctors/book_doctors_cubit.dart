@@ -57,7 +57,7 @@ class BookDoctorsCubit extends Cubit<BookDoctorsState> {
     if (input == null || input.isEmpty) {
       emit(BookDoctorsLoaded(doctors: _allDoctors));
     } else {
-      List<BookModel> filteredDoctors = _allDoctors.doctors
+      List<DoctorBookData> filteredDoctors = _allDoctors.doctors
           .where(
             (element) => element.name!.contains(input),
           )

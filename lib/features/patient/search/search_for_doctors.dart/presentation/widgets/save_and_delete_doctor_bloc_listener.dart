@@ -2,8 +2,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mhi/core/helper/alerts.dart';
 import 'package:mhi/core/helper/app_colors.dart';
-import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_cubit.dart';
-import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_state.dart';
+import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
+import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_state.dart';
 
 class SaveAndDeleteDoctorBlocListener extends StatelessWidget {
   const SaveAndDeleteDoctorBlocListener({super.key});

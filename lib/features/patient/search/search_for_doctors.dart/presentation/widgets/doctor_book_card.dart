@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:hive/hive.dart';
-import 'package:mhi/config/database/local/patient/patient_database.dart';
+import 'package:mhi/config/database/local/patient/doctor_database.dart';
 
-import 'package:mhi/core/constants/database_constants.dart';
-import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/app_colors.dart';
-import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_cubit.dart';
 
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/doctor_book_card_details.dart';
 
 class DoctorBookCard extends StatefulWidget {
   const DoctorBookCard({super.key, required this.model, this.onTap});
-  final BookModel model;
+  final DoctorBookData model;
   final Function? onTap;
 
   @override
@@ -27,38 +22,33 @@ class _DoctorBookCardState extends State<DoctorBookCard> {
   @override
   void initState() {
     super.initState();
-    openPatientDoctorsBox().then((_) {
-      getDoctorsSavedDoctorsId();
-    });
+
+    getDoctorsSavedDoctorsId();
   }
 
-  Future<void> openPatientDoctorsBox() async {
-    await Hive.openBox(DatabaseConstants.patientDoctorsListBoxKey);
-  }
-
-  Future getDoctorsSavedDoctorsId() async {
-    await PatientDatabase.isDoctorSaved(widget.model).then((s) {
-      setState(() {
-        isDoctorSaved = s;
-      });
+  Future<void> getDoctorsSavedDoctorsId() async {
+    final doctorDatabase = DoctorDatabase();
+    final saved = await doctorDatabase.isItemSaved(
+        id: widget.model.doctorId!, fromJson: doctorDatabase.fromJson);
+    setState(() {
+      isDoctorSaved = saved;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return DoctorBookCardDetails(
-      onTap: () {
+      onTap: () async {
+        final doctorDatabase = DoctorDatabase();
         if (isDoctorSaved) {
-          setState(() {
-            getIt<SavedDoctorsCubit>().deleteDoctor(model: widget.model);
-            getDoctorsSavedDoctorsId();
-          });
+          await doctorDatabase.deleteItem(id: widget.model.doctorId!);
         } else {
-          setState(() {
-            getIt<SavedDoctorsCubit>().saveDoctor(model: widget.model);
-            getDoctorsSavedDoctorsId();
-          });
+          await doctorDatabase.saveItem(
+              id: widget.model.doctorId!,
+              model: widget.model,
+              toJson: doctorDatabase.toJson);
         }
+        getDoctorsSavedDoctorsId();
       },
       model: widget.model,
       icon: isDoctorSaved

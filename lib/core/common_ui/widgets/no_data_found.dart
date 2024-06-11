@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
-import 'package:mhi/core/helper/extensions.dart';
 
 class NoDataFound extends StatelessWidget {
   const NoDataFound({super.key, required this.message,
@@ -12,8 +11,8 @@ class NoDataFound extends StatelessWidget {
    final IconData? icon;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: context.height * 0.2),
+    return Center(
+     
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,

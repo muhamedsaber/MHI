@@ -10,7 +10,7 @@ import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors
 
 class DoctorBookingProfile extends StatelessWidget {
   const DoctorBookingProfile({super.key, required this.model});
-  final BookModel model;
+  final DoctorBookData model;
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -7,8 +7,8 @@ import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/theming.dart';
 import 'package:mhi/features/patient/home/presentation/views/patient_home_view.dart';
 import 'package:mhi/features/patient/profile/presentation/views/patient_profile_view.dart';
-import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_cubit.dart';
-import 'package:mhi/features/patient/saved/presentation/views/saved_data_view.dart';
+import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
+import 'package:mhi/features/patient/patient_saved_data/presentation/views/saved_data_view.dart';
 
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 

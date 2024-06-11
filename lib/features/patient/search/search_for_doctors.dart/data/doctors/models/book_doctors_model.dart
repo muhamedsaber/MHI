@@ -6,7 +6,7 @@ part 'book_doctors_model.g.dart';
 
 @JsonSerializable()
 class BookDoctorsModel {
-  final List<BookModel> doctors;
+  final List<DoctorBookData> doctors;
 
   BookDoctorsModel({required this.doctors});
 
@@ -26,7 +26,7 @@ class BookDoctorsModel {
 }
 
 @JsonSerializable()
-class BookModel {
+class DoctorBookData {
   @JsonKey(name: "_id")
   final String? doctorId;
   final String? name;
@@ -37,7 +37,7 @@ class BookModel {
   @JsonKey(name: "hospitalID")
   final HospitalIdModel? hospitalId;
 
-  BookModel({
+  DoctorBookData({
     this.doctorId,
     this.name,
     this.username,
@@ -47,10 +47,10 @@ class BookModel {
     this.hospitalId,
   });
 
-  factory BookModel.fromJson(Map<String, dynamic> json) =>
-      _$BookModelFromJson(json);
+  factory DoctorBookData.fromJson(Map<String, dynamic> json) =>
+      _$DoctorBookDataFromJson(json);
 
-  Map<String, dynamic> toJson() => _$BookModelToJson(this);
+  Map<String, dynamic> toJson() => _$DoctorBookDataToJson(this);
 }
 
 @JsonSerializable()
