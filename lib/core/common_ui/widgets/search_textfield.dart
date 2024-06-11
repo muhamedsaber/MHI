@@ -26,9 +26,14 @@ class SearchTextField extends StatelessWidget {
           textAlign: TextAlign.end,
           keyboardType: TextInputType.text,
           textDirection: TextDirection.ltr,
+          //change the cursor position
+          cursorColor: AppColors.lighBlue,
+
           style: AppTextStyles.jannat20BoldOnPrimaryColor(context).copyWith(
-            color: AppColors.lighBlue,
-          ),
+              color: AppColors.lighBlue,
+              fontWeight: FontWeight.w500,
+              decorationThickness: 0),
+
           decoration: InputDecoration(
             isDense: true,
             hintText: hintText,
@@ -38,21 +43,21 @@ class SearchTextField extends StatelessWidget {
               fontSize: 18.sp,
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(
                 color: Colors.white,
                 width: 2.w,
               ),
             ),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(
                 color: AppColors.lighBlue,
                 width: 2.w,
               ),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(
                 color: AppColors.lighBlue,
                 width: 2.w,

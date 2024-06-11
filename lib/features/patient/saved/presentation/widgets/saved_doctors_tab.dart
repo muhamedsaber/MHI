@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/no_data_found.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
+import 'package:mhi/core/helper/alerts.dart';
+import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_cubit.dart';
 import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_state.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/doctor_book_card_details.dart';
@@ -38,23 +39,38 @@ class _SavedDoctorsTabeState extends State<SavedDoctorsTabe> {
                 icon: Icons.saved_search_rounded,
               )
             : Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    physics:const BouncingScrollPhysics(),
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
                       padding: EdgeInsets.zero,
                       itemCount: state.doctors.length,
                       itemBuilder: (context, index) {
-                        return DoctorBookCardDetails(
-                          model: state.doctors[index],
-                          onTap: () {},
+                        return Dismissible(
+                          key: UniqueKey(),
+                          direction: DismissDirection.endToStart,
+                          onDismissed: (direction) {
+                            context
+                                .read<SavedDoctorsCubit>()
+                                .deleteDoctor(model: state.doctors[index]);
+                            context.read<SavedDoctorsCubit>().getSavedDoctors();
+                            Alerts().showCustomToast(
+                                message: "تمت الإزالة من المفضلة",
+                                color: AppColors.lighPurple);
+                          },
+                          child: DoctorBookCardDetails(
+                            model: state.doctors[index],
+                            onTap: () {},
+                          ),
                         );
                       },
                     ),
-                ),
-                 SizedBox(height: 60.h,)
-              ],
-            );
+                  ),
+                  SizedBox(
+                    height: 60.h,
+                  )
+                ],
+              );
       } else {
         return const NoDataFound(
           message: "لم يتم العثور علي أطباء",

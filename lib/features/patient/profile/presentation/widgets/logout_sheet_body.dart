@@ -9,7 +9,7 @@ import 'package:mhi/core/helper/spacing.dart';
 
 class LogoutSheetBody extends StatefulWidget {
   const LogoutSheetBody({super.key, required this.onTapToLogout});
-final Function()onTapToLogout;
+  final Function() onTapToLogout;
   @override
   State<LogoutSheetBody> createState() => _LogoutSheetBodyState();
 }
@@ -69,7 +69,7 @@ class _LogoutSheetBodyState extends State<LogoutSheetBody> {
             buttonText: "تأكيد",
             onPressed: () {
               if (isConfirmed) {
-               widget.onTapToLogout();
+                widget.onTapToLogout();
               } else {
                 Alerts().showCustomToast(
                     message: "يرجى الموافقة علي الشروط والأحكام",
@@ -77,7 +77,7 @@ class _LogoutSheetBodyState extends State<LogoutSheetBody> {
               }
             },
             buttonTextSize: 18.sp,
-            backGroundColor: AppColors.lightyellow,
+            backGroundColor: AppColors.lightGreen,
             buttonWidth: 200.w,
           )
         ],
