@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:mhi/config/database/cache/cache_helper.dart';
 import 'package:mhi/core/constants/database_constants.dart';
@@ -16,6 +17,7 @@ class PatientCache implements UserCache<PatientModel> {
   Future<PatientModel?> getUser() async {
     String? userStr =
         await CacheHelper.getString(key: DatabaseConstants.patientCacheKey);
+        log("userStr: $userStr");
     if (userStr != null) {
       return PatientModel.fromJson(jsonDecode(userStr));
     } else {
