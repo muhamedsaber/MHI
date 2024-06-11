@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/helper/app_assets.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
@@ -16,7 +17,7 @@ AppBar appBarBuilder({required BuildContext context, required String title}) {
         },
         icon: Image.asset(
           Assets.takebackIconDark,
-          height: 30,
+          height: 30.h,
         ),
       ),
     ),

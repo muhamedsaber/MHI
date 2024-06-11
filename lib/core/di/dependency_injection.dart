@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mhi/core/networking/api/common/common_api_service.dart';
@@ -9,6 +10,8 @@ import 'package:mhi/features/auth/signup/data/repos/signup_repo.dart';
 import 'package:mhi/features/auth/signup/presentation/logic/cubit/signup_cubit.dart';
 import 'package:mhi/features/common/records/data/repos/patient_record_repo.dart';
 import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
+import 'package:mhi/features/patient/firebase_hospitals/data/repo/firebase_hospitals_repo.dart';
+import 'package:mhi/features/patient/firebase_hospitals/presentation/logic/cubit/firebase_hospitals_cubit.dart';
 import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/repos/get_all_doctors_repo.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/repos/get_doctor_by_specialize.dart';
@@ -51,7 +54,14 @@ setupDependencyInjection() async {
   getIt.registerSingleton<SavedDoctorsCubit>(SavedDoctorsCubit());
 
   /// patient Record cubit
-  getIt.registerSingleton<PatientRecordRepo >(PatientRecordRepo (service: getIt()));
+  getIt.registerSingleton<PatientRecordRepo>(
+      PatientRecordRepo(service: getIt()));
   getIt
       .registerSingleton<PatientRecordCubit>(PatientRecordCubit(repo: getIt()));
+
+  // This For Firebase hospitals
+
+  getIt.registerSingleton<FirebaseHospitalRepo>(FirebaseHospitalRepo());
+  getIt.registerSingleton<FirebaseHospitalsCubit>(
+      FirebaseHospitalsCubit(firebaseHospitalRepo: getIt()));
 }

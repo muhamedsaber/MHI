@@ -8,6 +8,7 @@ class DataWideShape extends StatelessWidget {
   const DataWideShape({super.key, required this.title, required this.value});
   final String title;
   final String value;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -34,6 +35,7 @@ class DataWideShape extends StatelessWidget {
                       title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
+                      
                       style: AppTextStyles.jannat18BoldPrimaryColor(context)
                           .copyWith(
                         fontSize: 18.sp,
@@ -43,11 +45,12 @@ class DataWideShape extends StatelessWidget {
                     SizedBox(height: 4.h),
                     Text(
                       value,
-                      maxLines:1,
+                      maxLines:10,
                       overflow: TextOverflow.fade,
+                      textAlign: TextAlign.end,
                       style: AppTextStyles.jannat18BoldPrimaryColor(context)
                           .copyWith(
-                        fontSize: 20.sp,
+                        fontSize: 18.sp,
                         color: context.theme.colorScheme.onSurface,
                       ),
                     ),
