@@ -17,7 +17,7 @@ class PatientCache implements UserCache<PatientModel> {
   Future<PatientModel?> getUser() async {
     String? userStr =
         await CacheHelper.getString(key: DatabaseConstants.patientCacheKey);
-        log("userStr: $userStr");
+    log("userStr: $userStr");
     if (userStr != null) {
       return PatientModel.fromJson(jsonDecode(userStr));
     } else {

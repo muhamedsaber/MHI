@@ -16,7 +16,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupDependencyInjection();
   await Hive.initFlutter();
-  await PatientCache().getUser();
   await Hive.openBox(AppConstants.themeBox);
   runApp(MultiBlocProvider(
     providers: [

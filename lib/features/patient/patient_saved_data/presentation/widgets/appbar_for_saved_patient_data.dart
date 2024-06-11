@@ -6,8 +6,7 @@ import 'package:mhi/core/helper/theming.dart';
 import 'package:mhi/features/patient/patient_saved_data/presentation/widgets/custom_tabbar.dart';
 
 class AppBarForSavedPatientData extends StatelessWidget {
-  const AppBarForSavedPatientData(
-      {super.key, required this.tabController});
+  const AppBarForSavedPatientData({super.key, required this.tabController});
   final TabController tabController;
   @override
   Widget build(BuildContext context) {
@@ -18,12 +17,6 @@ class AppBarForSavedPatientData extends StatelessWidget {
         child: CustomTabBar(
           tabController: tabController,
           tabs: [
-            Tab(
-              child: Text(
-                "التقارير",
-                style: AppTextStyles.jannat18BoldWhite,
-              ),
-            ),
             Tab(
               child: Text(
                 "مستشفيات",

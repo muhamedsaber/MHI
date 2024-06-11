@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mhi/core/constants/database_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
@@ -60,5 +61,7 @@ class CacheHelper {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString(key) ?? '';
   }
- 
+  static Future<bool>isCurrentUserPatient()async{
+    return await getBool(key: DatabaseConstants.isPatientLoggedIn);
+  }
 }

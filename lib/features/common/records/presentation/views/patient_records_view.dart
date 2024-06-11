@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:mhi/config/database/cache/user_cache.dart';
 import 'package:mhi/core/common_ui/widgets/appbar_builder.dart';
 import 'package:mhi/core/common_ui/widgets/search_textfield.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
-
 import 'package:mhi/core/helper/spacing.dart';
-import 'package:mhi/features/auth/login/data/models/patient_model.dart';
 import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
 import 'package:mhi/features/common/records/presentation/widgets/patient_record_bloc_builder.dart';
 import 'package:mhi/features/common/records/presentation/widgets/sorting_records.dart';
