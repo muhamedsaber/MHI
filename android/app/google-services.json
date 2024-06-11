@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "589852586520",
+    "project_id": "misrhealthinsurance",
+    "storage_bucket": "misrhealthinsurance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589852586520:android:dde617eb6e0331d332496d",
+        "android_client_info": {
+          "package_name": "com.example.mhi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsBttaSox4Sh0PXwgcSX5BjemP3BlpZqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589852586520:android:a7ffe9862caf4b2732496d",
+        "android_client_info": {
+          "package_name": "com.example.mhiapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsBttaSox4Sh0PXwgcSX5BjemP3BlpZqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
