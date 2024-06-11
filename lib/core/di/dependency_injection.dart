@@ -7,6 +7,8 @@ import 'package:mhi/features/auth/login/data/repos/login_repository.dart';
 import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dart';
 import 'package:mhi/features/auth/signup/data/repos/signup_repo.dart';
 import 'package:mhi/features/auth/signup/presentation/logic/cubit/signup_cubit.dart';
+import 'package:mhi/features/common/records/data/repos/patient_record_repo.dart';
+import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
 import 'package:mhi/features/patient/saved/presentation/Logic/cubit/saved_doctors_cubit.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/repos/get_all_doctors_repo.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/repos/get_doctor_by_specialize.dart';
@@ -37,15 +39,19 @@ setupDependencyInjection() async {
   getIt.registerSingleton<SpecializesCubit>(
       SpecializesCubit(specializesRepository: getIt()));
 
-
-
   // get all doctors dependencies
-  getIt.registerSingleton<GetAllDoctorsRepo>(GetAllDoctorsRepo(apiService: getIt()));
-  getIt.registerSingleton<GetDoctorBySpecialize>(GetDoctorBySpecialize(service: getIt()));
-  getIt.registerSingleton<BookDoctorsCubit>(BookDoctorsCubit(getAllDoctorsRepo: getIt(),getDoctorBySpecialize:getIt()));
-
-
+  getIt.registerSingleton<GetAllDoctorsRepo>(
+      GetAllDoctorsRepo(apiService: getIt()));
+  getIt.registerSingleton<GetDoctorBySpecialize>(
+      GetDoctorBySpecialize(service: getIt()));
+  getIt.registerSingleton<BookDoctorsCubit>(BookDoctorsCubit(
+      getAllDoctorsRepo: getIt(), getDoctorBySpecialize: getIt()));
 
   //data base cubits
   getIt.registerSingleton<SavedDoctorsCubit>(SavedDoctorsCubit());
+
+  /// patient Record cubit
+  getIt.registerSingleton<PatientRecordRepo >(PatientRecordRepo (service: getIt()));
+  getIt
+      .registerSingleton<PatientRecordCubit>(PatientRecordCubit(repo: getIt()));
 }

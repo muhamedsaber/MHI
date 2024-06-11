@@ -13,7 +13,7 @@ class ApiConstants {
   static const String getDoctorTimesEndpoint = "patient/getTime";
   static const String getPatientWaitingBooks = "patient/getWaitingBooks";
   static const String getPatientDoneBooks = "patient/getDone";
-  static const String getPatientRecords = "doctor/getPatientRecord";
+  static const String getPatientRecords = "patient/getRecords";
   static const String updatePatientProfileEndpoint = "patient/updateProfile";
   static const String getPatientProfileEndpoint = "patient/getProfile";
   static const String createPatientRecordEndpoint = "doctor/createRecord";

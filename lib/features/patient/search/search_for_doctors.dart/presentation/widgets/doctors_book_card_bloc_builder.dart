@@ -21,20 +21,15 @@ class DoctorsBookCardBlocBuilder extends StatelessWidget {
         }
         if (state is BookDoctorsLoaded) {
           if (state.doctors.doctors.isEmpty) {
-            return Padding(
-                padding: EdgeInsets.only(top: context.height * 0.2),
-                child: const NoDataFound(
-                  message: "لم يتم العثور علي أطباء",
-                ));
+            return const NoDataFound(
+              message: "لم يتم العثور علي أطباء",
+            );
           }
           return DoctorBookCardListViewBuilder(
             model: state.doctors,
           );
         } else if (state is BookDoctorsError) {
-          return Padding(
-            padding: EdgeInsets.only(top: context.height * 0.2),
-            child: NoDataFound(message: state.message),
-          );
+          return NoDataFound(message: state.message);
         } else {
           return const SizedBox.shrink();
         }
