@@ -21,16 +21,18 @@ void main() async {
   await Hive.initFlutter();
   await Hive.openBox(AppConstants.themeBox);
 
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(create: (context) => getIt<SignupCubit>()),
-      BlocProvider(create: (context) => getIt<LoginCubit>()),
-      BlocProvider(create: (context) => getIt<SpecializesCubit>()),
-      BlocProvider(create: (context) => getIt<BookDoctorsCubit>()),
-      BlocProvider(create: (context) => getIt<SavedDoctorsCubit>()),
-      BlocProvider(create: (context) => getIt<PatientRecordCubit>()),
-      BlocProvider(create: (context) => getIt<FirebaseHospitalsCubit>())
-    ],
-    child: const MhiApp(),
-  ));
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => getIt<SignupCubit>()),
+        BlocProvider(create: (context) => getIt<LoginCubit>()),
+        BlocProvider(create: (context) => getIt<SpecializesCubit>()),
+        BlocProvider(create: (context) => getIt<BookDoctorsCubit>()),
+        BlocProvider(create: (context) => getIt<SavedDoctorsCubit>()),
+        BlocProvider(create: (context) => getIt<PatientRecordCubit>()),
+        BlocProvider(create: (context) => getIt<FirebaseHospitalsCubit>())
+      ],
+      child: const MhiApp(),
+    ),
+  );
 }
