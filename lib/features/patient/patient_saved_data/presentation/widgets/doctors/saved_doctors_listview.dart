@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/doctor_book_card_details.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/doctor_book_card_details.dart';
 
 class SavedDoctorsListViewBuilder extends StatelessWidget {
   const SavedDoctorsListViewBuilder({super.key, required this.doctors});

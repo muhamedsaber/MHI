@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/app_padding.dart';
 import 'package:mhi/core/helper/extensions.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/specialize_card.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/specialize_card.dart';
 
 class SpecializesListView extends StatefulWidget {
   const SpecializesListView({super.key, required this.models});

@@ -10,7 +10,7 @@ import 'package:mhi/features/patient/firebase_hospitals/presentation/views/fireb
 import 'package:mhi/features/patient/firebase_hospitals/presentation/views/firebase_hospitals_view.dart';
 import 'package:mhi/features/patient/mhi/presentation/views/subscription_rules_view.dart';
 import 'package:mhi/features/patient/profile/presentation/views/patient_settings_view.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/views/search_for_doctors_view.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/views/search_for_doctors_view.dart';
 import 'package:mhi/features/splash/presentation/views/splash_view.dart';
 
 class AppRouter {

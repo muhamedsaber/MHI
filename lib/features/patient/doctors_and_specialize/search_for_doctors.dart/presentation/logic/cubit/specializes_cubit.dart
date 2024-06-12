@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mhi/core/networking/api_result.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/data/specializes/repos/specializes_repo.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/repos/specializes_repo.dart';
 
 part 'specializes_state.dart';
 part 'specializes_cubit.freezed.dart';

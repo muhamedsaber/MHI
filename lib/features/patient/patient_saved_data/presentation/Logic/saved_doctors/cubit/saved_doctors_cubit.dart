@@ -5,7 +5,7 @@ import 'package:mhi/config/database/local/patient/doctor_database.dart';
 import 'package:mhi/core/helper/alerts.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_state.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
 
 class SavedDoctorsCubit extends Cubit<SavedDoctorsState> {
   SavedDoctorsCubit() : super(SavedDoctorsInitial());

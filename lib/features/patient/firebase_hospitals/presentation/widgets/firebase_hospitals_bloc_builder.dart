@@ -7,7 +7,7 @@ import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/logic/cubit/firebase_hospitals_cubit.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/logic/cubit/firebase_hospitals_state.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/widgets/firebase_hospital_card.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/doctors_shimmer_listviewbuilder.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/doctors_shimmer_listviewbuilder.dart';
 
 class FirebaseHospitalsBlocBuilder extends StatefulWidget {
   const FirebaseHospitalsBlocBuilder({super.key});

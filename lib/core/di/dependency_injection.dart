@@ -17,11 +17,11 @@ import 'package:mhi/features/patient/hospitals/data/repos/doctors/get_doctors_by
 import 'package:mhi/features/patient/hospitals/presentation/logic/cubit/all_hospitals_cubit.dart';
 import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
 import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/repos/get_all_doctors_repo.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/repos/get_doctor_by_specialize.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/data/specializes/repos/specializes_repo.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/logic/cubit/specializes_cubit.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/repos/get_all_doctors_repo.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/repos/get_doctor_by_specialize.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/repos/specializes_repo.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/cubit/specializes_cubit.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
 
 final getIt = GetIt.instance;
 setupDependencyInjection() async {

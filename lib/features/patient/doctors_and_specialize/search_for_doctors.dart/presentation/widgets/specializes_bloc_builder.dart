@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/logic/cubit/specializes_cubit.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/specializes_card_list_view.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/specializes_shimmer.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/cubit/specializes_cubit.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/specializes_card_list_view.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/specializes_shimmer.dart';
 
 class SpecializesBlocBuilder extends StatelessWidget {
   const SpecializesBlocBuilder({super.key});

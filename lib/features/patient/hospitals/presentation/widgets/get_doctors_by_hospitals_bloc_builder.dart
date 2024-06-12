@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/no_data_found.dart';
 import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
 import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_state.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/doctor_book_card_list_view_builder.dart';
-import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/widgets/doctors_shimmer_listviewbuilder.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/doctor_book_card_list_view_builder.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/doctors_shimmer_listviewbuilder.dart';
 
 class GetDoctorsByHospitalIdBlocBuilder extends StatelessWidget {
   const GetDoctorsByHospitalIdBlocBuilder({super.key});
