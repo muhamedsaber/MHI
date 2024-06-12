@@ -31,6 +31,7 @@ dependencies:
   build_runner: ^2.4.10
   cloud_firestore: ^5.0.1
   cupertino_icons: ^1.0.6
+  device_info_plus: ^9.1.2
   dio: ^5.4.3+1
   firebase_core: ^3.1.0
   flutter:
@@ -53,6 +54,7 @@ dependencies:
   shared_preferences: ^2.2.3
   shimmer: ^3.0.0
   smooth_page_indicator: ^1.1.0
+  syncfusion_flutter_pdfviewer: ^20.4.54
   url_launcher: ^6.3.0
 
 dev_dependencies:

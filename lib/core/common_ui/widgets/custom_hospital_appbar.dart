@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/main_app_bar.dart';
 import 'package:mhi/core/helper/app_assets.dart';
@@ -18,7 +17,32 @@ class CustomHospitalAppBar extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        MainAppBar(gradient: gradient),
+        MainAppBar(gradient: gradient,
+        widget:  Container(
+          alignment: Alignment.center,
+          margin: EdgeInsets.only(top: 40.h),
+          padding: EdgeInsets.all(1.h),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Theme.of(context).scaffoldBackgroundColor,
+          ),
+          child: Container(
+            padding: EdgeInsets.all(5.h),
+            height: 140.h,
+            width: 140.w,
+            decoration: BoxDecoration(
+              color: Theme.of(context).scaffoldBackgroundColor,
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(
+                  hospitalImage,
+                ),
+              ),
+            ),
+          ),
+        ),
+        ),
         isMainProfile == true
             ? const SizedBox.shrink()
             : Positioned(
@@ -43,37 +67,7 @@ class CustomHospitalAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-        Positioned(
-          top: 45.h,
-          left: 0.w,
-          right: 0.w,
-          bottom: 0.h,
-          child: Align(
-            alignment: Alignment.topCenter,
-            child: Container(
-              padding: EdgeInsets.all(4.h),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).scaffoldBackgroundColor,
-              ),
-              child: Container(
-                padding: EdgeInsets.all(5.h),
-                height: 140.h,
-                width: 140.w,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      hospitalImage,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
+       
       ],
     );
   }

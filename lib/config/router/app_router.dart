@@ -8,6 +8,7 @@ import 'package:mhi/features/onBoarding/presentation/views/onboarding_view.dart'
 import 'package:mhi/features/patient/firebase_hospitals/data/models/firebase_hospital_model.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/views/firebase_hospital_profile_view.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/views/firebase_hospitals_view.dart';
+import 'package:mhi/features/patient/mhi/presentation/views/subscription_rules_view.dart';
 import 'package:mhi/features/patient/profile/presentation/views/patient_settings_view.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/presentation/views/search_for_doctors_view.dart';
 import 'package:mhi/features/splash/presentation/views/splash_view.dart';
@@ -45,12 +46,16 @@ class AppRouter {
       case Routes.firebaseHospitalProfileView:
        //pass The args default value to avoid null exception
         final hospital = settings.arguments as FireBaseHospitalsModel;
-
+      
        
         return MaterialPageRoute(
           
           builder: (context) =>  FirebaseHospitalProfileView(hospital:hospital,),
         );
+
+       case Routes.subscriptionRolesView:
+       return MaterialPageRoute(builder: (context) =>const SubscriptionRolesView(),);
+
       default:
         return MaterialPageRoute(
             builder: (_) => DefaultErrorRoute(

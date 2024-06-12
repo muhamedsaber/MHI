@@ -1,4 +1,3 @@
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,13 +16,11 @@ import 'package:mhi/mhi_app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await setupDependencyInjection();
   await Hive.initFlutter();
   await Hive.openBox(AppConstants.themeBox);
- 
- 
-          
+
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(create: (context) => getIt<SignupCubit>()),
@@ -32,7 +29,7 @@ void main() async {
       BlocProvider(create: (context) => getIt<BookDoctorsCubit>()),
       BlocProvider(create: (context) => getIt<SavedDoctorsCubit>()),
       BlocProvider(create: (context) => getIt<PatientRecordCubit>()),
-      BlocProvider(create: (context) => getIt<FirebaseHospitalsCubit>(),)
+      BlocProvider(create: (context) => getIt<FirebaseHospitalsCubit>())
     ],
     child: const MhiApp(),
   ));
