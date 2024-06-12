@@ -8,6 +8,7 @@ class ApiConstants {
   static const String searchEndpoint = "patient/search";
   static const String bookAppointementEndpoint = "patient/book";
   static const String searchMedicineEndpoint = "patient/searchMedicine";
+  static const String searchHospital = "patient/searchHospital";
   static const String getAllMedicinesEndpoint = "patient/getMedicines";
   static const String getDoctorDaysEndpoint = "patient/getDays";
   static const String getDoctorTimesEndpoint = "patient/getTime";

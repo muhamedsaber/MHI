@@ -21,10 +21,11 @@ class PatientHomeView extends StatelessWidget {
             children: [
               verticleSpace(30),
               const AppointmentHomeScreen(),
-              verticleSpace(30),
+              verticleSpace(40),
               const SearchForDoctorsHomeView(),
               verticleSpace(30),
-              const HospitalsHomeView()
+              const HospitalsHomeView(),
+              verticleSpace(100),
             ],
           ),
         )

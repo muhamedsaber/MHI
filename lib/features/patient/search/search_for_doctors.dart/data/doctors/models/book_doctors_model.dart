@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
+import 'dart:developer';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'book_doctors_model.g.dart';
@@ -20,6 +22,8 @@ class BookDoctorsModel {
       return {"doctors": json['userD']};
     } else if (json.containsKey('search')) {
       return {"doctors": json['search']};
+    } else if (json.containsKey("searchName")) {
+      return {"doctors": json['searchName']};
     }
     return json;
   }
@@ -47,8 +51,30 @@ class DoctorBookData {
     this.hospitalId,
   });
 
-  factory DoctorBookData.fromJson(Map<String, dynamic> json) =>
-      _$DoctorBookDataFromJson(json);
+  factory DoctorBookData.fromJson(Map<String, dynamic> json) {
+    return DoctorBookData(
+      doctorId: json['_id'],
+      name: json['name'],
+      username: json['username'],
+      code: json['code'],
+      role: json['role'],
+      specialize: json['specialize'] == null
+          ? null
+          : SpecializeBoodModel.fromJson(json['specialize']),
+      hospitalId: _getHospitalId(json),
+    );
+  }
+
+  static dynamic _getHospitalId(Map<String, dynamic> json) {
+    if (json.containsKey("hospitalID")) {
+      try {
+        return HospitalIdModel(hospitalId: json["hospitalID"]);
+      } catch (e) {
+        return HospitalIdModel.fromJson(json['hospitalID']);
+      }
+    }
+    return null;
+  }
 
   Map<String, dynamic> toJson() => _$DoctorBookDataToJson(this);
 }

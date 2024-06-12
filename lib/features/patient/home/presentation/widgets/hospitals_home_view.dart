@@ -6,6 +6,7 @@ import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/patient/home/presentation/widgets/instructions/appointement_instructions_home_sheet.dart';
 import 'package:mhi/features/patient/home/presentation/widgets/instructions/patient_home_image_card.dart';
+import 'package:mhi/features/patient/hospitals/presentation/views/book_hospitals_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class AppointmentHomeScreen extends StatefulWidget {
@@ -47,7 +48,7 @@ class _AppointmentHomeScreenState extends State<AppointmentHomeScreen> {
             ]),
         child: Column(
           children: [
-            SizedBox(height: 10.h),
+            SizedBox(height: 20.h),
             SizedBox(
               width: 350.w,
               height: 110.h,
@@ -81,7 +82,12 @@ class _AppointmentHomeScreenState extends State<AppointmentHomeScreen> {
                         PatientHomeImageCard(
                           buttontext: "المستشفيات",
                           image: Assets.hospitalView,
-                          onTap: () async {},
+                          onTap: () async {
+                            Navigator.of(context, rootNavigator: true)
+                                .push(MaterialPageRoute(
+                              builder: (context) => const BookHospitalsView(),
+                            ));
+                          },
                           secondColor: AppColors.lightGreen,
                           text: "احجز موعدك الان",
                         ),

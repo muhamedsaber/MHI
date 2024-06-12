@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mhi/core/constants/api_constants.dart';
+import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_model.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
 import 'package:mhi/features/patient/search/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
 
@@ -21,5 +22,12 @@ abstract class PatientApiService {
   // get doctors by specialize id
   @POST(ApiConstants.searchEndpoint)
   Future<BookDoctorsModel> getDoctorsBySpecialize(
+      {@Body() required Map<String,dynamic>body});
+
+  @GET(ApiConstants.getAllHospitalsEndPoint)    
+  Future<AllBookingHospitalsModel> getHospitals();
+
+  @POST(ApiConstants.searchHospital)
+  Future<BookDoctorsModel> getDoctorByHospitalId(
       {@Body() required Map<String,dynamic>body});
 }
