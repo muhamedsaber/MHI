@@ -5,9 +5,11 @@ import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 
-class MhiTitle extends StatelessWidget {
-  const MhiTitle({super.key});
-
+class VerifiedTitle extends StatelessWidget {
+  const VerifiedTitle({super.key,
+  required this.title
+  });
+ final String title;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -19,11 +21,13 @@ class MhiTitle extends StatelessWidget {
                 size: 30.sp,
               ),
               horizontalSpace(10),
-              Text(
-                "مصر للتأمين الصحي",
-                style: AppTextStyles.jannat18BoldWhite.copyWith(
-                  fontSize: 20.sp,
-                  color: context.theme.colorScheme.onSurface,
+              Flexible(
+                child: Text(
+                  title,
+                  style: AppTextStyles.jannat18BoldWhite.copyWith(
+                    fontSize: 20.sp,
+                    color: context.theme.colorScheme.onSurface,
+                  ),
                 ),
               )
             ],
