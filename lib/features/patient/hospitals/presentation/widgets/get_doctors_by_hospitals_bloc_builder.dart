@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,25 +15,27 @@ class GetDoctorsByHospitalIdBlocBuilder extends StatelessWidget {
     return BlocBuilder<GetDoctorsByHospitalCubit, GetDoctorsByHospitalState>(
       builder: (context, state) {
         return state.when(initial: () {
-          return Expanded(child: 
-          SingleChildScrollView(
+          return Expanded(
+              child: SingleChildScrollView(
             child: Padding(
-            padding: EdgeInsets.only(top: 100.h),
-            child: const NoDataFound(
-              message: "اختر مستشفي لعرض الأطباء",
-              icon: Icons.check_box_outline_blank_outlined,
+              padding: EdgeInsets.only(top: 100.h),
+              child: const NoDataFound(
+                message: "اختر مستشفي لعرض الأطباء",
+                icon: Icons.check_box_outline_blank_outlined,
+              ),
             ),
-          ),
-          )
-          );
+          ));
         }, loading: () {
-          return Expanded(child: SingleChildScrollView(child: const DoctorBookCardShimmer()));
+          return const Expanded(
+              child:
+                  SingleChildScrollView(child: const DoctorBookCardShimmer()));
         }, loaded: (doctors) {
           return DoctorBookCardListViewBuilder(
             model: doctors,
           );
         }, error: (message) {
-          return Expanded(child: SingleChildScrollView(
+          return Expanded(
+              child: SingleChildScrollView(
             child: NoDataFound(message: message),
           ));
         });

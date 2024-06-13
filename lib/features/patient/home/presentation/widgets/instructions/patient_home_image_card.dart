@@ -28,7 +28,7 @@ class PatientHomeImageCard extends StatelessWidget {
               begin: Alignment.centerRight,
               end: Alignment.centerLeft,
               colors: [Colors.black, secondColor]),
-          borderRadius: const BorderRadius.all(Radius.circular(12)),
+          borderRadius:  BorderRadius.all(Radius.circular(12.r)),
           image: DecorationImage(
               image: AssetImage(image), fit: BoxFit.cover, opacity: 0.5),
         ),

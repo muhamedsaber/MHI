@@ -40,25 +40,18 @@ class PhoneNumber extends StatelessWidget {
             )),
             child: Row(
               children: [
-                 Padding(
-                   padding: const EdgeInsets.all(8.0),
-                   child: Icon(
-                      Icons.phone,
-                      color: const Color(0xff065ef2),
-                      size: 30.h,
-                                  
-                                   ),
-                 ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(
+                    Icons.phone,
+                    color: const Color(0xff065ef2),
+                    size: 30.h,
+                  ),
+                ),
                 SizedBox(
                   width: 5.w,
                 ),
-                Text(
-                  "اتصل",
-                  style: AppTextStyles.jannat18BoldWhite.copyWith(
-                    color: const Color(0xff065ef2),
-                    fontSize: 18.sp,
-                  ),
-                ),
+                Text("اتصل", style: AppTextStyles.jannat18LightBlue),
               ],
             ),
           ),

@@ -97,7 +97,7 @@ class SearchForMedicineHomeScreen extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.of(context, rootNavigator: true)
                                         .push(MaterialPageRoute(
-                                      builder: (context) => MhiMedicineView(),
+                                      builder: (context) =>const MhiMedicineView(),
                                     ));
                                   },
                                   buttonTextSize: 18.sp,

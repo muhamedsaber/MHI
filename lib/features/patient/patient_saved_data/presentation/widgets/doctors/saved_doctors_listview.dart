@@ -25,7 +25,7 @@ class SavedDoctorsListViewBuilder extends StatelessWidget {
             },
             child: DoctorBookCardDetails(
               model: doctors[index],
-              onTap: () {},
+              onFavoriteIconTapped: () {},
             ),
           );
         },

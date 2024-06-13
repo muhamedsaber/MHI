@@ -8,10 +8,11 @@ import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dar
 import 'package:mhi/features/auth/signup/presentation/logic/cubit/signup_cubit.dart';
 import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/logic/cubit/firebase_hospitals_cubit.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/cubit/all_hospitals_cubit.dart';
+import 'package:mhi/features/patient/hospitals/presentation/logic/hospitals/all_hospitals_cubit.dart';
 import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
+import 'package:mhi/features/patient/medicines/mhi_medicines/presentation/Logic/mhi_medicines/cubit/mhi_medicines_cubit.dart';
 import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
-import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/cubit/specializes_cubit.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/specialize/specializes_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
 import 'package:mhi/firebase_options.dart';
 import 'package:mhi/mhi_app.dart';
@@ -35,6 +36,7 @@ void main() async {
         BlocProvider(create: (context) => getIt<FirebaseHospitalsCubit>()),
         BlocProvider(create: (context) => getIt<AllHospitalsCubit>()),
         BlocProvider(create: (context) => getIt<GetDoctorsByHospitalCubit>()),
+        BlocProvider(create: (context) => getIt<MhiMedicinesCubit>())
       ],
       child: const MhiApp(),
     ),

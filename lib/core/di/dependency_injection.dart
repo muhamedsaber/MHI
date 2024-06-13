@@ -14,13 +14,15 @@ import 'package:mhi/features/patient/firebase_hospitals/data/repo/firebase_hospi
 import 'package:mhi/features/patient/firebase_hospitals/presentation/logic/cubit/firebase_hospitals_cubit.dart';
 import 'package:mhi/features/patient/hospitals/data/repos/all_hospitals_repo.dart';
 import 'package:mhi/features/patient/hospitals/data/repos/doctors/get_doctors_by_hospital_id.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/cubit/all_hospitals_cubit.dart';
+import 'package:mhi/features/patient/hospitals/presentation/logic/hospitals/all_hospitals_cubit.dart';
 import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
+import 'package:mhi/features/patient/medicines/mhi_medicines/data/mhi/repos/mhi_medicine_repo.dart';
+import 'package:mhi/features/patient/medicines/mhi_medicines/presentation/Logic/mhi_medicines/cubit/mhi_medicines_cubit.dart';
 import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/repos/get_all_doctors_repo.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/repos/get_doctor_by_specialize.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/repos/specializes_repo.dart';
-import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/cubit/specializes_cubit.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/specialize/specializes_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
 
 final getIt = GetIt.instance;
@@ -79,4 +81,10 @@ setupDependencyInjection() async {
       GetDoctorsByHospitalIdRepo(apiService: getIt()));
   getIt.registerSingleton<GetDoctorsByHospitalCubit>(
       GetDoctorsByHospitalCubit(getDoctorsByHospitalId: getIt()));
+
+
+
+      /// medicines
+  getIt.registerSingleton<MhiMedicineRepo>(MhiMedicineRepo(apiService:getIt()));
+  getIt.registerSingleton<MhiMedicinesCubit>(MhiMedicinesCubit(repo: getIt()));
 }

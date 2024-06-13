@@ -34,14 +34,14 @@ class FaxNumber extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(
+            padding:const EdgeInsets.all(5),
+            decoration:const BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
             ),
             child: Icon(
               Icons.fax,
-              color: Color(0xff065ef2),
+              color:const Color(0xff065ef2),
               size: 30.h,
             ),
           ),

@@ -20,7 +20,7 @@ class HospitalsHomeView extends StatelessWidget {
           child: ElevatedButton(
             onPressed: () {
               Navigator.of(context,rootNavigator:true).push(MaterialPageRoute(
-                builder: (context) => FirebaseHospitalsView(),
+                builder: (context) =>const FirebaseHospitalsView(),
                 
               ));
             },
