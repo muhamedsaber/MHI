@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/person_icon.dart';
-import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/specialize_doctor_book_card.dart';
 
 class DoctorBookCardDetails extends StatelessWidget {
   const DoctorBookCardDetails(
-      {super.key, required this.model, this.icon, required this.onTap});
+      {super.key, required this.model, this.icon, required this.onFavoriteIconTapped});
   final DoctorBookData model;
   final Icon? icon;
-  final Function() onTap;
+  final Function()? onFavoriteIconTapped;
 
   @override
   Widget build(BuildContext context) {
@@ -23,25 +23,19 @@ class DoctorBookCardDetails extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.r),
       ),
       child: Padding(
-        padding: EdgeInsets.all(8.0.h),
+        padding: EdgeInsets.all(8.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const SizedBox(width: 10),
-                icon != null
-                    ? IconButton(onPressed: onTap, icon: icon!)
-                    : const SizedBox.shrink(),
+                horizontalSpace(10),
+                buildFavoriteIcon(),
                 const Spacer(),
                 Text(
                   model.name ?? "غير متاح",
-                  style:
-                      AppTextStyles.jannat18BoldPrimaryColor(context).copyWith(
-                    fontSize: 18.sp,
-                    color: AppColors.lighBlue,
-                  ),
+                  style: AppTextStyles.jannat18LightBlue
                 ),
                 horizontalSpace(10),
                 const PersonIcon(
@@ -53,34 +47,18 @@ class DoctorBookCardDetails extends StatelessWidget {
               thickness: 0.3,
             ),
             verticleSpace(2),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const SizedBox(width: 10),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      model.specialize!.name ?? "غير متاح",
-                      style: AppTextStyles.jannat18BoldPrimaryColor(context),
-                    )
-                  ],
-                ),
-                horizontalSpace(10),
-                Container(
-                  padding: EdgeInsets.all(5.w),
-                  decoration: BoxDecoration(
-                    color: context.theme.colorScheme.primary.withOpacity(0.089),
-                    borderRadius: BorderRadius.circular(10.r),
-                  ),
-                  child: Text(" التخصص",
-                      style: AppTextStyles.jannat18BoldPrimaryColor(context)),
-                )
-              ],
+            SpecializeDoctorCard(
+              doctor: model,
             )
           ],
         ),
       ),
     );
+  }
+
+  Widget buildFavoriteIcon() {
+    return icon != null
+        ? IconButton(onPressed: onFavoriteIconTapped, icon: icon!)
+        : const SizedBox.shrink();
   }
 }

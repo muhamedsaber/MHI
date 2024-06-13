@@ -4,33 +4,6 @@ import 'package:mhi/core/helper/app_padding.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:shimmer/shimmer.dart';
 
-class CustomShimmer extends StatelessWidget {
-  const CustomShimmer(
-      {super.key,
-      required this.borderRadius,
-      required this.height,
-      required this.width});
-  final double height;
-  final double width;
-  final BorderRadius borderRadius;
-  @override
-  Widget build(BuildContext context) {
-    return Shimmer.fromColors(
-      baseColor: context.theme.colorScheme.surfaceContainerHigh,
-      highlightColor: context.theme.colorScheme.surfaceContainerLow,
-      child: Container(
-        margin: EdgeInsets.only(left: 8.w),
-        height: height.h,
-        width: width.w,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: borderRadius,
-        ),
-      ),
-    );
-  }
-}
-
 class SpecializesShimmer extends StatelessWidget {
   const SpecializesShimmer({super.key});
 
@@ -46,10 +19,18 @@ class SpecializesShimmer extends StatelessWidget {
           itemCount: 20,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return CustomShimmer(
-              width: 80.w,
-              height: 40.h,
-              borderRadius: BorderRadius.circular(7.r),
+            return Shimmer.fromColors(
+              baseColor: context.theme.colorScheme.surfaceContainerHigh,
+              highlightColor: context.theme.colorScheme.surfaceContainerLow,
+              child: Container(
+                margin: EdgeInsets.only(left: 8.w),
+                height: 40.h,
+                width: 80.w,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(7.r),
+                ),
+              ),
             );
           },
         ),

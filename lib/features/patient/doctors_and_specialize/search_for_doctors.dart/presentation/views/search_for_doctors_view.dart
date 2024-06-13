@@ -23,9 +23,8 @@ class _SearchForDoctorsState extends State<SearchForDoctors> {
   @override
   void initState() {
     _controller = TextEditingController();
-    context.read<SpecializesCubit>().getSpecializes();
-    context.read<BookDoctorsCubit>().getAllDoctors();
-
+    initSpecializes();
+    initDoctors();
     super.initState();
   }
 
@@ -40,9 +39,7 @@ class _SearchForDoctorsState extends State<SearchForDoctors> {
             SearchTextField(
               controller: _controller,
               hintText: AppStrings.enterTheDoctorName,
-              onChanged: (input) {
-                context.read<BookDoctorsCubit>().filterDoctors(input: input);
-              },
+              onChanged: filterDoctors,
             ),
             verticleSpace(15),
             const SpecializesBlocBuilder(),
@@ -51,5 +48,17 @@ class _SearchForDoctorsState extends State<SearchForDoctors> {
             const SaveAndDeleteDoctorBlocListener()
           ],
         ));
+  }
+
+  initSpecializes() {
+    context.read<SpecializesCubit>().getSpecializes();
+  }
+
+  initDoctors() {
+    context.read<BookDoctorsCubit>().getAllDoctors();
+  }
+
+  filterDoctors(String? input) {
+    context.read<BookDoctorsCubit>().filterDoctors(input: input);
   }
 }

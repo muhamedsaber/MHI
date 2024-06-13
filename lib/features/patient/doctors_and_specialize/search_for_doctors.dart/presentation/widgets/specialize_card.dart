@@ -21,7 +21,7 @@ class SpecializeCard extends StatelessWidget {
           horizontal: 15.w,
        
         ),
-        decoration: BoxDecoration(
+        decoration: BoxDecoration( 
           borderRadius: BorderRadius.circular(1000.r),
           color: backgroundColor,
           border: Border.all(

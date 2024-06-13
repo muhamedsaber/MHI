@@ -13,6 +13,7 @@ class DoctorBookCardListViewBuilder extends StatelessWidget {
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         itemCount: model.doctors.length,
+        padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
           return GestureDetector(
               onTap: () {
@@ -26,7 +27,7 @@ class DoctorBookCardListViewBuilder extends StatelessWidget {
                     });
               },
               child: DoctorBookCard(
-                model: model.doctors[index],
+                doctor: model.doctors[index],
               ));
         },
       ),

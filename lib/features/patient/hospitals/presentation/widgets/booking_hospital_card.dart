@@ -20,7 +20,7 @@ class BookingHospitalCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.width * 0.94,
+      width: context.width * 0.8,
     
       child: GestureDetector(
         onTap: onTap

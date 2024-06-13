@@ -119,4 +119,11 @@ class AppTextStyles {
     fontSize: 20.sp,
     color: Colors.white,
   );
+  static TextStyle jannat18LightBlue=TextStyle(
+    fontFamily: AppConstants.jannatFont,
+    fontWeight: FontWeight.bold,
+    fontSize: 18.sp,
+    color: Colors.lightBlue,
+  );
+  
 }

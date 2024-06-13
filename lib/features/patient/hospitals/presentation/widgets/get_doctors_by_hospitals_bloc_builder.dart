@@ -16,21 +16,27 @@ class GetDoctorsByHospitalIdBlocBuilder extends StatelessWidget {
     return BlocBuilder<GetDoctorsByHospitalCubit, GetDoctorsByHospitalState>(
       builder: (context, state) {
         return state.when(initial: () {
-          return Padding(
+          return Expanded(child: 
+          SingleChildScrollView(
+            child: Padding(
             padding: EdgeInsets.only(top: 100.h),
             child: const NoDataFound(
               message: "اختر مستشفي لعرض الأطباء",
               icon: Icons.check_box_outline_blank_outlined,
             ),
+          ),
+          )
           );
         }, loading: () {
-          return const DoctorBookCardShimmer();
+          return Expanded(child: SingleChildScrollView(child: const DoctorBookCardShimmer()));
         }, loaded: (doctors) {
           return DoctorBookCardListViewBuilder(
             model: doctors,
           );
         }, error: (message) {
-          return NoDataFound(message: message);
+          return Expanded(child: SingleChildScrollView(
+            child: NoDataFound(message: message),
+          ));
         });
       },
     );
