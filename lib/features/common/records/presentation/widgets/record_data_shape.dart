@@ -15,9 +15,8 @@ class RecordsDataShape extends StatelessWidget {
         Container(
           alignment: Alignment.centerRight,
           width: 200.w,
-          padding:
-              EdgeInsets.only(top: 10.h, bottom: 10.h, right: 5.h, left: 5.w),
-          margin: EdgeInsets.only(top: 3.h, bottom: 3.h),
+          padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.h),
+          margin: EdgeInsets.symmetric(vertical: 3.h),
           decoration: BoxDecoration(
             border: Border.all(
               color: Theme.of(context).colorScheme.onSurface,
@@ -28,18 +27,13 @@ class RecordsDataShape extends StatelessWidget {
             value,
             maxLines: 20,
             overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.jannat20BoldOnPrimaryColor(context).copyWith(
-              fontSize: 14.sp,
-              color: Theme.of(context).colorScheme.onSurface,
-            ),
+            style: AppTextStyles.jannat14OnSurface(context),
           ),
         ),
         horizontalSpace(6),
         Container(
           width: 90.w,
-         
-          padding:
-              EdgeInsets.only(top: 10.h, bottom: 10.h, right: 5.w, left: 5.w),
+          padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 5.h),
           alignment: Alignment.centerRight,
           decoration: BoxDecoration(
             border: Border.all(
@@ -47,15 +41,10 @@ class RecordsDataShape extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(5.r),
           ),
-          child: Text(
-            title,
-            maxLines: 20,
-            overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.jannat20BoldOnPrimaryColor(context).copyWith(
-              fontSize: 14.sp,
-              color: Theme.of(context).colorScheme.onSurface,
-            ),
-          ),
+          child: Text(title,
+              maxLines: 20,
+              overflow: TextOverflow.ellipsis,
+              style: AppTextStyles.jannat14OnSurface(context)),
         ),
       ],
     );

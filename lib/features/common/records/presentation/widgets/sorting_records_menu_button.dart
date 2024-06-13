@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
-import 'package:mhi/core/helper/alerts.dart';
-import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
 
-class SortingRecords extends StatelessWidget {
-  const SortingRecords({super.key, required this.getAllRecordsRecords});
+class SortingRecordsMenuButton extends StatelessWidget {
+  const SortingRecordsMenuButton({super.key, required this.getAllRecordsRecords});
   final void Function() getAllRecordsRecords;
   @override
   Widget build(BuildContext context) {
@@ -20,19 +18,14 @@ class SortingRecords extends StatelessWidget {
         return [
           PopupMenuItem(
             onTap: getAllRecordsRecords,
-            value: "الكل",
+            value: "عرض الكل",
             child: Text(
-              "الكل",
+              "عرض الكل",
               style: AppTextStyles.jannat18BoldPrimaryColor(context),
             ),
           ),
           PopupMenuItem(
-            onTap: () {
-              getIt<PatientRecordCubit>().sortFromOldestToNewest();
-              Alerts().showCustomToast(
-                  message: "تم ترتيب السجلات الطبية",
-                  color: AppColors.lightGreen);
-            },
+            onTap: sortFromOldestToNewest,
             value: "من الأقدم إلى الأحدث",
             child: Text(
               "من الأقدم إلى الأحدث",
@@ -40,12 +33,7 @@ class SortingRecords extends StatelessWidget {
             ),
           ),
           PopupMenuItem(
-            onTap: () {
-              getIt<PatientRecordCubit>().sortFromNewestToOldest();
-              Alerts().showCustomToast(
-                  message: "تم ترتيب السجلات الطبية",
-                  color: AppColors.lightGreen);
-            },
+            onTap: sortFromNewestToOldest,
             value: "من الأحدث إلى الأقدم",
             child: Text(
               "من الأحدث إلى الأقدم",
@@ -55,5 +43,13 @@ class SortingRecords extends StatelessWidget {
         ];
       },
     );
+  }
+
+  sortFromNewestToOldest() {
+    getIt<PatientRecordCubit>().sortFromNewestToOldest();
+  }
+
+  sortFromOldestToNewest() {
+    getIt<PatientRecordCubit>().sortFromOldestToNewest();
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/helper/extensions.dart';
+import 'package:mhi/core/helper/spacing.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ShimmerRecordContent extends StatelessWidget {
@@ -15,7 +16,7 @@ class ShimmerRecordContent extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
           decoration: BoxDecoration(
             color: Theme.of(context).cardColor.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
           ),
           child: Column(
             children: List.generate(7, (index) {
@@ -34,7 +35,7 @@ class ShimmerRecordContent extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5.r),
                           ),
                         ),
-                        const SizedBox(width: 10),
+                         verticleSpace(10),
                         Container(
                           width: 100.w,
                           height: 50,
@@ -45,7 +46,7 @@ class ShimmerRecordContent extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                    verticleSpace(5)
                   ],
                 ),
               );

@@ -6,7 +6,7 @@ import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
 import 'package:mhi/features/common/records/presentation/widgets/patient_record_bloc_builder.dart';
-import 'package:mhi/features/common/records/presentation/widgets/sorting_records.dart';
+import 'package:mhi/features/common/records/presentation/widgets/sorting_records_menu_button.dart';
 
 class PatientRecordView extends StatefulWidget {
   const PatientRecordView({super.key, required this.patientId});
@@ -19,13 +19,8 @@ class PatientRecordView extends StatefulWidget {
 class _PatientRecordViewState extends State<PatientRecordView> {
   @override
   void initState() {
-    getRecords();
+    getPatientRecords();
     super.initState();
-  }
-
-  getRecords() async {
-    getIt<PatientRecordCubit>()
-        .getPatientRecordsFromApi(patientId: widget.patientId);
   }
 
   @override
@@ -38,16 +33,12 @@ class _PatientRecordViewState extends State<PatientRecordView> {
             Row(
               children: [
                 horizontalSpace(20),
-
-                
-                SortingRecords(getAllRecordsRecords: getRecords),
+                SortingRecordsMenuButton(getAllRecordsRecords: getPatientRecords),
                 Expanded(
                   child: SearchTextField(
                       controller: TextEditingController(),
                       hintText: "ابحث عن سجل طبي",
-                      onChanged: (input) {
-                        getIt<PatientRecordCubit>().filterRecords(input);
-                      }),
+                      onChanged: searchForRecords),
                 ),
                 horizontalSpace(4),
               ],
@@ -56,5 +47,16 @@ class _PatientRecordViewState extends State<PatientRecordView> {
             const PatientRecordBlocBuilder(),
           ],
         ));
+  }
+
+  // triggering the cubit to filter the RecordsList
+  searchForRecords(String? input) {
+    getIt<PatientRecordCubit>().filterRecords(input);
+  }
+
+  // triggering the cubit to get all the RecordsList
+  getPatientRecords() async {
+    getIt<PatientRecordCubit>()
+        .getPatientRecordsFromApi(patientId: widget.patientId);
   }
 }

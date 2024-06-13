@@ -40,8 +40,7 @@ class UserRecordContent extends StatelessWidget {
               _buildRecordDataShape("اسم المريض", record.patient?.name),
               _buildRecordDataShape(
                   "تاريخ الميلاد", record.patient?.birthday.formattedDate),
-                  _buildRecordDataShape(
-                  "تاريخ التقرير", record.date.formattedDate),
+              _buildRecordDataShape("تاريخ التقرير", record.date.formattedDate),
             ],
           ),
         ),

@@ -14,7 +14,7 @@ class PatientRecordCubit extends Cubit<PatientRecordState> {
       : super(const PatientRecordState.initial());
   final PatientRecordRepo repo;
   late List<PatientRecordModel> allRecords;
-  late List<PatientRecordModel>sortedRecord;
+  late List<PatientRecordModel> sortedRecord;
   // get patient records from The API
   getPatientRecordsFromApi({required String patientId}) async {
     emit(const PatientRecordState.loading());
@@ -52,21 +52,22 @@ class PatientRecordCubit extends Cubit<PatientRecordState> {
       Alerts().showCustomToast(
           message: "الرجاء الأنتظار", color: AppColors.deepBlue);
     }
-    sortedRecord=[...allRecords]..sort((a, b) => b.date!.compareTo(a.date!));
-    log("sortFromNewestToOldest");
-    
+    sortedRecord = [...allRecords]..sort((a, b) => b.date!.compareTo(a.date!));
     emit(PatientRecordState.loaded(sortedRecord));
+    Alerts().showCustomToast(
+        message: "تم ترتيب السجلات الطبية", color: AppColors.lightGreen);
   }
 
   // sort records from oldest to newest
   sortFromOldestToNewest() {
-     if (allRecords.isEmpty) {
+    if (allRecords.isEmpty) {
       Alerts().showCustomToast(
           message: "الرجاء الأنتظار", color: AppColors.deepBlue);
     }
-    sortedRecord=[...allRecords]..sort((a, b) => a.date!.compareTo(b.date!));
+    sortedRecord = [...allRecords]..sort((a, b) => a.date!.compareTo(b.date!));
     log("sortFromOldestToNewest");
-   
     emit(PatientRecordState.loaded(sortedRecord));
+    Alerts().showCustomToast(
+        message: "تم ترتيب السجلات الطبية", color: AppColors.lightGreen);
   }
 }
