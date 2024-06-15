@@ -8,12 +8,12 @@ class UserRecordContent extends StatelessWidget {
   const UserRecordContent({super.key, required this.record});
   final PatientRecordModel record;
 
-  Widget _buildRecordDataShape(String title, String? value) {
+  Widget _buildRecordDataShape(String? title, String? value) {
     if (value == null || value.isEmpty || value == "null") {
       return const SizedBox.shrink();
     }
     return RecordsDataShape(
-      title: title,
+      title: title ?? "غير معرف",
       value: value,
     );
   }
@@ -31,16 +31,20 @@ class UserRecordContent extends StatelessWidget {
           ),
           child: Column(
             children: [
-              _buildRecordDataShape("العلاج", record.medicine),
-              _buildRecordDataShape("التشخيص", record.diagnose),
+              for (DiagnoseData item in record.diagnose ?? [])
+                _buildRecordDataShape(item.medicine ?? "غير معرف",
+                    item.description ?? "غير معرف"),
               _buildRecordDataShape("الطبيب", record.doctor?.name),
-              _buildRecordDataShape("التخصص", record.doctor?.specialize?.name),
               _buildRecordDataShape(
-                  "المستشفى", record.doctor?.hospitalID?.name),
-              _buildRecordDataShape("اسم المريض", record.patient?.name),
+                  "التخصص", record.doctor?.specialize?.name ?? "غير معرف"),
+              _buildRecordDataShape(
+                  "المستشفى", record.doctor?.hospitalID?.name ?? "غير معرف"),
+              _buildRecordDataShape(
+                  "اسم المريض", record.patient?.name ?? "غير معرف"),
               _buildRecordDataShape(
                   "تاريخ الميلاد", record.patient?.birthday.formattedDate),
-              _buildRecordDataShape("تاريخ التقرير", record.date.formattedDate),
+              _buildRecordDataShape(
+                  "تاريخ التقرير", record.date?.formattedDate ?? "غير معرف"),
             ],
           ),
         ),

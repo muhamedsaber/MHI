@@ -9,8 +9,9 @@ part of 'patient_record_model.dart';
 PatientRecordModel _$PatientRecordModelFromJson(Map<String, dynamic> json) =>
     PatientRecordModel(
       id: json['_id'] as String?,
-      medicine: json['medicine'] as String?,
-      diagnose: json['diagnose'] as String?,
+      diagnose: (json['diagnose'] as List<dynamic>?)
+          ?.map((e) => DiagnoseData.fromJson(e as Map<String, dynamic>))
+          .toList(),
       date: json['date'] as String?,
       doctor: json['doctor'] == null
           ? null
@@ -19,16 +20,30 @@ PatientRecordModel _$PatientRecordModelFromJson(Map<String, dynamic> json) =>
       patient: json['patient'] == null
           ? null
           : PatientDataRecord.fromJson(json['patient'] as Map<String, dynamic>),
+      version: (json['version'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$PatientRecordModelToJson(PatientRecordModel instance) =>
     <String, dynamic>{
       '_id': instance.id,
-      'medicine': instance.medicine,
       'diagnose': instance.diagnose,
       'date': instance.date,
       'doctor': instance.doctor,
       'patient': instance.patient,
+      'version': instance.version,
+    };
+
+DiagnoseData _$DiagnoseDataFromJson(Map<String, dynamic> json) => DiagnoseData(
+      id: json['_id'] as String?,
+      medicine: json['medicine'] as String?,
+      description: json['description'] as String?,
+    );
+
+Map<String, dynamic> _$DiagnoseDataToJson(DiagnoseData instance) =>
+    <String, dynamic>{
+      '_id': instance.id,
+      'medicine': instance.medicine,
+      'description': instance.description,
     };
 
 PatientRecordDoctorData _$PatientRecordDoctorDataFromJson(

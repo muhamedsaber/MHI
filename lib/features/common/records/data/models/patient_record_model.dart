@@ -1,29 +1,49 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 part 'patient_record_model.g.dart';
 
 @JsonSerializable()
 class PatientRecordModel {
   @JsonKey(name: "_id")
   final String? id;
-  final String? medicine;
-  final String? diagnose;
+  final List<DiagnoseData>? diagnose;
   final String? date;
   final PatientRecordDoctorData? doctor;
   final PatientDataRecord? patient;
+  final int? version;
 
   PatientRecordModel({
     this.id,
-    this.medicine,
     this.diagnose,
     this.date,
     this.doctor,
     this.patient,
+    this.version,
   });
 
   factory PatientRecordModel.fromJson(Map<String, dynamic> json) =>
       _$PatientRecordModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$PatientRecordModelToJson(this);
+}
+
+@JsonSerializable()
+class DiagnoseData {
+  @JsonKey(name: "_id")
+  final String? id;
+  final String? medicine;
+  final String? description;
+
+  DiagnoseData({
+    this.id,
+    this.medicine,
+    this.description,
+  });
+
+  factory DiagnoseData.fromJson(Map<String, dynamic> json) =>
+      _$DiagnoseDataFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DiagnoseDataToJson(this);
 }
 
 @JsonSerializable()

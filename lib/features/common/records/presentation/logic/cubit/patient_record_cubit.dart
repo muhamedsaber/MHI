@@ -38,9 +38,7 @@ class PatientRecordCubit extends Cubit<PatientRecordState> {
     } else if (input != null || input!.isNotEmpty) {
       filtered = allRecords
           .where((element) =>
-              element.medicine!.contains(input) ||
-              element.diagnose!.contains(input) ||
-              element.doctor!.name!.contains(input))
+              element.diagnose?.contains(input)??false )
           .toList();
       emit(PatientRecordState.loaded(filtered));
     }
@@ -52,7 +50,7 @@ class PatientRecordCubit extends Cubit<PatientRecordState> {
       Alerts().showCustomToast(
           message: "الرجاء الأنتظار", color: AppColors.deepBlue);
     }
-    sortedRecord = [...allRecords]..sort((a, b) => b.date!.compareTo(a.date!));
+    sortedRecord = [...allRecords]..sort((a, b) => b.date?.compareTo(a.date!)??0);
     emit(PatientRecordState.loaded(sortedRecord));
     Alerts().showCustomToast(
         message: "تم ترتيب السجلات الطبية", color: AppColors.lightGreen);
@@ -64,7 +62,7 @@ class PatientRecordCubit extends Cubit<PatientRecordState> {
       Alerts().showCustomToast(
           message: "الرجاء الأنتظار", color: AppColors.deepBlue);
     }
-    sortedRecord = [...allRecords]..sort((a, b) => a.date!.compareTo(b.date!));
+    sortedRecord = [...allRecords]..sort((a, b) => a.date?.compareTo(b.date??"")??0);
     log("sortFromOldestToNewest");
     emit(PatientRecordState.loaded(sortedRecord));
     Alerts().showCustomToast(
