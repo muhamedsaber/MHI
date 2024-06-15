@@ -15,8 +15,8 @@ class LightThemeColors {
   static const Color sliverWhite3 = Color(0xffEDF2FB);
   static const Color lighGrey = Color(0xFFCCCCCC);
   static const Color lightyellow = Color(0xffffcd00);
-  static Color shimmer1 = AppColors.lighGrey.withOpacity(0.6);
-  static Color shimmer2 = Colors.grey[100]!;
+  static Color shimmer1 = Color(0xffE0DFE3);
+  static Color shimmer2 = Color(0xffF5F4F7 );
 }
 
 class DarkThemeColors {
@@ -29,7 +29,7 @@ class DarkThemeColors {
   static const Color errorColor = Color(0xffFF3131);
   static const Color onErrorColor = Color(0xffFF5757);
   static const Color surfaceColor = AppColors.sliverWhite2;
-  static Color shimmer1 = const Color(0xff2A2A2A).withOpacity(0.6);
-  static const Color shimmer2 = Color(0xff444444);
+  static Color shimmer1 = const Color( 0xff262626  );
+  static const Color shimmer2 = Color(0xff1A1A1A  );
   
 }

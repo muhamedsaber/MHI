@@ -2,11 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:intl/date_symbol_data_local.dart';
 import 'package:mhi/core/constants/app_constants.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dart';
 import 'package:mhi/features/auth/signup/presentation/logic/cubit/signup_cubit.dart';
 import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
+import 'package:mhi/features/patient/booking/presentation/logic/booking_process/cubit/booking_process_cubit.dart';
+import 'package:mhi/features/patient/booking/presentation/logic/dates/cubit/get_doctor_days_cubit.dart';
+import 'package:mhi/features/patient/booking/presentation/logic/times/cubit/get_doctor_times_cubit.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/logic/cubit/firebase_hospitals_cubit.dart';
 import 'package:mhi/features/patient/hospitals/presentation/logic/hospitals/all_hospitals_cubit.dart';
 import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
@@ -22,6 +26,7 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await setupDependencyInjection();
   await Hive.initFlutter();
+  await initializeDateFormatting('ar');
   await Hive.openBox(AppConstants.themeBox);
 
   runApp(
@@ -36,7 +41,10 @@ void main() async {
         BlocProvider(create: (context) => getIt<FirebaseHospitalsCubit>()),
         BlocProvider(create: (context) => getIt<AllHospitalsCubit>()),
         BlocProvider(create: (context) => getIt<GetDoctorsByHospitalCubit>()),
-        BlocProvider(create: (context) => getIt<MhiMedicinesCubit>())
+        BlocProvider(create: (context) => getIt<MhiMedicinesCubit>()),
+        BlocProvider(create: (context) => getIt<GetDoctorDaysCubit>()),
+        BlocProvider(create: (context) => getIt<GetDoctorTimesCubit>()),
+        BlocProvider(create: (context) => getIt<BookingProcessCubit>())
       ],
       child: const MhiApp(),
     ),

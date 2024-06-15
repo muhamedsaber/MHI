@@ -10,6 +10,12 @@ import 'package:mhi/features/auth/signup/data/repos/signup_repo.dart';
 import 'package:mhi/features/auth/signup/presentation/logic/cubit/signup_cubit.dart';
 import 'package:mhi/features/common/records/data/repos/patient_record_repo.dart';
 import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
+import 'package:mhi/features/patient/booking/data/repo/book_new_appointement_repo.dart';
+import 'package:mhi/features/patient/booking/data/repo/get_doctor_days_repo.dart';
+import 'package:mhi/features/patient/booking/data/repo/get_doctor_times_repo.dart';
+import 'package:mhi/features/patient/booking/presentation/logic/booking_process/cubit/booking_process_cubit.dart';
+import 'package:mhi/features/patient/booking/presentation/logic/dates/cubit/get_doctor_days_cubit.dart';
+import 'package:mhi/features/patient/booking/presentation/logic/times/cubit/get_doctor_times_cubit.dart';
 import 'package:mhi/features/patient/firebase_hospitals/data/repo/firebase_hospitals_repo.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/logic/cubit/firebase_hospitals_cubit.dart';
 import 'package:mhi/features/patient/hospitals/data/repos/all_hospitals_repo.dart';
@@ -82,9 +88,26 @@ setupDependencyInjection() async {
   getIt.registerSingleton<GetDoctorsByHospitalCubit>(
       GetDoctorsByHospitalCubit(getDoctorsByHospitalId: getIt()));
 
-
-
-      /// medicines
-  getIt.registerSingleton<MhiMedicineRepo>(MhiMedicineRepo(apiService:getIt()));
+  /// medicines
+  getIt
+      .registerSingleton<MhiMedicineRepo>(MhiMedicineRepo(apiService: getIt()));
   getIt.registerSingleton<MhiMedicinesCubit>(MhiMedicinesCubit(repo: getIt()));
+
+  /// doctor Days For Booking
+  getIt.registerSingleton<GetDoctorDaysRepo>(
+      GetDoctorDaysRepo(apiService: getIt()));
+  getIt.registerSingleton<GetDoctorDaysCubit>(
+      GetDoctorDaysCubit(getDoctorDaysRepo: getIt()));
+
+  /// get doctor times
+  getIt.registerSingleton<GetDoctorTiemsRepo>(
+      GetDoctorTiemsRepo(apiService: getIt()));
+  getIt.registerSingleton<GetDoctorTimesCubit>(
+      GetDoctorTimesCubit(repo: getIt()));
+
+  /// Booking New Appointment
+  getIt.registerSingleton<BookNewAppointementRepo>(
+      BookNewAppointementRepo(apiService: getIt()));
+  getIt.registerSingleton<BookingProcessCubit>(
+      BookingProcessCubit(repo: getIt()));
 }

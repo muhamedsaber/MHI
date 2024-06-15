@@ -35,6 +35,14 @@ class AppTextStyles {
         fontSize: 21.sp,
         color: Theme.of(context).primaryColor);
   }
+  static TextStyle jannat21BoldOnSurface(BuildContext context){
+    return TextStyle(
+      fontFamily: AppConstants.jannatFont,
+      fontWeight: FontWeight.bold,
+      fontSize: 21.sp,
+      color: Theme.of(context).colorScheme.onSurface,
+    );
+  }
 
   static TextStyle jannat24ExtraBoldOnPrimary(BuildContext context) {
     return TextStyle(

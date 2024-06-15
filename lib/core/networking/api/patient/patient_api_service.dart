@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:mhi/core/constants/api_constants.dart';
+import 'package:mhi/features/patient/booking/data/model/booking_request_body.dart';
+import 'package:mhi/features/patient/booking/data/model/booking_response_body.dart';
 import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_model.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
@@ -34,4 +36,8 @@ abstract class PatientApiService {
 
   @GET(ApiConstants.getAllMedicinesEndpoint)
   Future<MhiMedicineModel> getMedicines();
+
+  @POST(ApiConstants.bookAppointementEndpoint)
+  Future<BookingResponseBody> bookNewAppointment(
+      {@Body() required BookingRequestBody boolingRequestBody});
 }

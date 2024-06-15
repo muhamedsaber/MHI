@@ -8,4 +8,5 @@ class Routes{
     static const String patientSettingsView="/PatientSettingsView";
     static const String firebaseHospitalProfileView='/firebaseHospitalProfileView';
     static const String subscriptionRolesView="/SubscriptionRolesView";
+    static const String doctorBookingProfileView="DoctorBookingProfileView";
 }

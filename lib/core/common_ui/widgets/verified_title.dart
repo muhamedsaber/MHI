@@ -18,7 +18,7 @@ class VerifiedTitle extends StatelessWidget {
               Icon(
                 Icons.verified,
                 color: AppColors.lightGreen,
-                size: 30.sp,
+                size: 25.sp,
               ),
               horizontalSpace(10),
               Flexible(
