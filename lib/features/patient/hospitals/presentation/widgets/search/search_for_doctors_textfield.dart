@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/app_colors.dart';
+import 'package:mhi/core/helper/app_strings.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
@@ -21,7 +22,7 @@ class SearchForDoctorsTextField extends StatelessWidget {
         ),
         textDirection: TextDirection.rtl,
         decoration: InputDecoration(
-          hintText: "ابحث عن طبيب",
+          hintText:AppStrings.searchForDoctor,
           hintStyle: AppTextStyles.jannat20BoldWhite.copyWith(
             color: AppColors.lighGrey,
           ),

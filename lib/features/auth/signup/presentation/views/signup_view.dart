@@ -3,7 +3,7 @@ import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_strings.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/auth/login/presentation/widgets/top_text_description.dart';
-import 'package:mhi/features/auth/signup/presentation/widgets/birthday_view_body.dart';
+import 'package:mhi/features/auth/signup/presentation/widgets/signup_view_body.dart';
 import 'package:mhi/features/auth/signup/presentation/widgets/signup_bloc_listener.dart';
 
 class SignupView extends StatelessWidget {

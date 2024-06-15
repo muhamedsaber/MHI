@@ -15,7 +15,6 @@ class BookDoctorsCubit extends Cubit<BookDoctorsState> {
   final GetAllDoctorsRepo getAllDoctorsRepo;
   final GetDoctorBySpecialize getDoctorBySpecialize;
   late BookDoctorsModel _allDoctors;
-  
 
   /// Get [doctors] by [specializeId] and emit the state
   /// [BookDoctorsLoading] -> [BookDoctorsLoaded] -> [BookDoctorsError]
@@ -31,7 +30,6 @@ class BookDoctorsCubit extends Cubit<BookDoctorsState> {
           message: error.apiErrorModel.message ?? "حدث خطأ ما"));
     });
   }
-  
 
   /// Get [allDoctors] and emit the state
   /// [BookDoctorsLoading] -> [BookDoctorsLoaded] -> [BookDoctorsError]
@@ -49,9 +47,7 @@ class BookDoctorsCubit extends Cubit<BookDoctorsState> {
     });
   }
 
-
-
-/// Filter [doctors] by [input] and emit the state
+  /// Filter [doctors] by [input] and emit the state
   filterDoctors({required String? input}) {
     if (input == null || input.isEmpty) {
       emit(BookDoctorsLoaded(doctors: _allDoctors));
