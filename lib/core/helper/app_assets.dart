@@ -45,4 +45,7 @@ class Assets {
   static const String doctorCard = "assets/images/dc.png";
   static const String docImage = "assets/images/doctorImage1.jpg";
   static const String doctorVector = "assets/images/vectorDoctor.png";
+  static const String doneAnimation="assets/images/done.json";
+  static const String failedAnimation="assets/images/failed.json";
+  static const String loadingAnimation="assets/images/loading.json";
 }
