@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:mhi/core/networking/api_error_model.dart';
 
@@ -139,6 +141,14 @@ ApiErrorModel _handleDioError(DioException error) {
       return DataSource.receiveTimeout.getFailure();
 
     case DioExceptionType.badResponse:
+      if (error.response != null && error.response?.statusCode != null) {
+        return ApiErrorModel(
+          code: error.response!.statusCode,
+          message: error.response!.data['message'],
+        );
+      } else {
+        return DataSource.defaultError.getFailure();
+      }
     case DioExceptionType.unknown:
       if (error.response != null && error.response?.statusCode != null) {
         return ApiErrorModel.fromJson(error.response!.data);

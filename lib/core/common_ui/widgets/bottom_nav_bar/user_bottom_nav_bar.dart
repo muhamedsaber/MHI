@@ -5,6 +5,7 @@ import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/app_strings.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/theming.dart';
+import 'package:mhi/features/patient/appointements/presentation/views/patient_appointements_view.dart';
 import 'package:mhi/features/patient/home/presentation/views/patient_home_view.dart';
 import 'package:mhi/features/patient/mhi/presentation/views/patient_mhi_view.dart';
 import 'package:mhi/features/patient/profile/presentation/views/patient_profile_view.dart';
@@ -31,7 +32,7 @@ class _UserBottomNavBarState extends State<UserBottomNavBar> {
         const PatientProfileView(),
         const SavedDataView(),
         const PatientMhiView(),
-        const PatientHomeView(),
+       const PatientAppointementView(),
         const PatientHomeView()
       ];
     }

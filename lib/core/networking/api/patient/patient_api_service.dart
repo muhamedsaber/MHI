@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:mhi/core/constants/api_constants.dart';
+import 'package:mhi/features/patient/appointements/data/models/patient_appointement_model.dart';
 import 'package:mhi/features/patient/booking/data/model/booking_request_body.dart';
 import 'package:mhi/features/patient/booking/data/model/booking_response_body.dart';
 import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_model.dart';
@@ -40,4 +41,14 @@ abstract class PatientApiService {
   @POST(ApiConstants.bookAppointementEndpoint)
   Future<BookingResponseBody> bookNewAppointment(
       {@Body() required BookingRequestBody boolingRequestBody});
+  @GET("${ApiConstants.getPatientWaitingBooks}/{id}")
+  Future<List<PatientAppointmentModel>>getWaitingBooks({
+    @Path() required String id
+  });
+  @GET("${ApiConstants.getPatientDoneBooks}/{id}")
+  Future<List<PatientAppointmentModel>>getDoneBooks({
+    @Path() required String id
+  });
+  
+
 }

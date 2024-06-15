@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mhi/config/router/routes.dart';
 import 'package:mhi/core/helper/app_assets.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
-import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/features/patient/mhi/presentation/views/subscription_rules_view.dart';
 
 class SubscribeInHealthInsurance extends StatelessWidget {
@@ -14,7 +12,7 @@ class SubscribeInHealthInsurance extends StatelessWidget {
     return GestureDetector(
       onTap: (){
          Navigator.of(context,rootNavigator: true).push( MaterialPageRoute(builder: (context) {
-           return SubscriptionRolesView();
+           return const SubscriptionRolesView();
          },));
       },
       child: Stack(

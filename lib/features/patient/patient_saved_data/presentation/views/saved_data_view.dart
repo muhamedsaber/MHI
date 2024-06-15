@@ -13,7 +13,7 @@ class SavedDataView extends StatefulWidget {
 class _SavedDataViewState extends State<SavedDataView>
     with SingleTickerProviderStateMixin {
   late final TabController _tabController =
-      TabController(length: 2, vsync: this, initialIndex: 1);
+      TabController(length: 1, vsync: this, initialIndex: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

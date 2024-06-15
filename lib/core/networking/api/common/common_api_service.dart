@@ -33,5 +33,5 @@ abstract class CommonApiService {
  @POST(ApiConstants.getDoctorTimesEndpoint)
   Future<dynamic> getDoctorTimes({@Body() required GetDoctorTimesRequestBody doctorRequestBody});
  
-
+   
 }

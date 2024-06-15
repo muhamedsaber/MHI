@@ -11,9 +11,6 @@ class TabsSavedContentBody extends StatelessWidget {
         controller: tabController,
         children: [
   
-          Container(
-            color: Colors.green,
-          ),
           const SavedDoctorsTab(),
         ],
       ),

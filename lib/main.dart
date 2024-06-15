@@ -8,6 +8,8 @@ import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dart';
 import 'package:mhi/features/auth/signup/presentation/logic/cubit/signup_cubit.dart';
 import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
+import 'package:mhi/features/patient/appointements/presentation/logic/done_books/get_patinet_done_books_cubit.dart';
+import 'package:mhi/features/patient/appointements/presentation/logic/waiting_books/get_patient_waititng_books_dart_cubit.dart';
 import 'package:mhi/features/patient/booking/presentation/logic/booking_process/cubit/booking_process_cubit.dart';
 import 'package:mhi/features/patient/booking/presentation/logic/dates/cubit/get_doctor_days_cubit.dart';
 import 'package:mhi/features/patient/booking/presentation/logic/times/cubit/get_doctor_times_cubit.dart';
@@ -44,7 +46,10 @@ void main() async {
         BlocProvider(create: (context) => getIt<MhiMedicinesCubit>()),
         BlocProvider(create: (context) => getIt<GetDoctorDaysCubit>()),
         BlocProvider(create: (context) => getIt<GetDoctorTimesCubit>()),
-        BlocProvider(create: (context) => getIt<BookingProcessCubit>())
+        BlocProvider(create: (context) => getIt<BookingProcessCubit>()),
+        BlocProvider(create: (context) => getIt<GetPatinetDoneBooksCubit>()),
+        BlocProvider(
+            create: (context) => getIt<GetPatientWaititngBooksDartCubit>()),
       ],
       child: const MhiApp(),
     ),

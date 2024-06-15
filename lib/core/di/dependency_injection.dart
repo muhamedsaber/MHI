@@ -10,6 +10,10 @@ import 'package:mhi/features/auth/signup/data/repos/signup_repo.dart';
 import 'package:mhi/features/auth/signup/presentation/logic/cubit/signup_cubit.dart';
 import 'package:mhi/features/common/records/data/repos/patient_record_repo.dart';
 import 'package:mhi/features/common/records/presentation/logic/cubit/patient_record_cubit.dart';
+import 'package:mhi/features/patient/appointements/data/repos/get_patient_done_books_repo.dart';
+import 'package:mhi/features/patient/appointements/data/repos/get_patient_waiting_books.dart';
+import 'package:mhi/features/patient/appointements/presentation/logic/done_books/get_patinet_done_books_cubit.dart';
+import 'package:mhi/features/patient/appointements/presentation/logic/waiting_books/get_patient_waititng_books_dart_cubit.dart';
 import 'package:mhi/features/patient/booking/data/repo/book_new_appointement_repo.dart';
 import 'package:mhi/features/patient/booking/data/repo/get_doctor_days_repo.dart';
 import 'package:mhi/features/patient/booking/data/repo/get_doctor_times_repo.dart';
@@ -110,4 +114,16 @@ setupDependencyInjection() async {
       BookNewAppointementRepo(apiService: getIt()));
   getIt.registerSingleton<BookingProcessCubit>(
       BookingProcessCubit(repo: getIt()));
+
+  /// Patient [Appointements] Waiting Books
+  getIt.registerSingleton<GetPatientWaitingBooksRepo>(
+      GetPatientWaitingBooksRepo(apiService: getIt()));
+  getIt.registerSingleton<GetPatientWaititngBooksDartCubit>(
+      GetPatientWaititngBooksDartCubit(repo: getIt()));
+
+  /// Patient [Appointements] Done Books
+  getIt.registerSingleton<GetPatientDoneBooksRepo>(
+      GetPatientDoneBooksRepo(apiService: getIt()));
+  getIt.registerSingleton<GetPatinetDoneBooksCubit>(
+      GetPatinetDoneBooksCubit(repo: getIt()));
 }

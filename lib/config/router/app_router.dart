@@ -9,7 +9,6 @@ import 'package:mhi/features/patient/booking/presentation/views/doctor_booking_p
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
 import 'package:mhi/features/patient/firebase_hospitals/data/models/firebase_hospital_model.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/views/firebase_hospital_profile_view.dart';
-import 'package:mhi/features/patient/firebase_hospitals/presentation/views/firebase_hospitals_view.dart';
 import 'package:mhi/features/patient/mhi/presentation/views/subscription_rules_view.dart';
 import 'package:mhi/features/patient/profile/presentation/views/patient_settings_view.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/views/search_for_doctors_view.dart';
@@ -43,7 +42,7 @@ class AppRouter {
         );
       case Routes.patientSettingsView:
         return MaterialPageRoute(
-          builder: (context) =>  PatientSettingsView(),
+          builder: (context) => const PatientSettingsView(),
         );
       case Routes.firebaseHospitalProfileView:
        //pass The args default value to avoid null exception
