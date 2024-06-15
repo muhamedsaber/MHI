@@ -38,7 +38,7 @@ class _BirthdayInputState extends State<BirthdayInput> {
         selectedDate = picked;
       });
 
-      formattedDate = '${picked.day}-${picked.month}-${picked.year}';
+      formattedDate = '${picked.month}-${picked.day}-${picked.year}';
       widget.onDateSelected(formattedDate);
     }
   }
