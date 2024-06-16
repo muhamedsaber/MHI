@@ -14,6 +14,11 @@ class UserEntity {
   final String? hospitalRole;
   final String? hospitalCode;
   final String? birthday;
+  final String? height;
+  final String? weight;
+  final String? address;
+  final String? mobileNumber;
+  final String? bloodType;
   UserEntity({
     this.userCode,
     this.hospitalAddress,
@@ -29,7 +34,12 @@ class UserEntity {
     this.token,
     this.username,
     this.hospitalCode,
-    this.birthday
+    this.birthday,
+    this.height,
+    this.weight,
+    this.address,
+    this.mobileNumber,
+    this.bloodType
   });
    
 }
