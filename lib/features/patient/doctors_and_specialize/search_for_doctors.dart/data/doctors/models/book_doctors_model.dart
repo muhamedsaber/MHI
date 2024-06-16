@@ -1,7 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'dart:developer';
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'book_doctors_model.g.dart';
@@ -16,6 +14,14 @@ class BookDoctorsModel {
       _$BookDoctorsModelFromJson(_normalizeJson(json));
 
   Map<String, dynamic> toJson() => _$BookDoctorsModelToJson(this);
+
+
+
+  // Multiple APIs return similar data but with different key names.
+  // To standardize the data across APIs, i normalized the responses.
+  // This should reduce the number of models and improves code readability.
+// Note: Future changes are considered, but the doctor data is expected to remain consistent.
+// lol what is going to change in the Future im just short on time to make this $hit
 
   static Map<String, dynamic> _normalizeJson(Map<String, dynamic> json) {
     if (json.containsKey('userD')) {
@@ -64,7 +70,13 @@ class DoctorBookData {
       hospitalId: _getHospitalId(json),
     );
   }
+   
 
+
+   /// Here The idiot backend in some APIs return the hospitalId as a string and in some as an object
+   /// so i handled this by checking if the hospitalId is a string or an object 
+   /// ... if it's a string i just return the hospitalId as a string 
+   /// what if he returned the hospital id as a number isn't that concerning ?
   static dynamic _getHospitalId(Map<String, dynamic> json) {
     if (json.containsKey("hospitalID")) {
       try {
