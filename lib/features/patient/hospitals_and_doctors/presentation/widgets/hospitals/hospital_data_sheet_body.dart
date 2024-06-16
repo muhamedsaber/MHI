@@ -4,7 +4,7 @@ import 'package:mhi/core/common_ui/widgets/data_wide_shape.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/core/helper/theming.dart';
-import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_model.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/data/models/booking_hospital_model.dart';
 
 class HospitalsDataSheetBody extends StatelessWidget {
   const HospitalsDataSheetBody({super.key, required this.hospitalModel});
@@ -12,15 +12,13 @@ class HospitalsDataSheetBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       height: 400.h,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20.r),
-          topRight: Radius.circular(20.r),
-        ),
-        color:context.theme.scaffoldBackgroundColor
-      ),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.r),
+            topRight: Radius.circular(20.r),
+          ),
+          color: context.theme.scaffoldBackgroundColor),
       child: Column(
         children: [
           verticleSpace(10),

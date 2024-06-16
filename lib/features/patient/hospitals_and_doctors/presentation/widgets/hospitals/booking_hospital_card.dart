@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
-import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_model.dart';
-import 'package:mhi/features/patient/hospitals/presentation/widgets/hospital_data_sheet_body.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/data/models/booking_hospital_model.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/widgets/hospitals/hospital_data_sheet_body.dart';
 
 class BookingHospitalCard extends StatelessWidget {
   const BookingHospitalCard(

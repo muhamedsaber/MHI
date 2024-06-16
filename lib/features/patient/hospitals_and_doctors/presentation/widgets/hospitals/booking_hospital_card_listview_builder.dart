@@ -6,9 +6,9 @@ import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_padding.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
-import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_model.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
-import 'package:mhi/features/patient/hospitals/presentation/widgets/booking_hospital_card.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/data/models/booking_hospital_model.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/widgets/hospitals/booking_hospital_card.dart';
 
 class BookingHospitalCardListViewBuilder extends StatefulWidget {
   const BookingHospitalCardListViewBuilder(

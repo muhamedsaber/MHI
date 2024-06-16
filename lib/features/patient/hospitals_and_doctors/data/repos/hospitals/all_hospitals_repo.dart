@@ -1,7 +1,7 @@
 import 'package:mhi/core/networking/api/patient/patient_api_service.dart';
 import 'package:mhi/core/networking/api_error_handler.dart';
 import 'package:mhi/core/networking/api_result.dart';
-import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_model.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/data/models/booking_hospital_model.dart';
 
 class AllHospitalsRepo {
   final PatientApiService apiService;

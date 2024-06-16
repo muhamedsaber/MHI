@@ -6,13 +6,13 @@ import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/cubit/toggle_doctor_hospital_cubit.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/cubit/toggle_doctor_hospital_state.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/hospitals/all_hospitals_cubit.dart';
-import 'package:mhi/features/patient/hospitals/presentation/widgets/booking_hospitals_bloc_builder.dart';
-import 'package:mhi/features/patient/hospitals/presentation/widgets/get_doctors_by_hospitals_bloc_builder.dart';
-import 'package:mhi/features/patient/hospitals/presentation/widgets/search/search_for_doctors_changer.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/toggle_doctor_hospital/toggle_doctor_hospital_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/toggle_doctor_hospital/toggle_doctor_hospital_state.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/hospitals/all_hospitals_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/widgets/hospitals/booking_hospitals_bloc_builder.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/widgets/doctors/get_doctors_by_hospitals_bloc_builder.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/widgets/search/search_for_doctors_changer.dart';
 
 class BookHospitalsView extends StatefulWidget {
   const BookHospitalsView({super.key});

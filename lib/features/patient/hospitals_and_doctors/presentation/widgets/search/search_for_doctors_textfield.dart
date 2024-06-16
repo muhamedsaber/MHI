@@ -5,7 +5,7 @@ import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_strings.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
 
 class SearchForDoctorsTextField extends StatelessWidget {
   const SearchForDoctorsTextField({super.key, required this.onCloseButtonPressed});

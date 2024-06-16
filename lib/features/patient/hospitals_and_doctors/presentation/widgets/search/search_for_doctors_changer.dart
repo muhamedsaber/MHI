@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/cubit/toggle_doctor_hospital_cubit.dart';
-import 'package:mhi/features/patient/hospitals/presentation/widgets/search/doctors_list_header.dart';
-import 'package:mhi/features/patient/hospitals/presentation/widgets/search/search_for_doctors_textfield.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/toggle_doctor_hospital/toggle_doctor_hospital_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/widgets/search/doctors_list_header.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/widgets/search/search_for_doctors_textfield.dart';
 
 class SearchForDoctorsChanger extends StatefulWidget {
   const SearchForDoctorsChanger({super.key});
