@@ -76,6 +76,7 @@ class DoctorBookData {
    /// Here The idiot backend in some APIs return the hospitalId as a string and in some as an object
    /// so i handled this by checking if the hospitalId is a string or an object 
    /// ... if it's a string i just return the hospitalId as a string 
+   /// No i didn't handle this correctly i just used one of my tricks in modeling the Data 
    /// what if he returned the hospital id as a number isn't that concerning ?
   static dynamic _getHospitalId(Map<String, dynamic> json) {
     if (json.containsKey("hospitalID")) {
