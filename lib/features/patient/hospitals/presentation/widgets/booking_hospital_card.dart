@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mhi/core/common_ui/widgets/data_wide_shape.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
-import 'package:mhi/core/helper/theming.dart';
 import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_model.dart';
 import 'package:mhi/features/patient/hospitals/presentation/widgets/hospital_data_sheet_body.dart';
 
@@ -44,6 +41,7 @@ class BookingHospitalCard extends StatelessWidget {
               children: [
                 Flexible(
                   child: Text(hospitalModel.name ?? "غير معروف",
+                      textAlign: TextAlign.right,
                       style: AppTextStyles.jannat18BoldWhite
                           .copyWith(fontSize: 24.0, color: textColor)),
                 ),

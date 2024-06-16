@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mhi/core/helper/app_colors.dart';
+import 'package:mhi/config/Theme/theme_extensions.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -12,21 +12,22 @@ class BookingHospitalsCardShimmer extends StatelessWidget {
     return SizedBox(
         height: 140.h,
         child: ListView.builder(
+          itemCount: 5,
           reverse: true,
           padding: EdgeInsets.zero,
           scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             return Card(
-              margin: const EdgeInsets.all(8.0),
-              color: context.theme.colorScheme.surface.withOpacity(0.6),
+              color: context.theme.scaffoldBackgroundColor,
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Shimmer.fromColors(
-                      baseColor: context.theme.colorScheme.surface.withOpacity(0.8),
-                      highlightColor:AppColors.lighGrey.withOpacity(0.5),
+                      baseColor: context.theme.shimmerBaseColor(),
+                      highlightColor: context.theme.shimmerHighlghtColor(),
                       child: Container(
                         width: 300.w,
                         height: 30.h,
@@ -35,12 +36,12 @@ class BookingHospitalsCardShimmer extends StatelessWidget {
                     ),
                     const SizedBox(height: 8.0),
                     Shimmer.fromColors(
-                      baseColor: context.theme.colorScheme.surface.withOpacity(0.8),
-                      highlightColor:AppColors.lighGrey.withOpacity(0.5),
+                      baseColor: context.theme.shimmerBaseColor(),
+                      highlightColor: context.theme.shimmerHighlghtColor(),
                       child: Container(
                         width: 100.w,
                         height: 20.h,
-                        color: Colors.grey[300],
+                        color: context.theme.colorScheme.surface,
                       ),
                     ),
                     const SizedBox(height: 16.0),
@@ -49,7 +50,7 @@ class BookingHospitalsCardShimmer extends StatelessWidget {
               ),
             );
           },
-          itemCount: 5,
+          
         ));
   }
 }

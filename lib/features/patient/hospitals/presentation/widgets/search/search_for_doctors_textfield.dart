@@ -8,21 +8,21 @@ import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
 
 class SearchForDoctorsTextField extends StatelessWidget {
-  const SearchForDoctorsTextField({super.key, required this.onPressed});
-  final void Function()? onPressed;
+  const SearchForDoctorsTextField({super.key, required this.onCloseButtonPressed});
+  final void Function()? onCloseButtonPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(right: 20.w, left: 20.w),
       child: TextField(
-        onChanged:filterDoctorsList ,
+        onChanged: filterDoctorsList,
         style: AppTextStyles.jannat20BoldWhite.copyWith(
           color: context.theme.colorScheme.onSurface,
           decorationThickness: 0,
         ),
         textDirection: TextDirection.rtl,
         decoration: InputDecoration(
-          hintText:AppStrings.searchForDoctor,
+          hintText: AppStrings.searchForDoctor,
           hintStyle: AppTextStyles.jannat20BoldWhite.copyWith(
             color: AppColors.lighGrey,
           ),
@@ -31,12 +31,14 @@ class SearchForDoctorsTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.r),
           ),
           prefixIcon:
-              IconButton(onPressed: onPressed, icon: const Icon(Icons.close)),
+              IconButton(onPressed: onCloseButtonPressed, icon: const Icon(Icons.close)),
         ),
       ),
     );
   }
-  filterDoctorsList(String? input){
+
+  /// Filter the doctors list based on the input
+  filterDoctorsList(String? input) {
     getIt<GetDoctorsByHospitalCubit>().filterDoctors(input);
   }
 }

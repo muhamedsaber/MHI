@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +26,7 @@ class _BookingHospitalCardListViewBuilderState
     super.initState();
   }
 
-  final PageController pageController = PageController(viewportFraction: 0.8);
+  final PageController pageController = PageController();
   int lenght = 0;
   int? selectedIndex;
   @override
@@ -38,9 +37,10 @@ class _BookingHospitalCardListViewBuilderState
         Padding(
           padding: AppPadding.symmetricHorizontalMedium,
           child: SizedBox(
-              height: 130.h,
+              height: 150.h,
               child: ListView.builder(
                 controller: pageController,
+                itemCount: lenght,
                 reverse: true,
                 padding: EdgeInsets.zero,
                 scrollDirection: Axis.horizontal,
@@ -64,7 +64,6 @@ class _BookingHospitalCardListViewBuilderState
                         : context.theme.colorScheme.onSurface,
                   );
                 },
-                itemCount: lenght,
               )),
         ),
         verticleSpace(10),

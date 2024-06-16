@@ -14,31 +14,28 @@ class GetDoctorsByHospitalIdBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<GetDoctorsByHospitalCubit, GetDoctorsByHospitalState>(
       builder: (context, state) {
-        return state.when(initial: () {
-          return Expanded(
-              child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.only(top: 100.h),
-              child: const NoDataFound(
-                message: "اختر مستشفي لعرض الأطباء",
-                icon: Icons.check_box_outline_blank_outlined,
-              ),
-            ),
-          ));
-        }, loading: () {
-          return const Expanded(
-              child:
-                  SingleChildScrollView(child: const DoctorBookCardShimmer()));
-        }, loaded: (doctors) {
-          return DoctorBookCardListViewBuilder(
-            model: doctors,
-          );
-        }, error: (message) {
-          return Expanded(
-              child: SingleChildScrollView(
-            child: NoDataFound(message: message),
-          ));
-        });
+        return state.when(
+            initial: () {
+              return Expanded(
+                  child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.only(top: 100.h),
+                  child: const NoDataFound(
+                    message: "اختر مستشفي لعرض الأطباء",
+                    icon: Icons.check_box_outline_blank_outlined,
+                  ),
+                ),
+              ));
+            },
+            loading: () => const Expanded(
+                child: SingleChildScrollView(child: DoctorBookCardShimmer())),
+            loaded: (doctors) => DoctorBookCardListViewBuilder(
+                  model: doctors,
+                ),
+            error: (message) => Expanded(
+                    child: SingleChildScrollView(
+                  child: NoDataFound(message: message),
+                )));
       },
     );
   }

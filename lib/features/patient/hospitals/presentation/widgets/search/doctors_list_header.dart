@@ -11,7 +11,6 @@ class DoctorListHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      key: const ValueKey(2),
       children: [
         const SizedBox(width: 16),
         IconButton(
