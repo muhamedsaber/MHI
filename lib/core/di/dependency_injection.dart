@@ -34,6 +34,8 @@ import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.d
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/repos/specializes_repo.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/specialize/specializes_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
+import 'package:mhi/features/patient/profile/update_profile/data/repos/update_profile_repo.dart';
+import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/update_patient_profile_cubit.dart';
 
 final getIt = GetIt.instance;
 setupDependencyInjection() async {
@@ -126,4 +128,9 @@ setupDependencyInjection() async {
       GetPatientDoneBooksRepo(apiService: getIt()));
   getIt.registerSingleton<GetPatinetDoneBooksCubit>(
       GetPatinetDoneBooksCubit(repo: getIt()));
+
+
+      /// update patientProfile 
+  getIt.registerSingleton<UpdateProfileRepo>(UpdateProfileRepo(apiService:getIt()));
+  getIt.registerSingleton<UpdatePatientProfileCubit>(UpdatePatientProfileCubit(repo:getIt()));
 }

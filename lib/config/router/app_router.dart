@@ -10,7 +10,7 @@ import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.d
 import 'package:mhi/features/patient/firebase_hospitals/data/models/firebase_hospital_model.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/views/firebase_hospital_profile_view.dart';
 import 'package:mhi/features/patient/mhi/presentation/views/subscription_rules_view.dart';
-import 'package:mhi/features/patient/profile/presentation/views/patient_settings_view.dart';
+import 'package:mhi/features/patient/profile/patient_profile/presentation/views/patient_settings_view.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/views/search_for_doctors_view.dart';
 import 'package:mhi/features/splash/presentation/views/splash_view.dart';
 

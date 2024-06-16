@@ -7,6 +7,8 @@ import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_mode
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
 import 'package:mhi/features/patient/medicines/mhi_medicines/data/mhi/models/mhi_medicine_model.dart';
+import 'package:mhi/features/patient/profile/update_profile/data/models/update_profile_request_body.dart';
+import 'package:mhi/features/patient/profile/update_profile/data/models/update_profile_response_body.dart';
 
 import 'package:retrofit/retrofit.dart';
 
@@ -42,13 +44,13 @@ abstract class PatientApiService {
   Future<BookingResponseBody> bookNewAppointment(
       {@Body() required BookingRequestBody boolingRequestBody});
   @GET("${ApiConstants.getPatientWaitingBooks}/{id}")
-  Future<List<PatientAppointmentModel>>getWaitingBooks({
-    @Path() required String id
-  });
+  Future<List<PatientAppointmentModel>> getWaitingBooks(
+      {@Path() required String id});
   @GET("${ApiConstants.getPatientDoneBooks}/{id}")
-  Future<List<PatientAppointmentModel>>getDoneBooks({
-    @Path() required String id
-  });
-  
+  Future<List<PatientAppointmentModel>> getDoneBooks(
+      {@Path() required String id});
 
+  @PATCH(ApiConstants.updatePatientProfileEndpoint)
+  Future<UpdateProfileResponseBody> updatePatientProfile(
+      {@Body() required UpdateProfileRequestBody updateProfileRequestBody});
 }

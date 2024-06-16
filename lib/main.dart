@@ -20,6 +20,7 @@ import 'package:mhi/features/patient/medicines/mhi_medicines/presentation/Logic/
 import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/specialize/specializes_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
+import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/update_patient_profile_cubit.dart';
 import 'package:mhi/firebase_options.dart';
 import 'package:mhi/mhi_app.dart';
 
@@ -50,6 +51,9 @@ void main() async {
         BlocProvider(create: (context) => getIt<GetPatinetDoneBooksCubit>()),
         BlocProvider(
             create: (context) => getIt<GetPatientWaititngBooksDartCubit>()),
+        BlocProvider(
+          create: (context) => getIt<UpdatePatientProfileCubit>(),
+        )
       ],
       child: const MhiApp(),
     ),
