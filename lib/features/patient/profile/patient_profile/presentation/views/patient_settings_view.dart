@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mhi/config/database/cache/cache_helper.dart';
-import 'package:mhi/config/database/cache/user_cache.dart';
-import 'package:mhi/config/database/local/patient/doctor_database.dart';
-import 'package:mhi/config/router/routes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mhi/core/common_ui/widgets/appbar_builder.dart';
 import 'package:mhi/core/common_ui/widgets/options_button.dart';
 import 'package:mhi/core/common_ui/widgets/theme_changer.dart';
-import 'package:mhi/core/constants/database_constants.dart';
-import 'package:mhi/core/helper/alerts.dart';
+import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
-import 'package:mhi/features/patient/profile/presentation/widgets/app_rights_info.dart';
-import 'package:mhi/features/patient/profile/presentation/widgets/logout_sheet_body.dart';
+import 'package:mhi/features/patient/profile/patient_profile/presentation/widgets/app_rights_info.dart';
+import 'package:mhi/features/patient/profile/patient_profile/presentation/widgets/logout_sheet_body.dart';
+import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/update_patient_profile_cubit.dart';
+import 'package:mhi/features/patient/profile/update_profile/presentation/widgets/update_patient_profile_sheet.dart';
 
 class PatientSettingsView extends StatelessWidget {
   const PatientSettingsView({super.key});
@@ -33,6 +31,21 @@ class PatientSettingsView extends StatelessWidget {
                 }),
             verticleSpace(15),
             OptionButton(
+              icon: Icons.person,
+              value: "تعديل البيانات الشخصية",
+              onTap: () {
+                showModalBottomSheet(
+                  backgroundColor: context.theme.colorScheme.surface,
+                  context: context,
+                  isScrollControlled: true,
+                  builder: (context) {
+                    return const UpdatePatientInformation();
+                  },
+                );
+              },
+            ),
+            verticleSpace(15),
+            OptionButton(
                 icon: Icons.logout_outlined,
                 value: "تسجيل الخروج",
                 onTap: () {
@@ -41,31 +54,11 @@ class PatientSettingsView extends StatelessWidget {
                     context: context,
                     isScrollControlled: false,
                     builder: (context) {
-                      return LogoutSheetBody(
-                        onTapToLogout: () async {
-                          await logoutPatient();
-
-                          await Future.delayed(const Duration(seconds: 2), () {
-                            navigateToLoginView(context);
-                          });
-                        },
-                      );
+                      return const LogoutSheetBody();
                     },
                   );
                 })
           ],
         ));
-  }
-
-  logoutPatient() async {
-    Alerts().showCustomToast(color: Colors.green, message: "جاري تسجيل الخروج");
-    await PatientCache().removeUser();
-    await CacheHelper.setData(
-        key: DatabaseConstants.isPatientLoggedIn, value: false);
-    await DoctorDatabase().deleteAll();
-  }
-
-  navigateToLoginView(BuildContext context) {
-    context.navigateToAndReplace(Routes.loginView);
   }
 }

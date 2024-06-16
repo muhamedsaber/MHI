@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mhi/config/router/routes.dart';
 import 'package:mhi/core/common_ui/widgets/custom_button.dart';
 import 'package:mhi/core/helper/alerts.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
+import 'package:mhi/features/patient/profile/patient_profile/presentation/Functions/log_out_patient.dart';
 
 class LogoutSheetBody extends StatefulWidget {
-  const LogoutSheetBody({super.key, required this.onTapToLogout});
-  final Function() onTapToLogout;
+  const LogoutSheetBody({super.key});
+
   @override
   State<LogoutSheetBody> createState() => _LogoutSheetBodyState();
 }
@@ -67,9 +69,9 @@ class _LogoutSheetBodyState extends State<LogoutSheetBody> {
           verticleSpace(20),
           CustomButton(
             buttonText: "تأكيد",
-            onPressed: () {
+            onPressed: () async {
               if (isConfirmed) {
-                widget.onTapToLogout();
+                await logOut();
               } else {
                 Alerts().showCustomToast(
                     message: "يرجى الموافقة علي الشروط والأحكام",
@@ -83,5 +85,17 @@ class _LogoutSheetBodyState extends State<LogoutSheetBody> {
         ],
       ),
     );
+  }
+
+  logOut() async {
+    await PatientLogout.logoutPatient();
+
+    await Future.delayed(const Duration(seconds: 1), () {
+      navigateToLoginView(context);
+    });
+  }
+
+  navigateToLoginView(BuildContext context) {
+    context.navigateToAndReplace(Routes.loginView);
   }
 }
