@@ -22,13 +22,12 @@ class UpdatePatientProfileCubit extends Cubit<UpdatePatientProfileState> {
   TextEditingController heightController = TextEditingController();
   TextEditingController weightController = TextEditingController();
   TextEditingController addressController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   /// Update the patient profile
   updatePatientProfile({required String bloodType}) async {
+    emit(const UpdatePatientProfileState.loading());
     String patientId = await _getPatientId();
 
-    emit(const UpdatePatientProfileState.loading());
     ApiResult<UpdateProfileResponseBody> response = await repo.updateProfile(
         updateProfileRequestBody: UpdateProfileRequestBody(
       address: addressController.text,
@@ -40,7 +39,9 @@ class UpdatePatientProfileCubit extends Cubit<UpdatePatientProfileState> {
     ));
 
     response.when(
-      success: (data) {},
+      success: (data) {
+        emit(UpdatePatientProfileState.success(data.message));
+      },
       failure: (error) {
         emit(UpdatePatientProfileState.error(
             error.apiErrorModel.message ?? "حدث خطأ ما"));

@@ -26,6 +26,11 @@ class UserData {
   final String? role;
   final String? code;
   final String? birthday;
+  final String? weight;
+  final String? height;
+  final String? mobileNumber;
+  final String? bloodType;
+  final String? address;
 
   UserData(
       {this.id,
@@ -37,7 +42,13 @@ class UserData {
       this.image,
       this.role,
       this.code,
-      this.birthday});
+      this.birthday,
+      this.weight,
+      this.height,
+      this.mobileNumber,
+      this.bloodType,
+      this.address
+      });
   factory UserData.fromJson(Map<String, dynamic> json) =>
       _$UserDataFromJson(json);
   Map<String, dynamic> toJson() => _$UserDataToJson(this);

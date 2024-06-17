@@ -6,7 +6,7 @@ import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/patient/home/presentation/widgets/instructions/appointement_instructions_home_sheet.dart';
 import 'package:mhi/features/patient/home/presentation/widgets/instructions/patient_home_image_card.dart';
-import 'package:mhi/features/patient/hospitals/presentation/views/book_hospitals_view.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/views/book_hospitals_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class AppointmentHomeScreen extends StatefulWidget {

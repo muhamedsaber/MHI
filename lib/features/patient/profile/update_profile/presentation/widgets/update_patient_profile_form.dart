@@ -15,6 +15,7 @@ import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/u
 import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/update_patient_profile_state.dart';
 import 'package:mhi/features/patient/profile/update_profile/presentation/widgets/blood_type_selector.dart';
 import 'package:mhi/features/patient/profile/update_profile/presentation/widgets/edit_info_textfield.dart';
+import 'package:mhi/features/patient/profile/update_profile/presentation/widgets/update_profile_bloc_listener.dart';
 
 class UpdatePatientProfileForm extends StatefulWidget {
   const UpdatePatientProfileForm({super.key});
@@ -31,10 +32,12 @@ class _UpdatePatientProfileFormState extends State<UpdatePatientProfileForm> {
     getIt<UpdatePatientProfileCubit>().clear();
     super.initState();
   }
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: getIt<UpdatePatientProfileCubit>().formKey,
+        key: formKey,
         child: Expanded(
             child: ListView(children: [
           verticleSpace(20),
@@ -44,9 +47,8 @@ class _UpdatePatientProfileFormState extends State<UpdatePatientProfileForm> {
                 validator: validateMobile,
                 keyboardType: TextInputType.number,
                 hintText: "رقم الهاتف",
-                controller: 
-                    getIt<UpdatePatientProfileCubit>()
-                    .mobildNumberController),
+                controller:
+                    getIt<UpdatePatientProfileCubit>().mobildNumberController),
           ),
           verticleSpace(20),
           Padding(
@@ -74,8 +76,8 @@ class _UpdatePatientProfileFormState extends State<UpdatePatientProfileForm> {
             child: EditInfoTextField(
                 hintText: "العنوان الشخصي",
                 validator: validateAddress,
-                controller: getIt<UpdatePatientProfileCubit>()
-                    .addressController),
+                controller:
+                    getIt<UpdatePatientProfileCubit>().addressController),
           ),
           verticleSpace(20),
           BloodTypeSelector(
@@ -91,16 +93,19 @@ class _UpdatePatientProfileFormState extends State<UpdatePatientProfileForm> {
             child: CustomButton(
                 buttonText: "حفظ",
                 onPressed: () {
+                  
                   if (bloodType == null) {
                     Alerts().showCustomToast(
                       color: AppColors.lightRed,
                       message: "برجاء اختيار فصيلة الدم",
                     );
-                  } if(getIt<UpdatePatientProfileCubit>().formKey.currentState!.validate()&&bloodType!=null){
-                  
+                  }
+                  if (formKey
+                      .currentState!
+                      .validate()) {
+                
                     getIt<UpdatePatientProfileCubit>()
                         .updatePatientProfile(bloodType: bloodType!);
-                
                   }
                 },
                 buttonTextSize: 20.sp,
@@ -143,46 +148,5 @@ class _UpdatePatientProfileFormState extends State<UpdatePatientProfileForm> {
     } else {
       return "يجب إدخال العنوان بشكل صحيح";
     }
-  }
-}
-
-class UpadeProfileBlocListener extends StatelessWidget {
-  const UpadeProfileBlocListener({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocListener<UpdatePatientProfileCubit, UpdatePatientProfileState>(
-      listener: (context, state) {
-        state.when(
-            initial: () {},
-            loading: () {
-              Alerts().customLoadingindicator(context);
-            },
-            success: (message) {
-              
-              context.navigateBack();
-              showModalBottomSheet(
-                context: context,
-                builder: (context) {
-                  return BookingRequestStatusSheet(
-                      message: message,
-                      errorAnimationAsset: Assets.doneAnimation);
-                },
-              );
-            },
-            error: (error) {
-              context.navigateBack();
-              showModalBottomSheet(
-                context: context,
-                builder: (context) {
-                  return BookingRequestStatusSheet(
-                      message: error,
-                      errorAnimationAsset: Assets.failedAnimation);
-                },
-              );
-            });
-      },
-      child: const SizedBox.shrink(),
-    );
   }
 }

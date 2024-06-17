@@ -14,12 +14,13 @@ import 'package:mhi/features/patient/booking/presentation/logic/booking_process/
 import 'package:mhi/features/patient/booking/presentation/logic/dates/cubit/get_doctor_days_cubit.dart';
 import 'package:mhi/features/patient/booking/presentation/logic/times/cubit/get_doctor_times_cubit.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/logic/cubit/firebase_hospitals_cubit.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/hospitals/all_hospitals_cubit.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/hospitals/all_hospitals_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
 import 'package:mhi/features/patient/medicines/mhi_medicines/presentation/Logic/mhi_medicines/cubit/mhi_medicines_cubit.dart';
 import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/specialize/specializes_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
+import 'package:mhi/features/patient/profile/get_patient_profile/Logic/cubit/get_patient_information.dart';
 import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/update_patient_profile_cubit.dart';
 import 'package:mhi/firebase_options.dart';
 import 'package:mhi/mhi_app.dart';
@@ -53,7 +54,10 @@ void main() async {
             create: (context) => getIt<GetPatientWaititngBooksDartCubit>()),
         BlocProvider(
           create: (context) => getIt<UpdatePatientProfileCubit>(),
-        )
+        ),
+        BlocProvider(
+          create: (context) => getIt<GetPatientInformationCubit>(),
+        ),
       ],
       child: const MhiApp(),
     ),

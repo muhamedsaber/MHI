@@ -3,10 +3,11 @@ import 'package:mhi/core/constants/api_constants.dart';
 import 'package:mhi/features/patient/appointements/data/models/patient_appointement_model.dart';
 import 'package:mhi/features/patient/booking/data/model/booking_request_body.dart';
 import 'package:mhi/features/patient/booking/data/model/booking_response_body.dart';
-import 'package:mhi/features/patient/hospitals/data/models/booking_hospital_model.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/data/models/booking_hospital_model.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/doctors/models/book_doctors_model.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
 import 'package:mhi/features/patient/medicines/mhi_medicines/data/mhi/models/mhi_medicine_model.dart';
+import 'package:mhi/features/patient/profile/get_patient_profile/data/models/updated_patient_profile_model.dart';
 import 'package:mhi/features/patient/profile/update_profile/data/models/update_profile_request_body.dart';
 import 'package:mhi/features/patient/profile/update_profile/data/models/update_profile_response_body.dart';
 
@@ -53,4 +54,10 @@ abstract class PatientApiService {
   @PATCH(ApiConstants.updatePatientProfileEndpoint)
   Future<UpdateProfileResponseBody> updatePatientProfile(
       {@Body() required UpdateProfileRequestBody updateProfileRequestBody});
+
+  /// get [updated] profile After patient update his profile data
+  /// this method is triggered to update the patient cache
+  @GET("${ApiConstants.getPatientProfileEndpoint}/{id}")
+  Future<UpdatedPatientProfileModel> getUpdatedProfile(
+      {@Path() required String id});
 }

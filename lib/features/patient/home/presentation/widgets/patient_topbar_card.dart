@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:mhi/config/database/cache/user_cache.dart';
 import 'package:mhi/core/common_ui/widgets/main_app_bar.dart';
@@ -15,7 +17,6 @@ class PatientHomeCard extends StatelessWidget {
       widget: FutureBuilder(
           future: PatientCache().getUser(),
           builder: (context, snapshot) {
-         
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator();
             } else if (snapshot.connectionState == ConnectionState.done &&

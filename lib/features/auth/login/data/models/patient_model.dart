@@ -1,16 +1,20 @@
 import 'package:mhi/features/auth/login/data/domain/user_entity.dart';
 
 class PatientModel extends UserEntity {
-  PatientModel({
-    required super.token,
-    required super.username,
-    required super.id,
-    required super.password,
-    required super.name,
-    required super.birthday,
-    required super.userCode,
-    required super.role,
-  });
+  PatientModel(
+      {super.token,
+      super.username,
+      super.id,
+      super.password,
+      super.name,
+      super.birthday,
+      super.userCode,
+      super.role,
+      super.address,
+      super.height,
+      super.weight,
+      super.mobileNumber,
+      super.bloodType});
   factory PatientModel.fromJson(Map<String, dynamic> json) {
     return PatientModel(
       token: json['token'],
@@ -21,6 +25,11 @@ class PatientModel extends UserEntity {
       birthday: json['birthday'],
       userCode: json['userCode'],
       role: json['role'],
+      address: json['address'],
+      height: json['height'],
+      weight: json['weight'],
+      mobileNumber: json['mobileNumber'],
+      bloodType: json['bloodType'],
     );
   }
   Map<String, dynamic> toJson() {
@@ -33,6 +42,16 @@ class PatientModel extends UserEntity {
       'birthday': birthday,
       'userCode': userCode,
       'role': role,
+      'address': address,
+      'height': height,
+      'weight': weight,
+      'mobileNumber': mobileNumber,
+      'bloodType': bloodType,
     };
+  }
+
+  @override
+  String toString() {
+    return 'PatientModel(token: $token, username: $username, id: $id, password: $password, name: $name, birthday: $birthday, userCode: $userCode, role: $role, address: $address, height: $height, weight: $weight, mobileNumber: $mobileNumber, bloodType: $bloodType)';
   }
 }

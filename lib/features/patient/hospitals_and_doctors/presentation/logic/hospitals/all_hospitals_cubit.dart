@@ -17,5 +17,4 @@ class AllHospitalsCubit extends Cubit<AllHospitalsState> {
           AllHospitalsState.error(error.apiErrorModel.message ?? "حدث خطأ ما"));
     });
   }
- 
 }

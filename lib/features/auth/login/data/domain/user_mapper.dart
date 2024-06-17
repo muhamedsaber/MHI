@@ -32,6 +32,11 @@ class UserMapper {
         birthday: response.user?.birthday,
         userCode: response.user?.code,
         role: response.user?.role,
+        address: response.user?.address,
+        height: response.user?.height,
+        weight: response.user?.weight,
+        mobileNumber: response.user?.mobileNumber,
+        bloodType: response.user?.bloodType,
       );
     } else {
       return null;

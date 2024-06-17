@@ -47,7 +47,7 @@ class GetDoctorsByHospitalCubit extends Cubit<GetDoctorsByHospitalState> {
     }
   }
 
-  emitInitialDoctorsState(){
+  emitInitialDoctorsState() {
     emit(const GetDoctorsByHospitalState.initial());
   }
 }

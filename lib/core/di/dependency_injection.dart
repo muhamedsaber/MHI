@@ -22,10 +22,10 @@ import 'package:mhi/features/patient/booking/presentation/logic/dates/cubit/get_
 import 'package:mhi/features/patient/booking/presentation/logic/times/cubit/get_doctor_times_cubit.dart';
 import 'package:mhi/features/patient/firebase_hospitals/data/repo/firebase_hospitals_repo.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/logic/cubit/firebase_hospitals_cubit.dart';
-import 'package:mhi/features/patient/hospitals/data/repos/all_hospitals_repo.dart';
-import 'package:mhi/features/patient/hospitals/data/repos/doctors/get_doctors_by_hospital_id.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/hospitals/all_hospitals_cubit.dart';
-import 'package:mhi/features/patient/hospitals/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/data/repos/hospitals/all_hospitals_repo.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/data/repos/doctors/get_doctors_by_hospital_id.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/hospitals/all_hospitals_cubit.dart';
+import 'package:mhi/features/patient/hospitals_and_doctors/presentation/logic/doctors/cubit/get_doctors_by_hospital_cubit.dart';
 import 'package:mhi/features/patient/medicines/mhi_medicines/data/mhi/repos/mhi_medicine_repo.dart';
 import 'package:mhi/features/patient/medicines/mhi_medicines/presentation/Logic/mhi_medicines/cubit/mhi_medicines_cubit.dart';
 import 'package:mhi/features/patient/patient_saved_data/presentation/Logic/saved_doctors/cubit/saved_doctors_cubit.dart';
@@ -34,6 +34,8 @@ import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.d
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/repos/specializes_repo.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/specialize/specializes_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
+import 'package:mhi/features/patient/profile/get_patient_profile/data/repo/get_updated_patient_profile_repo.dart';
+import 'package:mhi/features/patient/profile/get_patient_profile/Logic/cubit/get_patient_information.dart';
 import 'package:mhi/features/patient/profile/update_profile/data/repos/update_profile_repo.dart';
 import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/update_patient_profile_cubit.dart';
 
@@ -133,4 +135,9 @@ setupDependencyInjection() async {
       /// update patientProfile 
   getIt.registerSingleton<UpdateProfileRepo>(UpdateProfileRepo(apiService:getIt()));
   getIt.registerSingleton<UpdatePatientProfileCubit>(UpdatePatientProfileCubit(repo:getIt()));
+
+
+  /// get updated profile
+  getIt.registerSingleton<GetUpdatedPatientProfileRepo>(GetUpdatedPatientProfileRepo(apiService:getIt()));
+  getIt.registerSingleton<GetPatientInformationCubit>(GetPatientInformationCubit(repo:getIt()));
 }

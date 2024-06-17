@@ -36,6 +36,11 @@ UserData _$UserDataFromJson(Map<String, dynamic> json) => UserData(
       role: json['role'] as String?,
       code: json['code'] as String?,
       birthday: json['birthday'] as String?,
+      weight: json['weight'] as String?,
+      height: json['height'] as String?,
+      mobileNumber: json['mobileNumber'] as String?,
+      bloodType: json['bloodType'] as String?,
+      address: json['address'] as String?,
     );
 
 Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
@@ -49,6 +54,11 @@ Map<String, dynamic> _$UserDataToJson(UserData instance) => <String, dynamic>{
       'role': instance.role,
       'code': instance.code,
       'birthday': instance.birthday,
+      'weight': instance.weight,
+      'height': instance.height,
+      'mobileNumber': instance.mobileNumber,
+      'bloodType': instance.bloodType,
+      'address': instance.address,
     };
 
 HospitalsDetails _$HospitalsDetailsFromJson(Map<String, dynamic> json) =>
