@@ -19,27 +19,25 @@ class UserEntity {
   final String? address;
   final String? mobileNumber;
   final String? bloodType;
-  UserEntity({
-    this.userCode,
-    this.hospitalAddress,
-    this.hospitalId,
-    this.hospitalName,
-    this.hospitalRole,
-    this.id,
-    this.image,
-    this.name,
-    this.password,
-    this.role,
-    this.specialize,
-    this.token,
-    this.username,
-    this.hospitalCode,
-    this.birthday,
-    this.height,
-    this.weight,
-    this.address,
-    this.mobileNumber,
-    this.bloodType
-  });
-   
+  UserEntity(
+ {this.userCode,
+      this.hospitalAddress,
+      this.hospitalId,
+      this.hospitalName,
+      this.hospitalRole,
+      this.id,
+      this.image,
+      this.name,
+      this.password,
+      this.role,
+      this.specialize,
+      this.token,
+      this.username,
+      this.hospitalCode,
+      this.birthday,
+      this.height,
+      this.weight,
+      this.address,
+      this.mobileNumber,
+      this.bloodType});
 }
