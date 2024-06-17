@@ -54,7 +54,7 @@ class PatientSettingsView extends StatelessWidget {
                     context: context,
                     isScrollControlled: false,
                     builder: (context) {
-                      return const LogoutSheetBody();
+                      return const PatientLogoutSheetBody();
                     },
                   );
                 })

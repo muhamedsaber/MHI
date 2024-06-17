@@ -19,9 +19,7 @@ class GetDoctorDaysCubit extends Cubit<GetDoctorDaysState> {
     result.when(success: (data) {
       log("getDoctorDaysById: ${_handleDates(data)}");
       emit(GetDoctorDaysState.loaded(_handleDates(data)));
-      
     }, failure: (error) {
-      
       emit(GetDoctorDaysState.error(
           error.apiErrorModel.message ?? "حدث خطأ ما"));
     });

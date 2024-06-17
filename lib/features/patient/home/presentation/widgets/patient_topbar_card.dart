@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:mhi/config/database/cache/user_cache.dart';
@@ -27,12 +26,6 @@ class PatientHomeCard extends StatelessWidget {
                   model: PatientModel(
                 name: "غير مسجل",
                 birthday: "غير مسجل",
-                id: "غير مسجل",
-                password: "غير مسجل",
-                role: "غير مسجل",
-                username: "غير مسجل",
-                token: "غير مسجل",
-                userCode: "غير مسجل",
               ));
             }
           }),

@@ -17,7 +17,7 @@ class PatientInformationData extends StatelessWidget {
       children: [
         ProfileCard(
           gradient: AppThemeing.patientGradient,
-          patientName: model.name ?? "غير متوفر",
+          username: model.name ?? "غير متوفر",
         ),
         Expanded(
           child: ListView(

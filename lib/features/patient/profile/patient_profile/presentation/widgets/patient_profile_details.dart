@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mhi/config/database/cache/user_cache.dart';
-import 'package:mhi/core/common_ui/widgets/data_wide_shape.dart';
-import 'package:mhi/core/common_ui/widgets/profile_card.dart';
+
 import 'package:mhi/core/di/dependency_injection.dart';
-import 'package:mhi/core/helper/alerts.dart';
-import 'package:mhi/core/helper/app_colors.dart';
-import 'package:mhi/core/helper/extensions.dart';
-import 'package:mhi/core/helper/spacing.dart';
-import 'package:mhi/core/helper/theming.dart';
+
 import 'package:mhi/features/auth/login/data/models/patient_model.dart';
 import 'package:mhi/features/patient/profile/get_patient_profile/Logic/cubit/get_patient_information.dart';
 import 'package:mhi/features/patient/profile/get_patient_profile/Logic/cubit/get_patient_information_state.dart';

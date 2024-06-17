@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mhi/config/database/cache/user_cache.dart';
 import 'package:mhi/core/common_ui/widgets/options_button.dart';
-import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/auth/login/data/models/patient_model.dart';
 import 'package:mhi/features/common/records/presentation/views/patient_records_view.dart';
 import 'package:mhi/features/patient/profile/patient_profile/presentation/views/patient_settings_view.dart';
 import 'package:mhi/features/patient/profile/patient_profile/presentation/widgets/patient_profile_details.dart';
-import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/update_patient_profile_cubit.dart';
 
 class PatientProfileView extends StatefulWidget {
   const PatientProfileView({super.key});

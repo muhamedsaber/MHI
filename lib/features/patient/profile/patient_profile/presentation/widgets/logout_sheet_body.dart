@@ -9,14 +9,14 @@ import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/patient/profile/patient_profile/presentation/Functions/log_out_patient.dart';
 
-class LogoutSheetBody extends StatefulWidget {
-  const LogoutSheetBody({super.key});
+class PatientLogoutSheetBody extends StatefulWidget {
+  const PatientLogoutSheetBody({super.key});
 
   @override
-  State<LogoutSheetBody> createState() => _LogoutSheetBodyState();
+  State<PatientLogoutSheetBody> createState() => _PatientLogoutSheetBodyState();
 }
 
-class _LogoutSheetBodyState extends State<LogoutSheetBody> {
+class _PatientLogoutSheetBodyState extends State<PatientLogoutSheetBody> {
   bool isConfirmed = false;
   @override
   Widget build(BuildContext context) {
