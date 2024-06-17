@@ -7,8 +7,8 @@ import 'package:mhi/core/helper/theming.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard(
-      {super.key, required this.patientName, required this.gradient});
-  final String patientName;
+      {super.key, required this.username, required this.gradient});
+  final String username;
   final Gradient gradient;
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class ProfileCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
-                patientName,
+                username,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
