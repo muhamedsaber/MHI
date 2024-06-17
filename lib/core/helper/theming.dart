@@ -8,6 +8,12 @@ class AppThemeing {
   static LinearGradient patientGradient = const LinearGradient(
     colors: [LightThemeColors.lightGreen, LightThemeColors.deepBlue],
   );
+  static LinearGradient doctorGradient = const LinearGradient(
+    colors: [LightThemeColors.deepPurple, LightThemeColors.lighBlue],
+  );
+  static LinearGradient doctorGredient2 = const LinearGradient(
+    colors: [LightThemeColors.lightGreen, LightThemeColors.deepBlue],
+  );
   static LinearGradient purpleGreenGradient = const LinearGradient(
     colors: [
       AppColors.lighPurple,

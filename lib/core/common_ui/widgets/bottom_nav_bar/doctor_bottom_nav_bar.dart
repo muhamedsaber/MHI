@@ -1,108 +1,103 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mhi/config/Theme/theme_colors.dart';
+import 'package:mhi/core/helper/app_strings.dart';
+import 'package:mhi/core/helper/app_textstyles.dart';
+import 'package:mhi/core/helper/theming.dart';
+import 'package:mhi/features/doctor/home/presentation/views/doctor_home_view.dart';
+import 'package:mhi/features/doctor/profile/presentation/views/doctor_profile_view.dart';
 
-// import 'package:mhi/core/utils/app_strings.dart';
-// import 'package:mhi/core/utils/app_textstyles.dart';
-// import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
-// // class DoctorBottomNavBar extends StatefulWidget {
-// //   const DoctorBottomNavBar({super.key});
+class DoctorBottomNavBar extends StatefulWidget {
+  const DoctorBottomNavBar({super.key});
 
-// //   @override
-// //   State<DoctorBottomNavBar> createState() => _DoctorBottomNavBarState();
-// // }
+  @override
+  State<DoctorBottomNavBar> createState() => _DoctorBottomNavBarState();
+}
 
-// // class _DoctorBottomNavBarState extends State<DoctorBottomNavBar> {
-// //   late PersistentTabController _controller;
-// //   @override
-// //   void initState() {
-// //     _controller = PersistentTabController(initialIndex: 2);
-// //     super.initState();
-// //   }
+class _DoctorBottomNavBarState extends State<DoctorBottomNavBar> {
+  final PersistentTabController _controller =
+      PersistentTabController(initialIndex: 2);
 
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     List<Widget> _buildScreens() {
-// //       return [
-// //         const DoctorProfileView(),
-// //         const DoctorAppointementView(),
-// //         const DoctorHomeView()
-// //       ];
-// //     }
+  @override
+  Widget build(BuildContext context) {
+    List<Widget> buildScreens() {
+      return [
+        const DoctorProfileView(),
+        const DoctorHomeView(),
+        const DoctorHomeView()
+      ];
+    }
 
-// //     List<PersistentBottomNavBarItem> _navBarsItems() {
-// //       return [
-// //         PersistentBottomNavBarItem(
-// //           icon: const Icon(Icons.account_circle_rounded),
-// //           title: (AppStrings.yourProfile),
-// //           textStyle: AppTextStyles.jannat18ExtraBold,
-// //           activeColorPrimary: Colors.white,
-// //           inactiveColorPrimary: Colors.white,
-// //           activeColorSecondary: LightThemeColors.lighBlue,
-// //         ),
-// //         PersistentBottomNavBarItem(
-// //           icon: const Icon(Icons.schedule_sharp),
-// //           title: (AppStrings.myAppoitments),
-// //           textStyle: AppTextStyles.jannat18ExtraBold,
-// //           activeColorPrimary: Colors.white,
-// //           inactiveColorPrimary: Colors.white,
-// //           activeColorSecondary: LightThemeColors.lighBlue,
-// //         ),
-// //         PersistentBottomNavBarItem(
-// //             icon: const Icon(
-// //               Icons.home,
-// //             ),
-// //             title: (AppStrings.homePage),
-// //             textStyle: AppTextStyles.jannat18ExtraBold,
-// //             activeColorPrimary: Colors.white,
-// //             inactiveColorPrimary: Colors.white,
-// //             activeColorSecondary: LightThemeColors.lighBlue),
-// //       ];
-// //     }
+    return PersistentTabView(
+      margin: EdgeInsets.only(left: 15.w, right: 15.w, bottom: 15),
+      context,
+      controller: _controller,
+      screens: buildScreens(),
+      items: _navBarsItems(),
+      confineInSafeArea: true,
+      handleAndroidBackButtonPress: true,
+      resizeToAvoidBottomInset: true,
+      stateManagement: true,
+      hideNavigationBarWhenKeyboardShows: true,
+      decoration: NavBarDecoration(
+        borderRadius: BorderRadius.circular(1000.0),
+        colorBehindNavBar: Colors.white,
+        gradient: AppThemeing.doctorGredient2,
+        boxShadow: [
+          BoxShadow(
+            color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.2),
+            spreadRadius: 20,
+            blurRadius: 10,
+            offset: const Offset(0, 8),
+          )
+        ],
+      ),
+      onItemSelected: (value) {},
+      popAllScreensOnTapOfSelectedTab: true,
+      popActionScreens: PopActionScreensType.all,
+      itemAnimationProperties: const ItemAnimationProperties(
+        duration: Duration(milliseconds: 200),
+        curve: Curves.ease,
+      ),
+      screenTransitionAnimation: const ScreenTransitionAnimation(
+        animateTabTransition: true,
+        curve: Curves.ease,
+        duration: Duration(milliseconds: 200),
+      ),
+      navBarStyle: NavBarStyle.style7,
+    );
+  }
+}
 
-// //     return PersistentTabView(
-// //       margin: const EdgeInsets.only(left: 10, right: 10, bottom: 15),
-// //       context,
-// //       controller: _controller,
-// //       screens: _buildScreens(),
-// //       items: _navBarsItems(),
-// //       confineInSafeArea: true,
-    
-// //       handleAndroidBackButtonPress: true, // Default is true.
-// //       resizeToAvoidBottomInset:
-// //           true, 
-// //       stateManagement: true, // Default is true.
-// //       hideNavigationBarWhenKeyboardShows:
-// //           true, // Recommended to set 'resizeToAvoidBottomInset' as true while using this argument. Default is true.
-// //       decoration: NavBarDecoration(
-// //         borderRadius: BorderRadius.circular(1000.0),
-// //         colorBehindNavBar: Colors.white,
-// //         gradient: const LinearGradient(colors: [
-// //           AppColors.lighPurple,
-// //           AppColors.lighBlue,
-// //         ]),
-// //       ),
-// //       popAllScreensOnTapOfSelectedTab: true,
-// //       popActionScreens: PopActionScreensType.all,
-// //       itemAnimationProperties: const ItemAnimationProperties(
-// //         // Navigation Bar's items animation properties.
-// //         duration: Duration(milliseconds: 200),
-// //         curve: Curves.ease,
-// //       ),
-// //       onItemSelected: (value) {
-// //         if (value == 1) {
-// //           BlocProvider.of<GetDoctorAppointementCubit>(context)
-// //               .getDoctorAppointement();
-// //         }
-// //       },
-// //       screenTransitionAnimation: const ScreenTransitionAnimation(
-// //         // Screen transition animation on change of selected tab.
-// //         animateTabTransition: true,
-// //         curve: Curves.ease,
-// //         duration: Duration(milliseconds: 200),
-// //       ),
-// //       navBarStyle:
-// //           NavBarStyle.style7, // Choose the nav bar style with this property.
-// //     );
-// //   }
-// // }
+List<PersistentBottomNavBarItem> _navBarsItems() {
+  return [
+    PersistentBottomNavBarItem(
+      icon: const Icon(Icons.person),
+      title: ("صفحتك"),
+      textStyle: AppTextStyles.jannat18BoldWhite,
+      activeColorPrimary: Colors.white,
+      inactiveColorPrimary: Colors.white,
+      activeColorSecondary: LightThemeColors.lighBlue,
+    ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(Icons.schedule),
+      title: ("مواعيدي"),
+      textStyle: AppTextStyles.jannat18BoldWhite,
+      activeColorPrimary: Colors.white,
+      inactiveColorPrimary: Colors.white,
+      activeColorSecondary: LightThemeColors.lighBlue,
+    ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(
+        Icons.home,
+      ),
+      title: (AppStrings.homePage),
+      textStyle: AppTextStyles.jannat18BoldWhite,
+      activeColorPrimary: Colors.white,
+      inactiveColorPrimary: Colors.white,
+      activeColorSecondary: LightThemeColors.lighBlue,
+    ),
+  ];
+}

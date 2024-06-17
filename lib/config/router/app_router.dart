@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhi/config/router/default_route.dart';
 import 'package:mhi/config/router/routes.dart';
+import 'package:mhi/core/common_ui/widgets/bottom_nav_bar/doctor_bottom_nav_bar.dart';
 import 'package:mhi/core/common_ui/widgets/bottom_nav_bar/user_bottom_nav_bar.dart';
 import 'package:mhi/features/auth/login/presentation/views/login_view.dart';
 import 'package:mhi/features/auth/signup/presentation/views/signup_view.dart';
@@ -63,6 +64,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (context) =>  DoctorBookingProfileView(doctorBookData:doctor,),
         );
+      case Routes.doctorBottomNavBar:
+        return MaterialPageRoute(
+          builder: (context) => const DoctorBottomNavBar(),
+        );  
       default:
         return MaterialPageRoute(
             builder: (_) => DefaultErrorRoute(
