@@ -34,6 +34,8 @@ class _SplashViewState extends State<SplashView> {
       if (isUserVisitedOnBoarding) {
         if (isPatientLoggedIn) {
           context.navigateTo(Routes.userBottomNavBar);
+        } else if (isDoctorLoggedIn) {
+          context.navigateTo(Routes.doctorBottomNavBar);
         } else {
           context.navigateTo(Routes.loginView);
         }
