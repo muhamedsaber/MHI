@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/appbar_builder.dart';
 import 'package:mhi/core/common_ui/widgets/search_textfield.dart';
+import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_strings.dart';
+import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/specialize/specializes_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
+import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/all_doctors_button.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/doctors_book_card_bloc_builder.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/save_and_delete_doctor_bloc_listener.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/specializes_bloc_builder.dart';
@@ -36,10 +40,20 @@ class _SearchForDoctorsState extends State<SearchForDoctors> {
         body: Column(
           children: [
             verticleSpace(10),
-            SearchTextField(
-              controller: _controller,
-              hintText: AppStrings.enterTheDoctorName,
-              onChanged: filterDoctors,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Spacer(),
+                AllDoctorsButton(),
+                SizedBox(
+                  width: 300.w,
+                  child: SearchTextField(
+                    controller: _controller,
+                    hintText: AppStrings.enterTheDoctorName,
+                    onChanged: filterDoctors,
+                  ),
+                ),
+              ],
             ),
             verticleSpace(15),
             const SpecializesBlocBuilder(),

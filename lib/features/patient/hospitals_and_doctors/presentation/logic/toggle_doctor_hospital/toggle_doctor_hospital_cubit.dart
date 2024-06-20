@@ -12,4 +12,11 @@ class ToggleDoctorHospitalCubit extends Cubit<ToggleDoctorHospitalState> {
   hideHospital(){
     emit(ToggleHideHospitals());
   }
+  showSearchHospitalsTextField(){
+    emit(ToggleSearchInHospitalsStarts());
+
+  }
+  hideSearchHospitalsTextField(){
+    emit(ToggleSearchInHospitalsEnds());
+  }
 }

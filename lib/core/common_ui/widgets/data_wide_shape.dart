@@ -19,7 +19,6 @@ class DataWideShape extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.r),
         ),
-      
         child: Padding(
           padding: EdgeInsets.all(16.w),
           child: Row(
@@ -35,7 +34,6 @@ class DataWideShape extends StatelessWidget {
                       title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      
                       style: AppTextStyles.jannat18BoldPrimaryColor(context)
                           .copyWith(
                         fontSize: 18.sp,
@@ -45,7 +43,7 @@ class DataWideShape extends StatelessWidget {
                     SizedBox(height: 4.h),
                     Text(
                       value,
-                      maxLines:10,
+                      maxLines: 10,
                       overflow: TextOverflow.fade,
                       textAlign: TextAlign.end,
                       style: AppTextStyles.jannat18BoldPrimaryColor(context)

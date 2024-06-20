@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/no_data_found.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/logic/doctors/book_doctors_cubit.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/presentation/widgets/doctor_book_card_list_view_builder.dart';
@@ -20,8 +22,11 @@ class DoctorsBookCardBlocBuilder extends StatelessWidget {
         }
         if (state is BookDoctorsLoaded) {
           if (state.doctors.doctors.isEmpty) {
-            return const NoDataFound(
-              message: "لم يتم العثور علي أطباء",
+            return Padding(
+              padding: EdgeInsets.only(top: 100.h),
+              child: const NoDataFound(
+                message: "لم يتم العثور علي أطباء",
+              ),
             );
           }
           return DoctorBookCardListViewBuilder(

@@ -45,12 +45,21 @@ class BookingHospitalCard extends StatelessWidget {
                       style: AppTextStyles.jannat18BoldWhite
                           .copyWith(fontSize: 24.0, color: textColor)),
                 ),
-                verticleSpace(8),
-                Expanded(
-                  child: Text(hospitalModel.address ?? "غير معروف",
-                      textAlign: TextAlign.right,
-                      style: AppTextStyles.jannat18BoldWhite
-                          .copyWith(fontSize: 17.0, color: textColor)),
+                verticleSpace(14),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(hospitalModel.address ?? "غير معروف",
+                          textAlign: TextAlign.right,
+                          style: AppTextStyles.jannat18BoldWhite
+                              .copyWith(fontSize: 17.0, color: textColor)),
+                    ),
+                    horizontalSpace(10),
+                    Icon(
+                      Icons.location_on,
+                      color: textColor,
+                    ),
+                  ],
                 ),
                 verticleSpace(20)
               ],

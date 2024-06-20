@@ -4,8 +4,8 @@ import 'package:mhi/core/common_ui/widgets/main_app_bar.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/theming.dart';
 
-class DoctorBookingProfileAppbar extends StatelessWidget {
-  const DoctorBookingProfileAppbar({super.key});
+class UserProfileBar extends StatelessWidget {
+  const UserProfileBar({super.key});
 
   @override
   Widget build(BuildContext context) {

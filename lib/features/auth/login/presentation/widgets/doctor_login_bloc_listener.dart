@@ -21,8 +21,8 @@ class DoctorLoginBlocListener extends StatelessWidget {
           initial: () => {},
           successPatient: () {
             context.navigateBack();
-            Alerts().showCustomToast(
-                message: "لا يمكنك تسجيل الدخول", color: AppColors.lightRed);
+            // Alerts().showCustomToast(
+            //     message: "لا يمكنك تسجيل الدخول", color: AppColors.lightRed);
           },
           successDoctor: () async {
             context.navigateBack();

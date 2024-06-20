@@ -23,6 +23,7 @@ class BookDoctorsCubit extends Cubit<BookDoctorsState> {
     ApiResult<BookDoctorsModel> model = await getDoctorBySpecialize
         .getDoctorsBySpecialize(specializeID: specializeId);
     model.when(success: (BookDoctorsModel doctors) {
+      _allDoctors = doctors;
       emit(BookDoctorsLoaded(doctors: doctors));
     }, failure: (error) {
       log(error.apiErrorModel.message ?? "حدث خطأ ما");

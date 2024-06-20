@@ -33,7 +33,7 @@ class DoctorInformationData extends StatelessWidget {
                   title: "المستشفي", value: model.hospitalName ?? "غير متوفر"),
               DataWideShape(
                   title: "التخصص",
-                  value: DoctorSpeciaizeDetector.detectSpeciaizeName(
+                  value: DoctorSpecializeController.detectSpeciaizeName(
                       model.specialize)),
               verticleSpace(100),
             ],

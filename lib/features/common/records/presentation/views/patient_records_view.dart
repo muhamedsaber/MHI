@@ -33,7 +33,8 @@ class _PatientRecordViewState extends State<PatientRecordView> {
             Row(
               children: [
                 horizontalSpace(20),
-                SortingRecordsMenuButton(getAllRecordsRecords: getPatientRecords),
+                SortingRecordsMenuButton(
+                    getAllRecordsRecords: getPatientRecords),
                 Expanded(
                   child: SearchTextField(
                       controller: TextEditingController(),

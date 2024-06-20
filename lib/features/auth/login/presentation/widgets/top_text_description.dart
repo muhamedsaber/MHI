@@ -8,10 +8,10 @@ class TopTextDescription extends StatelessWidget {
       {super.key,
       required this.title,
       required this.description,
-      required this.dividerColor});
+    });
   final String title;
   final String description;
-  final Color dividerColor;
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class TopTextDescription extends StatelessWidget {
             duration: const Duration(milliseconds: 350),
             height: 2.h,
             width: double.infinity,
-            color: dividerColor,
+            color: AppColors.deepBlue,
           ),
         ],
       ),

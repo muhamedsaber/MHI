@@ -1,7 +1,7 @@
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
 
-class DoctorSpeciaizeDetector {
-  DoctorSpeciaizeDetector._();
+class DoctorSpecializeController {
+  DoctorSpecializeController._();
  static String detectSpeciaizeName(String? specializeId) {
     String specializeName = "";
     List<SpecializeModel> models =
@@ -15,6 +15,9 @@ class DoctorSpeciaizeDetector {
       }
     }
     return specializeName;
+  }
+ static List<SpecializeModel> getSpecializes(){
+    return  List.from(specializes.map((e) => SpecializeModel.fromJson(e)));
   }
 }
 

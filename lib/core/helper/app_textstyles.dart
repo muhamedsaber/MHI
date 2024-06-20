@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/constants/app_constants.dart';
 
 class AppTextStyles {
+
   static TextStyle jannat18BoldOnPrimary(BuildContext context) {
     return TextStyle(
         fontFamily: AppConstants.jannatFont,

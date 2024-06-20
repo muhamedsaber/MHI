@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mhi/core/helper/app_colors.dart';
+import 'package:mhi/core/common_ui/widgets/request_status_sheet.dart';
 
 class Alerts {
   void showCustomToast({
@@ -28,6 +29,23 @@ class Alerts {
           child: CircularProgressIndicator(
             valueColor: AlwaysStoppedAnimation<Color>(AppColors.lightGreen),
           ),
+        );
+      },
+    );
+  }
+
+  requestStatusResultSheet({
+    required BuildContext context,
+    required String message,
+    required String animationAsset,
+  }) async {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      builder: (context) {
+        return RequestStatusSheet(
+          errorAnimationAsset: animationAsset,
+          message: message,
         );
       },
     );

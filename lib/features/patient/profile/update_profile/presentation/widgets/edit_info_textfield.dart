@@ -13,15 +13,16 @@ class EditInfoTextField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final TextInputType? keyboardType;
- final String? Function(String?)? validator;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLines: null,
       controller: controller,
       keyboardType: keyboardType ?? TextInputType.text,
       textDirection: TextDirection.rtl,
       textAlign: TextAlign.right,
-      validator:validator ,
+      validator: validator,
       decoration: InputDecoration(
           hintTextDirection: TextDirection.rtl,
           hintText: hintText,

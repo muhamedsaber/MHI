@@ -28,8 +28,8 @@ class PatientLoginBlocListener extends StatelessWidget {
           },
           successDoctor: () {
             context.navigateBack();
-            Alerts().showCustomToast(
-                message: "لا يمكنك تسجيل الدخول", color: AppColors.lightRed);
+            // Alerts().showCustomToast(
+            //     message: "لا يمكنك تسجيل الدخول", color: AppColors.lightRed);
           },
           error: (message) {
             context.navigateBack();

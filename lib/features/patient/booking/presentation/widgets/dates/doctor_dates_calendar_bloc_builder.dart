@@ -8,10 +8,8 @@ import 'package:mhi/features/patient/booking/presentation/widgets/dates/custom_m
 import 'package:mhi/features/patient/booking/presentation/widgets/dates/doctor_dates_calender_shimmer.dart';
 
 class DoctorDatesCalenderBlocBuilder extends StatelessWidget {
-  const DoctorDatesCalenderBlocBuilder({super.key, required this.doctorId,
-  
-  required this.onDateSelected
-  });
+  const DoctorDatesCalenderBlocBuilder(
+      {super.key, required this.doctorId, required this.onDateSelected});
   final String doctorId;
   final Function(String) onDateSelected;
   @override
@@ -24,12 +22,12 @@ class DoctorDatesCalenderBlocBuilder extends StatelessWidget {
             loaded: (dates) {
               return dates.isEmpty
                   ? const NoDataFound(
-                      message: "لا يوجد مواعيد متاحة",
+                      message: "لا يوجد مواعيد متاحة للحجز",
                       icon: Icons.calendar_today_outlined)
                   : Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: CustomMonthCalendar(
-                        onDateSelected:onDateSelected,
+                        onDateSelected: onDateSelected,
                         dates: dates,
                         doctorId: doctorId,
                       ),
@@ -37,8 +35,8 @@ class DoctorDatesCalenderBlocBuilder extends StatelessWidget {
             },
             error: (errorMessage) {
               return NoDataFound(
-                message: errorMessage,
-                icon: Icons.error_outline,
+                message: "لا يوجد مواعيد متاحة",
+                icon: Icons.auto_awesome_mosaic_outlined,
               );
             });
       },

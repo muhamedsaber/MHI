@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/config/router/routes.dart';
 import 'package:mhi/core/common_ui/widgets/custom_button.dart';
@@ -7,6 +8,7 @@ import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
+import 'package:mhi/features/auth/login/presentation/logic/cubit/login_cubit.dart';
 import 'package:mhi/features/patient/profile/patient_profile/presentation/Functions/log_out_patient.dart';
 
 class PatientLogoutSheetBody extends StatefulWidget {
@@ -88,8 +90,9 @@ class _PatientLogoutSheetBodyState extends State<PatientLogoutSheetBody> {
   }
 
   logOut() async {
+     context.read<LoginCubit>().logout();
     await PatientLogout.logoutPatient();
-
+ 
     await Future.delayed(const Duration(seconds: 1), () {
       navigateToLoginView(context);
     });
@@ -98,4 +101,5 @@ class _PatientLogoutSheetBodyState extends State<PatientLogoutSheetBody> {
   navigateToLoginView(BuildContext context) {
     context.navigateToAndReplace(Routes.loginView);
   }
+  
 }

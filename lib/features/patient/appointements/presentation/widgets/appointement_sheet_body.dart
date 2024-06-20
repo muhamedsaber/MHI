@@ -4,6 +4,7 @@ import 'package:mhi/core/common_ui/widgets/data_wide_shape.dart';
 import 'package:mhi/core/common_ui/widgets/time_and_date_shape.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
+import 'package:mhi/core/helper/theming.dart';
 import 'package:mhi/features/patient/appointements/data/models/patient_appointement_model.dart';
 
 class AppointetmentSheetBody extends StatelessWidget {
@@ -24,44 +25,35 @@ class AppointetmentSheetBody extends StatelessWidget {
       child: Column(
         children: [
           verticleSpace(10),
-          Container(
-            height: 5.h,
-            width: 70.w,
-            decoration: BoxDecoration(
-              color: context.theme.colorScheme.onSurface.withOpacity(0.2),
-              borderRadius: BorderRadius.circular(10.r),
+          AppThemeing.dragHandle(context),
+          verticleSpace(20),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: TimeAndDateShape(
+              date: model.day,
+              time: model.time,
             ),
           ),
-          verticleSpace(10),
+          verticleSpace(20),
           Expanded(
               child: ListView(
             children: [
               verticleSpace(10),
-              Padding(
-                padding:  EdgeInsets.symmetric(horizontal:20.w),
-                child: TimeAndDateShape(
-                  date: model.day,
-                  time: model.time,
-                ),
-              ),
-              verticleSpace(20),
               DataWideShape(
                   title: "اسم الطبيب",
                   value: model.doctorID?.name ?? "غير معرف"),
               DataWideShape(
                   title: "تخصص الطبيب",
                   value: model.doctorID?.specialize?.name ?? "غير معرف"),
-                     DataWideShape(
+              DataWideShape(
                   title: "كود الطبيب",
-                  value: model.doctorID?.code ?? "غير معرف"), 
+                  value: model.doctorID?.code ?? "غير معرف"),
               DataWideShape(
                   title: "اسم المستشفي",
                   value: model.doctorID?.hospitalID?.name ?? "غير معرف"),
-                 DataWideShape(
+              DataWideShape(
                   title: "عنوان المستشفي",
-                  value: model.doctorID?.hospitalID?.address ?? "غير معرف"), 
-                
-              
+                  value: model.doctorID?.hospitalID?.address ?? "غير معرف"),
             ],
           ))
         ],

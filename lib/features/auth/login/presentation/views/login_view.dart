@@ -17,18 +17,12 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView>
     with SingleTickerProviderStateMixin {
-  bool isDoctorPressed = false;
   late TabController tabController;
-
-  
 
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this, initialIndex: 1);
-    tabController.addListener(() {
-      if (tabController.index == 0) {
-      } else {}
-    });
+
     super.initState();
   }
 
@@ -38,18 +32,11 @@ class _LoginViewState extends State<LoginView>
       backgroundColor: AppColors.lightWhite,
       body: Column(
         children: [
-          verticleSpace(80),
-          isDoctorPressed
-              ? const TopTextDescription(
-                  title: AppStrings.loginHeadline,
-                  description: AppStrings.loginDoctorDescription,
-                  dividerColor: AppColors.deepBlue,
-                )
-              : const TopTextDescription(
-                  title: AppStrings.loginHeadline,
-                  description: AppStrings.loginUserDescription,
-                  dividerColor: AppColors.lightGreen,
-                ),
+          verticleSpace(70),
+          const TopTextDescription(
+            title: AppStrings.loginHeadline,
+            description: AppStrings.loginUserDescription,
+          ),
           verticleSpace(20),
           TabBarToggel(
             tabController: tabController,
@@ -57,7 +44,7 @@ class _LoginViewState extends State<LoginView>
             secondTabText: AppStrings.userKeyWord,
           ),
           verticleSpace(30),
-          Expanded(
+          Flexible(
             child: SingleChildScrollView(
               child: SizedBox(
                 height: 400.h,

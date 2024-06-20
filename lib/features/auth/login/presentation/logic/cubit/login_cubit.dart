@@ -11,15 +11,11 @@ import 'package:mhi/features/auth/login/presentation/logic/cubit/login_state.dar
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit({required this.repository}) : super(const LoginState.initial());
-  final TextEditingController patientUsernameController =
-      TextEditingController();
-  final TextEditingController patientPasswordController =
-      TextEditingController();
-  final TextEditingController doctorUsernameController =
-      TextEditingController();
-  final TextEditingController doctorPasswordController =
-      TextEditingController();
-  final LoginRepository repository;
+  TextEditingController patientUsernameController = TextEditingController();
+  TextEditingController patientPasswordController = TextEditingController();
+  TextEditingController doctorUsernameController = TextEditingController();
+  TextEditingController doctorPasswordController = TextEditingController();
+  LoginRepository repository;
 
   loginPatient() async {
     emit(const LoginState.loading());
@@ -27,6 +23,7 @@ class LoginCubit extends Cubit<LoginState> {
         loginRequestBody: LoginRequestBody(
             username: patientUsernameController.text,
             password: patientPasswordController.text));
+
     result.when(success: (data) {
       if (data.role == "patient") {
         _saveUserToCache(data);
@@ -68,5 +65,12 @@ class LoginCubit extends Cubit<LoginState> {
     } else if (data is DoctorModel) {
       await doctorCache.saveUser(user: data);
     }
+  }
+ void logout() {
+    patientUsernameController.clear();
+    patientPasswordController.clear();
+    doctorUsernameController.clear();
+    doctorPasswordController.clear();
+    emit(const LoginState.initial());
   }
 }

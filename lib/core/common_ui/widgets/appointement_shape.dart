@@ -20,7 +20,7 @@ class AppointemtntShape extends StatelessWidget {
     return GestureDetector(
       onTap: enableOnTap ? onTap : null,
       child: Card(
-        color:context.theme.colorScheme.surface,
+        color: context.theme.colorScheme.surface,
         margin: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -31,8 +31,10 @@ class AppointemtntShape extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Spacer(),
-                  Expanded(
+                  const Spacer(),
+                  Flexible(
+                    flex: 1000000,
+                    fit: FlexFit.loose,
                     child: Text(
                       model.doctorID?.name ?? "غير معرف",
                       style: AppTextStyles.jannat18BoldPrimaryColor(context),
@@ -62,4 +64,3 @@ class AppointemtntShape extends StatelessWidget {
     );
   }
 }
-

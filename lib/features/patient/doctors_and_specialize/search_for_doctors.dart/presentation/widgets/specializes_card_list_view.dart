@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
+import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_padding.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/features/patient/doctors_and_specialize/search_for_doctors.dart/data/specializes/models/specialize_model.dart';
@@ -39,7 +40,9 @@ class _SpecializesListViewState extends State<SpecializesListView> {
                 : context.theme.colorScheme.surface,
             textColor: selectedIndex == index
                 ? context.theme.colorScheme.surface
-                : context.theme.colorScheme.primary,
+                : context.theme.brightness == Brightness.light
+                    ? AppColors.lighBlue
+                    : context.theme.colorScheme.primary,
           ),
         ),
       ),

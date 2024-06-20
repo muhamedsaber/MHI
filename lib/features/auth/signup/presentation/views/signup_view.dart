@@ -12,14 +12,13 @@ class SignupView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:AppColors.sliverWhite2,
+      backgroundColor: AppColors.sliverWhite2,
       body: ListView(
         children: [
           verticleSpace(30),
           const TopTextDescription(
             title: AppStrings.youCanCreateAccountNow,
             description: AppStrings.onBoarding1String,
-            dividerColor: AppColors.lighGrey,
           ),
           const SignupViewBody(),
           const SignupBlocListener()

@@ -10,7 +10,7 @@ class AppColors {
   static const Color lightRed = Color(0xffFF3131);
   static const Color sliverWhite = Color(0xffEDF2FB);
 
-  static const Color sliverWhite2 = Color(0xffEEEDF2);
+  static const Color sliverWhite2 = Color(0xfff5f6fa);
   static const Color lighPurple = Color(0xff757DFF);
   static const Color sliverWhite3 = Color(0xffEDF2FB);
   static const Color lighGrey = Color(0xFFCCCCCC);

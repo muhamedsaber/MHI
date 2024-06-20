@@ -4,7 +4,7 @@ import 'package:mhi/core/di/dependency_injection.dart';
 import 'package:mhi/core/helper/alerts.dart';
 import 'package:mhi/core/helper/app_assets.dart';
 import 'package:mhi/core/helper/extensions.dart';
-import 'package:mhi/features/patient/booking/presentation/widgets/booking/booking_request_status_sheet.dart';
+import 'package:mhi/core/common_ui/widgets/request_status_sheet.dart';
 import 'package:mhi/features/patient/profile/get_patient_profile/Logic/cubit/get_patient_information.dart';
 import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/update_patient_profile_cubit.dart';
 import 'package:mhi/features/patient/profile/update_profile/presentation/Logic/update_patient_profile_state.dart';
@@ -26,7 +26,7 @@ class UpadeProfileBlocListener extends StatelessWidget {
               showModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return BookingRequestStatusSheet(
+                  return RequestStatusSheet(
                       message: message,
                       errorAnimationAsset: Assets.doneAnimation);
                 },
@@ -38,7 +38,7 @@ class UpadeProfileBlocListener extends StatelessWidget {
               showModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return BookingRequestStatusSheet(
+                  return RequestStatusSheet(
                       message: error,
                       errorAnimationAsset: Assets.failedAnimation);
                 },

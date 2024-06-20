@@ -27,13 +27,7 @@ class AuthTextField extends StatefulWidget {
 }
 
 class _AuthTextFieldState extends State<AuthTextField> {
- 
   
-  @override
-  void dispose() {
-    widget.controller.clear();
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     return Padding(

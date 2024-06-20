@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/core/common_ui/widgets/custom_button.dart';
 import 'package:mhi/core/di/dependency_injection.dart';
@@ -12,6 +12,7 @@ import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 import 'package:mhi/features/patient/booking/presentation/logic/booking_process/cubit/booking_process_cubit.dart';
 import 'package:mhi/features/patient/booking/presentation/logic/dates/cubit/get_doctor_days_cubit.dart';
+import 'package:mhi/features/patient/booking/presentation/logic/dates/cubit/get_doctor_days_state.dart';
 import 'package:mhi/features/patient/booking/presentation/logic/times/cubit/get_doctor_times_cubit.dart';
 import 'package:mhi/features/patient/booking/presentation/widgets/Times/doctor_times_bloc_builder.dart';
 import 'package:mhi/features/patient/booking/presentation/widgets/dates/doctor_dates_calendar_bloc_builder.dart';
@@ -51,15 +52,12 @@ class _BookingSheetBodyState extends State<BookingSheetBody> {
     return Column(
       children: [
         verticleSpace(30),
-        Padding(
-          padding: EdgeInsets.only(right: 30.w),
-          child: Text(
-            "مواعيد الطبيب المتاحة للحجز",
-            style: AppTextStyles.jannat20BoldOnPrimaryColor(context).copyWith(
-              color: context.theme.colorScheme.onSurface,
-            ),
-            textAlign: TextAlign.right,
+        Text(
+          "المواعيد المتاحة للحجز",
+          style: AppTextStyles.jannat20BoldOnPrimaryColor(context).copyWith(
+            color: context.theme.colorScheme.onSurface,
           ),
+          textAlign: TextAlign.right,
         ),
         verticleSpace(20),
         DoctorDatesCalenderBlocBuilder(
@@ -71,16 +69,6 @@ class _BookingSheetBodyState extends State<BookingSheetBody> {
           },
         ),
         verticleSpace(20),
-        Padding(
-          padding: EdgeInsets.only(right: 30.w),
-          child: Text(
-            "الساعات المتاحة للحجز",
-            style: AppTextStyles.jannat20BoldOnPrimaryColor(context).copyWith(
-              color: context.theme.colorScheme.onSurface,
-            ),
-            textAlign: TextAlign.right,
-          ),
-        ),
         DoctorTimesBlocBuilder(
           onTimeSelected: (value) {
             setState(() {
@@ -89,27 +77,35 @@ class _BookingSheetBodyState extends State<BookingSheetBody> {
           },
         ),
         verticleSpace(20),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: CustomButton(
-            buttonText: "حجز الموعد",
-            onPressed: () {
-              if (selectedTime == null || selectedDate == null) {
-                Alerts().showCustomToast(
-                    message: "يجب تحديد موعد الحجز", color: AppColors.lightRed);
-              } else {
-                context.navigateBack();
-                getIt<BookingProcessCubit>().bookNewAppointement(
-                    date: formateTheDate(selectedDate!),
-                    time: selectedTime!,
-                    doctorId: widget.doctorBookData.doctorId ?? "");
-              }
-            },
-            buttonTextSize: 20.sp,
-            backGroundColor: AppColors.lightGreen,
-            buttonWidth: context.width,
-          ),
-        ),
+        BlocBuilder<GetDoctorDaysCubit, GetDoctorDaysState>(
+          builder: (context, state) {
+            return state.maybeWhen(
+              orElse: () => const SizedBox.shrink(),
+              loaded: (d) => Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: CustomButton(
+                  buttonText: "حجز الموعد",
+                  onPressed: () {
+                    if (selectedTime == null || selectedDate == null) {
+                      Alerts().showCustomToast(
+                          message: "يجب تحديد موعد الحجز",
+                          color: AppColors.lightRed);
+                    } else {
+                      context.navigateBack();
+                      getIt<BookingProcessCubit>().bookNewAppointement(
+                          date: formateTheDate(selectedDate!),
+                          time: selectedTime!,
+                          doctorId: widget.doctorBookData.doctorId ?? "");
+                    }
+                  },
+                  buttonTextSize: 20.sp,
+                  backGroundColor: AppColors.lightGreen,
+                  buttonWidth: context.width,
+                ),
+              ),
+            );
+          },
+        )
       ],
     );
   }

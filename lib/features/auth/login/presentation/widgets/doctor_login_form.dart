@@ -20,12 +20,12 @@ class DoctorLoginForm extends StatefulWidget {
 }
 
 class _DoctorLoginFormState extends State<DoctorLoginForm> {
-  GlobalKey<FormState> formKey = GlobalKey();
+  final GlobalKey<FormState> _formKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formKey,
+      key: _formKey,
       child: Column(
         children: [
           const CustomTextFieldDescription(description: AppStrings.userName),
@@ -65,7 +65,7 @@ class _DoctorLoginFormState extends State<DoctorLoginForm> {
           CustomButton(
             buttonText: AppStrings.loginKeyWord,
             onPressed: () {
-              if (formKey.currentState!.validate()) {
+              if (_formKey.currentState!.validate()) {
                 context.read<LoginCubit>().loginDoctor();
               } else {
                 Alerts().showCustomToast(
@@ -81,4 +81,5 @@ class _DoctorLoginFormState extends State<DoctorLoginForm> {
       ),
     );
   }
+
 }

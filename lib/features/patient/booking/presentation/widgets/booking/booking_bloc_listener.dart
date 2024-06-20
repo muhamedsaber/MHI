@@ -5,7 +5,7 @@ import 'package:mhi/core/helper/app_assets.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/features/patient/booking/presentation/logic/booking_process/cubit/booking_process_cubit.dart';
 import 'package:mhi/features/patient/booking/presentation/logic/booking_process/cubit/booking_process_state.dart';
-import 'package:mhi/features/patient/booking/presentation/widgets/booking/booking_request_status_sheet.dart';
+import 'package:mhi/core/common_ui/widgets/request_status_sheet.dart';
 
 class BookingBlocListener extends StatelessWidget {
   const BookingBlocListener({super.key});
@@ -24,7 +24,7 @@ class BookingBlocListener extends StatelessWidget {
               context: context,
               isScrollControlled: true,
               builder: (context) {
-                return const BookingRequestStatusSheet(
+                return const RequestStatusSheet(
                   errorAnimationAsset: Assets.doneAnimation,
                   message: "تم حجز الموعد بنجاح",
                 );
@@ -37,7 +37,7 @@ class BookingBlocListener extends StatelessWidget {
               context: context,
               isScrollControlled: true,
               builder: (context) {
-                return const BookingRequestStatusSheet(
+                return const RequestStatusSheet(
                   errorAnimationAsset: Assets.failedAnimation,
                   message: "لا يمكن حجز هذ الموعد",
                 );

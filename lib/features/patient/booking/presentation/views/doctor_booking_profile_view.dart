@@ -16,19 +16,15 @@ class DoctorBookingProfileView extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const DoctorBookingProfileAppbar(),
+          const UserProfileBar(),
           VerifiedTitle(
             title: doctorBookData.name ?? "غير معرف",
           ),
-          verticleSpace(10),
-          Divider(
-            indent: 20.w,
-            endIndent: 20.w,
-          ),
+          verticleSpace(20),
           DoctorBookingProfileBody(
             doctorBookData: doctorBookData,
           ),
-          BookingBlocListener(),
+         const BookingBlocListener(),
         ],
       ),
     );

@@ -5,7 +5,7 @@ import 'package:mhi/core/helper/alerts.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 
 class DoctorLogout {
-  static logoutPatient() async {
+  static logoutDoctor() async {
     Alerts().showCustomToast(
         color: AppColors.lightGreen, message: "جاري تسجيل الخروج");
     await DoctorCache().removeUser();

@@ -25,7 +25,7 @@ class AppThemeing {
         height: 5.h,
         width: 70.w,
         decoration: BoxDecoration(
-          color: context.theme.colorScheme.onSurface,
+          color: context.theme.brightness==Brightness.light?AppColors.lighGrey:AppColors.lightGreen,
           borderRadius: BorderRadius.circular(10.r),
         ),
       );

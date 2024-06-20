@@ -24,8 +24,10 @@ class ShimmerRecordContent extends StatelessWidget {
                 baseColor: context.theme.colorScheme.tertiaryContainer,
                 highlightColor: context.theme.scaffoldBackgroundColor,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           width: 200.w,
@@ -35,7 +37,7 @@ class ShimmerRecordContent extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5.r),
                           ),
                         ),
-                         verticleSpace(10),
+                         horizontalSpace(10),
                         Container(
                           width: 100.w,
                           height: 50,

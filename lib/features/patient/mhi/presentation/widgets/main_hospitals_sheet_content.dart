@@ -2,8 +2,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mhi/config/router/routes.dart';
 import 'package:mhi/core/helper/app_colors.dart';
+import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
+import 'package:mhi/core/helper/theming.dart';
 import 'package:mhi/features/patient/firebase_hospitals/presentation/widgets/firebase_hospital_card.dart';
 import 'package:mhi/features/patient/mhi/data/main_mhi_hospitals.dart';
 
@@ -24,17 +26,12 @@ class MainHospitalsSheetBody extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 10.h),
-            child: Container(
-              height: 5.h,
-              width: 50.w,
-              decoration: BoxDecoration(
-                color: AppColors.lighGrey,
-                borderRadius: BorderRadius.circular(10.r),
-              ),
-            ),
-          ),
+          verticleSpace(15),
+          AppThemeing.dragHandle(context),
+          verticleSpace(15),
+          Text("الفروع المركزية",
+              style: AppTextStyles.jannat18BoldWhite
+                  .copyWith(color: context.theme.colorScheme.onSurface)),
           verticleSpace(20),
           Expanded(
             child: ListView.builder(
@@ -52,7 +49,7 @@ class MainHospitalsSheetBody extends StatelessWidget {
               },
             ),
           ),
-           verticleSpace(20),
+          verticleSpace(10),
         ],
       ),
     );

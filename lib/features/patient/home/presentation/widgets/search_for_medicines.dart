@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mhi/config/router/routes.dart';
 import 'package:mhi/core/common_ui/widgets/custom_button.dart';
 import 'package:mhi/core/helper/app_assets.dart';
 import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/app_textstyles.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
-import 'package:mhi/features/patient/medicines/mhi_medicines/presentation/views/mhi_medicine_view.dart';
+import 'package:mhi/features/common/medicines/mhi_medicines/presentation/views/mhi_medicine_view.dart';
 
 class SearchForMedicineHomeScreen extends StatelessWidget {
   const SearchForMedicineHomeScreen({
@@ -87,7 +88,9 @@ class SearchForMedicineHomeScreen extends StatelessWidget {
                               verticleSpace(30),
                               CustomButton(
                                   buttonText: "منظمة الصحة العالمية",
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    context.navigateTo(Routes.openFdaDrugsView);
+                                  },
                                   buttonTextSize: 18.sp,
                                   backGroundColor: AppColors.lightGreen,
                                   buttonWidth: 300.w),

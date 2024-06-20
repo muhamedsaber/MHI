@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mhi/core/helper/app_colors.dart';
 import 'package:mhi/core/helper/extensions.dart';
 import 'package:mhi/core/helper/spacing.dart';
 
@@ -22,7 +23,9 @@ class TimeAndDateShape extends StatelessWidget {
             horizontalSpace(5),
             Row(
               children: [
-                const Icon(Icons.calendar_today),
+                const Icon(Icons.calendar_today,
+                color:AppColors.sliverWhite,
+                ),
                 SizedBox(
                   width: 7.w,
                 ),
@@ -39,7 +42,9 @@ class TimeAndDateShape extends StatelessWidget {
             ),
             Row(
               children: [
-                const Icon(Icons.schedule),
+                const Icon(Icons.schedule,
+                color: AppColors.sliverWhite,
+                ),
                 SizedBox(
                   width: 7.w,
                 ),

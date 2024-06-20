@@ -1,7 +1,7 @@
 class DoctorBooksCountResponseBody {
-  final String? waiting;
-  final String? done;
-  final String? cancelled;
+  final int? waiting;
+  final int? done;
+  final int? cancelled;
 
   DoctorBooksCountResponseBody(
       {required this.waiting, required this.done, required this.cancelled});

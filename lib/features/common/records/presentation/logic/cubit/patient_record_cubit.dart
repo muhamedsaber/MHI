@@ -37,8 +37,7 @@ class PatientRecordCubit extends Cubit<PatientRecordState> {
       emit(PatientRecordState.loaded(allRecords));
     } else if (input != null || input!.isNotEmpty) {
       filtered = allRecords
-          .where((element) =>
-              element.diagnose?.contains(input)??false )
+          .where((element) => element.diagnose?.contains(input) ?? false)
           .toList();
       emit(PatientRecordState.loaded(filtered));
     }
@@ -48,24 +47,29 @@ class PatientRecordCubit extends Cubit<PatientRecordState> {
   sortFromNewestToOldest() {
     if (allRecords.isEmpty) {
       Alerts().showCustomToast(
-          message: "الرجاء الأنتظار", color: AppColors.deepBlue);
+          message: "لا يوجد سجلات لترتيبها", color: AppColors.deepBlue);
+    } else {
+      sortedRecord = [...allRecords]
+        ..sort((a, b) => b.date?.compareTo(a.date!) ?? 0);
+      emit(PatientRecordState.loaded(sortedRecord));
+      Alerts().showCustomToast(
+          message: "تم ترتيب السجلات الطبية", color: AppColors.lightGreen);
     }
-    sortedRecord = [...allRecords]..sort((a, b) => b.date?.compareTo(a.date!)??0);
-    emit(PatientRecordState.loaded(sortedRecord));
-    Alerts().showCustomToast(
-        message: "تم ترتيب السجلات الطبية", color: AppColors.lightGreen);
   }
 
   // sort records from oldest to newest
   sortFromOldestToNewest() {
     if (allRecords.isEmpty) {
       Alerts().showCustomToast(
-          message: "الرجاء الأنتظار", color: AppColors.deepBlue);
+          message: "لا يوجد سجلات لترتيبها", color: AppColors.deepBlue);
     }
-    sortedRecord = [...allRecords]..sort((a, b) => a.date?.compareTo(b.date??"")??0);
+    else{
+      sortedRecord = [...allRecords]
+      ..sort((a, b) => a.date?.compareTo(b.date ?? "") ?? 0);
     log("sortFromOldestToNewest");
     emit(PatientRecordState.loaded(sortedRecord));
     Alerts().showCustomToast(
         message: "تم ترتيب السجلات الطبية", color: AppColors.lightGreen);
+    }
   }
 }

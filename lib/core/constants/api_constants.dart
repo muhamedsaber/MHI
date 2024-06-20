@@ -27,3 +27,9 @@ class ApiConstants {
   static const String cancelDoctorDayWorkEndpoint = "doctor/cancelDay";
   static const String getSpecializesEndpoint = "hospitalAdmin/getSpecializes";
 }
+
+class OpenFdaApiConstants {
+  static const String baseUrl = "https://api.fda.gov/drug/";
+
+  static const String lableJson = "label.json";
+}

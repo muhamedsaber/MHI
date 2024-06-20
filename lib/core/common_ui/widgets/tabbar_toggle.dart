@@ -41,6 +41,7 @@ class TabBarToggel extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 5.h),
                 child: TabBar(
                   isScrollable: false,
+                  
                   labelPadding: EdgeInsets.symmetric(horizontal: 5.w),
                   indicatorWeight: 6,
                   dividerHeight: 0,

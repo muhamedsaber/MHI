@@ -281,12 +281,13 @@ class _PatientApiService implements PatientApiService {
 
   @override
   Future<UpdateProfileResponseBody> updatePatientProfile(
-      {required UpdateProfileRequestBody updateProfileRequestBody}) async {
+      {UpdateProfileRequestBody? updateProfileRequestBody}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(updateProfileRequestBody.toJson());
+    _data.addAll(updateProfileRequestBody?.toJson() ?? <String, dynamic>{});
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<UpdateProfileResponseBody>(Options(
       method: 'PATCH',
